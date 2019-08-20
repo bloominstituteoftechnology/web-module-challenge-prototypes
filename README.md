@@ -1,7 +1,8 @@
-# TODO: Title: Nested Data Structures
+# JS-Exercise-Prototype
 
-### TODO: Subheader: Exercise: Nested `Objects` & `Arrays`
+## TODO: Subheader: Exercise: Nested `Objects` & `Arrays`
 
+[LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=tests)
 
 > TODO: Summary: a few succinct lines or paragraph.
 
@@ -75,7 +76,7 @@ The CodeSandbox option is fast & highly recommended.
 
 > TODO: UPDATE CODESANDBOX LINK:
 
-[LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/exercise-template?previewwindow=tests)
+[LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=tests)
 
 
 <details>

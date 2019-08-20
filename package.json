@@ -1,11 +1,11 @@
 {
-  "name": "exercises-template",
+  "name": "js-exercise-prototype",
   "version": "1.0.0",
-  "description": "TODO: REPLACE ALL {gitHubOrgName} AND {gitHubProjectName} BELOW",
+  "description": "TODO: REPLACE ALL LambdaSchool AND JS-Exercise-Prototype BELOW",
   "main": "index.js",
-  "homepage": "https://codesandbox.io/s/github/{gitHubOrgName}/{gitHubProjectName}?previewwindow=tests",
+  "homepage": "https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=tests",
   "repository": {
-    "url": "git@github.com:{gitHubOrgName}/{gitHubProjectName}.git",
+    "url": "git@github.com:LambdaSchool/JS-Exercise-Prototype.git",
     "type": "git"
   },
   "scripts": {

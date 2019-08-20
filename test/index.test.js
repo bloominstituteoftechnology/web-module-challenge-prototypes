@@ -9,25 +9,28 @@
 if (typeof exports !== 'undefined') {
   // IGNORE: Test/Env Detection Stuff //
   // Node/Non-browser test env
-  var lukeSkywalker = require('../data/person-1.json')
-  // var leiaOrgana = require('../data/person-5.json')
-  // var obiWanKenobi = require('../data/person-10.json')
-
   var chai = require('chai')
   var {
-    getName,
+    Airplane,
     // TODO: Add all functions to export/test here
   } = require('../index.js')
 }
 var expect = chai.expect
 
-// TODO: Add test `describe` blocks here
-
 // Example:
-describe('getName()', () => {
-  it('expected name for `Luke`', () => { expect(getName(lukeSkywalker)).to.eq(`Luke Skywalker`) })
-  // it('expected name for `Leia`', () => { expect(getName(leiaOrgana)).to.eq(`Leia Organa`) })
-  // it('expected name for `Obi-Wan`', () => { expect(getName(obiWanKenobi)).to.eq(`Obi-Wan Kenobi`) })
+describe('Airplane', () => {
+  it('instance has name', () => { 
+    const a = new Airplane('Gulfstream 550')
+    expect(a.name).to.eq(`Gulfstream 550`) 
+  })
+  it('behaves correctly', () => {
+    const myPlane = new Airplane('Jumbo');
+    expect(myPlane.name).to.equal('Jumbo')
+    expect(myPlane.isFlying).to.equal(false)
+    myPlane.takeOff();
+    expect(myPlane.isFlying).to.equal(true)
+    myPlane.land();
+    expect(myPlane.isFlying).to.equal(false)
+  })
 })
-
 
