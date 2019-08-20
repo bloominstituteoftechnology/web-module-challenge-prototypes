@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2018",
+    "checkJs": true,
+    "esModuleInterop": true
+  },
+  "typeAcquisition": {
+    "include": [
+      "mocha",
+      "chai"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ]
+}
