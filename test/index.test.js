@@ -74,24 +74,51 @@ describe('Person', () => {
   })
 })
 
-// - Build a Car constructor that takes `make`, `model` and `milesPerGallon`.
-// - Give cars the ability to get fueled with `fill(gallons)` method. Add `gallons` to `fuel`.
-// - Give cars ability to `drive(distance)`, the driven `distance` should be added to an `odometer` property, and subtracted from the property `fuel`.
-// - A car which runs out of `fuel` can't `drive()` anymore - instead it should return a string "I ran out of fuel at {odometer} miles!"
 describe('Car', () => {
-  it('behaves correctly', () => {
-    const c = new Car('Bat', 'Mobile', 10);
-    c.fill(50)
-    expect(c.fuel).to.equal(50)
-    c.drive(5)
-    expect(c.fuel).to.equal(25)
-    expect(c.odometer).to.equal(5)
-    c.drive(5)
-    expect(c.fuel).to.equal(0)
-    expect(c.odometer).to.equal(10)
-    expect(c.drive(999)).to.equal(`I ran out of fuel at 50 miles!`)
-    c.fill(25)
-    expect(c.fuel).to.equal(25)
+  let batmobile
+  beforeEach(() => {
+    batmobile = new Car('BatMobile', 20)
+  })
+  it('initializes with the given model', () => {
+    expect(batmobile.model).to.equal('BatMobile')
+  })
+  it('initializes with the given milesPerGallon', () => {
+    expect(batmobile.milesPerGallon).to.equal(20)
+  })
+  it('initializes with an empty tank', () => {
+    expect(batmobile.tank).to.equal(0)
+  })
+  it('initializes with an odometer at 0 miles', () => {
+    expect(batmobile.odometer).to.equal(0)
+  })
+  it('fuel method increases the tank by the given gallons', () => {
+    batmobile.fill(10)
+    expect(batmobile.tank).to.equal(10)
+    batmobile.fill(10)
+    expect(batmobile.tank).to.equal(20)
+  })
+  it('driving when enough fuel increases odometer correctly', () => {
+    batmobile.fill(10)
+    batmobile.drive(50)
+    expect(batmobile.odometer).to.equal(50)
+  })
+  it('driving when enough fuel decreases tank correctly', () => {
+    batmobile.fill(10)
+    batmobile.drive(100)
+    expect(batmobile.tank).to.equal(5)
+  })
+  it('driving when NOT enough fuel increases miles by drivable miles', () => {
+    batmobile.fill(10)
+    batmobile.drive(201)
+    expect(batmobile.odometer).to.equal(200)
+  })
+  it('driving when NOT enough fuel empties the tank', () => {
+    batmobile.fill(10)
+    batmobile.drive(201)
+    expect(batmobile.tank).to.equal(0)
+  })
+  it('driving when NOT enough fuel returns correct string', () => {
+    batmobile.fill(10)
+    expect(batmobile.drive(201)).to.include(200)
   })
 })
-
