@@ -2,7 +2,7 @@
 
 ## TODO: Subheader: Exercise: Nested `Objects` & `Arrays`
 
-[LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=tests)
+[LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype)
 
 > TODO: Summary: a few succinct lines or paragraph.
 

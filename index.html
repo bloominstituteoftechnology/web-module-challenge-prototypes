@@ -6,28 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script>
-    // TODO: (Optional) link up data for browser tests
-    getData()
-
-    function getData() {
-      return fetch('data/person-1.json')
-        .then(res => res.json())
-        .then(data => {
-          window.lukeSkywalker = data
-        })
-    }
-    </script>
-    <script>
-    function showInstallMessage() {
+    window.showInstallMessage = function showInstallMessage() {
       const msg = 'ERROR: Expected modules failed to load (chai, mocha)!!!\n\nHOW TO FIX: Run `npm install` in terminal from this project\'s folder.'
       showInstallMessage.count = showInstallMessage.count ? showInstallMessage.count++ : 1
       if (showInstallMessage.count >= 1) return console.error(msg)
       alert(msg)
     }
     </script>
-    <link  href="node_modules/mocha/mocha.css" onerror="showInstallMessage()" rel="stylesheet">
-    <script src="node_modules/mocha/mocha.js" onerror="showInstallMessage()"></script>
-    <script src="node_modules/chai/chai.js" onerror="showInstallMessage()"></script>
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.2.0/mocha.min.css" onerror="showInstallMessage()" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.2.0/mocha.min.js" onerror="showInstallMessage()"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.2.0/chai.min.js" onerror="showInstallMessage()"></script>
     <script>
       mocha.setup('bdd')
       chai.config.includeStack = true

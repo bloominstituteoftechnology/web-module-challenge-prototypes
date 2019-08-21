@@ -5,7 +5,8 @@
     "allowSyntheticDefaultImports": true,
     "target": "ES2018",
     "checkJs": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "inlineSourceMap": true
   },
   "typeAcquisition": {
     "include": [
