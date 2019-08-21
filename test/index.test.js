@@ -13,7 +13,8 @@ if (typeof exports !== 'undefined') {
   var {
     Airplane,
     Car,
-    Person
+    Person,
+    Baby,
     // TODO: Add all functions to export/test here
   } = require('../index.js')
 }
@@ -21,9 +22,9 @@ var expect = chai.expect
 
 // Example:
 describe('Airplane', () => {
-  it('instance has name', () => { 
+  it('instance has name', () => {
     const a = new Airplane('Gulfstream 550')
-    expect(a.name).to.eq(`Gulfstream 550`) 
+    expect(a.name).to.eq(`Gulfstream 550`)
   })
   it('behaves correctly', () => {
     const myPlane = new Airplane('Jumbo');
@@ -36,23 +37,40 @@ describe('Airplane', () => {
   })
 })
 
-// - Build a Person Constructor that takes `name` and `age`.
-// - Give persons the ability to `eat()` edibles.
-// - When eating an `edible`, it should be pushed into a `stomach` property which is an array.
-// - Give persons the ability to `poop()`.
-// - When pooping, the `stomach` should empty.
-// - Give persons a method `toString()`, returning a string `name` and `age`. Example: "Mary, 50"
 describe('Person', () => {
-  it('behaves correctly', () => {
-    const neo = new Person('Neo', 20);
-
+  let neo
+  const foods = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  beforeEach(() => {
+    neo = new Person('Neo', 20)
+  })
+  it('initializes with the given name', () => {
     expect(neo.name).to.equal('Neo')
-    neo.eat('🥑')
-    expect(neo.stomach).to.include('🥑')
-    neo.eat('🍕')
-    expect(neo.stomach).to.deep.equal(['🥑', '🍕'])
+  })
+  it('initializes with the given age', () => {
+    expect(neo.age).to.equal(20)
+  })
+  it('initializes with an empty stomach', () => {
+    expect(neo.stomach).to.be.an('array')
+    expect(neo.stomach.length).to.equal(0)
+  })
+  it('can eat up to 10 foods', () => {
+    foods.forEach(item => neo.eat(item))
+    foods.forEach(item => expect(neo.stomach).to.include(item))
+  })
+  it('can eat no more than 10 foods', () => {
+    foods.forEach(item => neo.eat(item))
+    neo.eat(11)
+    expect(neo.stomach).to.not.include(11)
+  })
+  it('can poop to empty stomach', () => {
+    foods.forEach(item => neo.eat(item))
     neo.poop()
-    expect(neo.stomach).to.have.lengthOf(0)
+    expect(neo.stomach.length).to.equal(0)
+  })
+  it('can state name and age', () => {
+    const str = neo.toString();
+    expect(str).to.include('Neo')
+    expect(str).to.include('20')
   })
 })
 

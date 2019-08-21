@@ -1,9 +1,4 @@
 /*
-In order to do these exercises you'll need your newly acquired knowledge on
-constructor functions, methods, prototypes and the `this` keyword.
-*/
-
-/*
 ### EXAMPLE EXERCISE:
 - Build an Airplane constructor that takes a `name`.
 - Give airplanes the ability to `.takeOff()` and `.land()`.
@@ -31,30 +26,31 @@ Airplane.prototype.land = function () {
 
 /*
 ### EXERCISE 1
-- Build a Person Constructor that takes `name` and `age`.
-- Give persons the ability to `eat()` edibles.
-- When eating an `edible`, it should be pushed into a `stomach` property which is an array.
-- Give persons the ability to `poop()`.
-- When pooping, the `stomach` should empty.
-- Give persons a method `toString()`, returning a string `name` and `age`. Example: "Mary, 50"
+- Build a Person Constructor that initializes `name` and `age` from arguments.
+- All instances of Person should initialize with an empty `stomach` [].
+- Give instances of Person the ability to `.eat(someFood)`:
+      When eating an edible, it should be pushed into the `stomach`.
+- Prevent the `eat` method from pushing more than 10 items to the `stomach`.
+- Give instances of Person the ability to `.poop()`:
+      When pooping, the `stomach` should empty.
+- Give instances of Person a method `.toString()`:
+      `.toString()` returns a string with `name` and `age`. Example: "Mary, 50"
 */
 function Person(name, age) {
   this.name = name
   this.age = age
   this.stomach = []
 }
-
-Person.prototype.greet = function() {
-  return `${this.name} ${this.age}`
+Person.prototype.eat = function(item) {
+  if (this.stomach.length < 10) {
+    this.stomach.push(item)
+  }
 }
-
-Person.prototype.eat = function() {
-  return `${this.name} ${this.age}`
-}
-
 Person.prototype.poop = function() {
   this.stomach = []
-  return `💩`
+}
+Person.prototype.toString = function() {
+  return `${this.name} ${this.age}`;
 }
 
 /*
