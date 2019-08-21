@@ -50,7 +50,7 @@ Person.prototype.poop = function() {
   this.stomach = []
 }
 Person.prototype.toString = function() {
-  return `${this.name} ${this.age}`;
+  return `${this.name} ${this.age}`
 }
 
 /*
@@ -65,7 +65,9 @@ function Car() {
 
 }
 
-
+function Baby() {
+  
+}
 
 
 
@@ -79,6 +81,7 @@ if (typeof exports !== 'undefined') {
   if (Airplane) { module.exports.Airplane = Airplane }
   if (Person) { module.exports.Person = Person }
   if (Car) { module.exports.Car = Car }
+  if (Baby) { module.exports.Baby = Baby }
   // TODO/INSTRUCTOR: ADD ANY FUNCTIONS YOU CREATE TO EXPORTS HERE
   //                  USE THE LINES ABOVE AS A REFERENCE
 }
