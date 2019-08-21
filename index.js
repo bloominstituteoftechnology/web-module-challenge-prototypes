@@ -3,9 +3,8 @@ In order to do these exercises you'll need your newly acquired knowledge on
 constructor functions, methods, prototypes and the `this` keyword.
 */
 
-
 /*
-EXAMPLE EXERCISE:
+### EXAMPLE EXERCISE:
 - Build an Airplane constructor that takes a `name`.
 - Give airplanes the ability to `.takeOff()` and `.land()`.
 - If a plane takes off, its `isFlying` property is true.
@@ -30,30 +29,40 @@ Airplane.prototype.land = function () {
 // 👇 COMPLETE YOUR WORK BELOW 👇
 */
 
-/**
- * 
+/*
 ### EXERCISE 1
-- Build a Person Constructor that takes name and age.
-- Give persons the ability to greet, returning a string stating name and age.
-- Give persons the ability to eat edibles.
-- When eating an edible, it should be pushed into a "stomach" property which is an array.
-- Give persons the ability to poop.
-- When pooping, the stomach should empty.
+- Build a Person Constructor that takes `name` and `age`.
+- Give persons the ability to `eat()` edibles.
+- When eating an `edible`, it should be pushed into a `stomach` property which is an array.
+- Give persons the ability to `poop()`.
+- When pooping, the `stomach` should empty.
+- Give persons a method `toString()`, returning a string `name` and `age`. Example: "Mary, 50"
 */
+function Person(name, age) {
+  this.name = name
+  this.age = age
+  this.stomach = []
+}
 
-function Person() {
+Person.prototype.greet = function() {
+  return `${this.name} ${this.age}`
+}
 
+Person.prototype.eat = function() {
+  return `${this.name} ${this.age}`
+}
+
+Person.prototype.poop = function() {
+  this.stomach = []
+  return `💩`
 }
 
 /*
 ### EXERCISE 2
-- Build a Car constructor that takes model name and make.
-- Give cars the ability to drive a distance.
-- By driving a car, the driven distance should be added to an "odometer" property.
-- Give cars the ability to crash.
-- A crashed car can't be driven any more. Attempts return a string "I crashed at x miles!", x being the miles in the odometer.
-- Give cars the ability to be repaired.
-- A repaired car can driven again.
+// - Build a Car constructor that takes `make`, `model` and `milesPerGallon`.
+// - Give cars the ability to get fueled with `fill(gallons)` method. Add `gallons` to `fuel`.
+// - Give cars ability to `drive(distance)`, the driven `distance` should be added to an `odometer` property, and subtracted from the property `fuel`.
+// - A car which runs out of `fuel` can't `drive()` anymore - instead it should return a string "I crashed at {odometer} miles!"
 */
 
 function Car() {
