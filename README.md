@@ -27,10 +27,10 @@ The CodeSandbox option is fast & highly recommended.
 <details>
   <summary>2. Local Setup Instructions: From Command Line</summary>
 
-1. Fork & clone to your local computer.
-1. `cd` into your newly cloned repository.
-1. Install dependencies using npm.
-1. Run the test command.
+1. Fork & clone to your local computer
+1. `cd` into your newly cloned repository
+1. Install using `npm`
+1. Run test command
 
 
 ```sh
