@@ -21,7 +21,7 @@ The CodeSandbox option is fast & highly recommended.
 
 **1. Fastest Option**
 
-[LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=tests))
+[LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=tests)
 
 
 <details>
