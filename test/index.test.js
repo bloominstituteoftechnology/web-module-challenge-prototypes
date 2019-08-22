@@ -52,6 +52,10 @@ describe('Instances of Person', () => {
     expect(neo.stomach).to.be.an('array')
     expect(neo.stomach.length).to.equal(0)
   })
+  it('get eat, poop and toString methods from their prototype', () => {
+    expect(neo.__proto__.eat).to.be.not.undefined;
+    expect(neo.__proto__.poop).to.be.not.undefined;
+  })
   it('can eat up to 10 foods', () => {
     foods.forEach(item => neo.eat(item))
     foods.forEach(item => expect(neo.stomach).to.include(item))
@@ -89,6 +93,10 @@ describe('Instances of Car', () => {
   })
   it('initialize with an odometer at 0 miles', () => {
     expect(batmobile.odometer).to.equal(0)
+  })
+  it('get fill and drive methods from their prototype', () => {
+    expect(batmobile.__proto__.fill).to.be.not.undefined;
+    expect(batmobile.__proto__.drive).to.be.not.undefined;
   })
   it('fill method increases the tank by the given gallons', () => {
     batmobile.fill(10)
@@ -132,6 +140,9 @@ describe('Instances of Baby', () => {
   })
   it('initialize with the given favorite toy', () => {
     expect(baby.favoriteToy).to.equal('trains')
+  })
+  it('get a play method from their prototype', () => {
+    expect(baby.__proto__.play).to.be.not.undefined;
   })
   it('can play with favorite toy', () => {
     expect(baby.play()).to.include('trains')

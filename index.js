@@ -14,10 +14,10 @@ function Airplane(name) {
 }
 Airplane.prototype.takeOff = function () {
   this.isFlying = true;
-}
+};
 Airplane.prototype.land = function () {
   this.isFlying = false;
-}
+};
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -54,7 +54,7 @@ Person.prototype.poop = function() {
   this.stomach = []
   return 'pooping'
 }
-Person.prototype.toString = function() {
+Person.prototype.toString = function () {
   return `${this.name} ${this.age}`
 }
 
@@ -79,7 +79,7 @@ function Car(model, milesPerGallon) {
   this.odometer = 0
 }
 Car.prototype.fill = function (gallons) {
-  this.tank += gallons;
+  this.tank += gallons
 }
 Car.prototype.drive = function (distance) {
   const drivableDistance = this.tank * this.milesPerGallon
@@ -110,9 +110,9 @@ Baby.prototype.play = function () {
   return `playing with ${this.favoriteToy}`
 }
 
-/// ////// END OF CHALLENGE /////////
-/// ////// END OF CHALLENGE /////////
-/// ////// END OF CHALLENGE /////////
+///////// END OF CHALLENGE /////////
+///////// END OF CHALLENGE /////////
+///////// END OF CHALLENGE /////////
 if (typeof exports !== 'undefined') {
   module.exports = module.exports || {}
   if (Airplane) { module.exports.Airplane = Airplane }
