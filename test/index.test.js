@@ -55,6 +55,7 @@ describe('Instances of Person', () => {
   it('get eat, poop and toString methods from their prototype', () => {
     expect(neo.__proto__.eat).to.be.not.undefined;
     expect(neo.__proto__.poop).to.be.not.undefined;
+    expect(neo.__proto__.toString).to.be.not.undefined;
   })
   it('can eat up to 10 foods', () => {
     foods.forEach(item => neo.eat(item))
