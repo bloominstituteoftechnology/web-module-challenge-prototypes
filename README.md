@@ -11,7 +11,7 @@ In order to complete these tasks you will need your newly aquired knowledge of c
 
 ## Instructions
 
-See the file `script.js` and complete the different tasks until all of your tests pass.
+Find the file `index.js` and complete the different tasks until all of your tests pass.
 
 ## Get Started
 
