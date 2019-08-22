@@ -1,5 +1,5 @@
 /*
-  EXAMPLE EXERCISE:
+  EXAMPLE TASK:
     - Write an Airplane constructor that initializes `name` from an argument.
     - All airplanes built with Airplane should initialize with an `isFlying` of false.
     - Give airplanes the ability to `.takeOff()` and `.land()`:
@@ -26,7 +26,7 @@ Airplane.prototype.land = function () {
 */
 
 /*
-  EXERCISE 1
+  TASK 1
     - Build a Person Constructor that initializes `name` and `age` from arguments.
     - All instances of Person should initialize with an empty `stomach` array.
     - Give instances of Person the ability to `.eat("someFood")`:
@@ -43,7 +43,7 @@ function Person() {
 }
 
 /*
-  EXERCISE 2
+  TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
     - All instances built with Car:
         + should initialize with an `tank` at 0
@@ -61,7 +61,7 @@ function Car() {
 }
 
 /*
-  EXERCISE 3
+  TASK 3
     - Write a Baby constructor subclassing Person.
     - Besides `name`, Baby takes a second argument to initialize `favoriteToy`.
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
