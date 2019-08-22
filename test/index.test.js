@@ -20,7 +20,6 @@ if (typeof exports !== 'undefined') {
 }
 var expect = chai.expect
 
-// Example:
 describe('Instances of Airplane', () => {
   it('initialize with the given name', () => {
     const a = new Airplane('Gulfstream 550')

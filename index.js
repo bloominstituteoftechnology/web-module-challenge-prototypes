@@ -37,6 +37,7 @@ Airplane.prototype.land = function () {
     - Give instances of Person a method `.toString()`:
           + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
+
 function Person(name, age) {
   this.name = name
   this.age = age
@@ -109,19 +110,13 @@ Baby.prototype.play = function () {
   return `playing with ${this.favoriteToy}`
 }
 
-
-
 /// ////// END OF CHALLENGE /////////
 /// ////// END OF CHALLENGE /////////
 /// ////// END OF CHALLENGE /////////
 if (typeof exports !== 'undefined') {
-  // IGNORE: Test/Env Detected
-  // For Node/Non-browser test env
   module.exports = module.exports || {}
   if (Airplane) { module.exports.Airplane = Airplane }
   if (Person) { module.exports.Person = Person }
   if (Car) { module.exports.Car = Car }
   if (Baby) { module.exports.Baby = Baby }
-  // TODO/INSTRUCTOR: ADD ANY FUNCTIONS YOU CREATE TO EXPORTS HERE
-  //                  USE THE LINES ABOVE AS A REFERENCE
 }
