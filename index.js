@@ -31,7 +31,7 @@ Airplane.prototype.land = function () {
   - All instances of Person should initialize with an empty `stomach` -> [].
   - Give instances of Person the ability to `.eat("someFood")`:
         + When eating an edible, it should be pushed into the `stomach`.
-  - Prevent the `eat` method from pushing more than 10 items into the `stomach`.
+        + Prevent the `eat` method from pushing more than 10 items into the `stomach`.
   - Give instances of Person the ability to `.poop()`:
         + When an instance poops, its `stomach` should empty.
   - Give instances of Person a method `.toString()`:
