@@ -13,67 +13,142 @@ if (typeof exports !== 'undefined') {
   var {
     Airplane,
     Car,
-    Person
+    Person,
+    Baby,
     // TODO: Add all functions to export/test here
   } = require('../index.js')
 }
 var expect = chai.expect
 
-// Example:
-describe('Airplane', () => {
-  it('instance has name', () => { 
+describe('Instances of Airplane', () => {
+  it('initialize with the given name', () => {
     const a = new Airplane('Gulfstream 550')
-    expect(a.name).to.eq(`Gulfstream 550`) 
+    expect(a.name).to.eq(`Gulfstream 550`)
   })
-  it('behaves correctly', () => {
-    const myPlane = new Airplane('Jumbo');
+  it('behave correctly', () => {
+    const myPlane = new Airplane('Jumbo')
     expect(myPlane.name).to.equal('Jumbo')
     expect(myPlane.isFlying).to.equal(false)
-    myPlane.takeOff();
+    myPlane.takeOff()
     expect(myPlane.isFlying).to.equal(true)
-    myPlane.land();
+    myPlane.land()
     expect(myPlane.isFlying).to.equal(false)
   })
 })
 
-// - Build a Person Constructor that takes `name` and `age`.
-// - Give persons the ability to `eat()` edibles.
-// - When eating an `edible`, it should be pushed into a `stomach` property which is an array.
-// - Give persons the ability to `poop()`.
-// - When pooping, the `stomach` should empty.
-// - Give persons a method `toString()`, returning a string `name` and `age`. Example: "Mary, 50"
-describe('Person', () => {
-  it('behaves correctly', () => {
-    const neo = new Person('Neo', 20);
-
+describe('Instances of Person', () => {
+  let neo
+  const foods = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  beforeEach(() => {
+    neo = new Person('Neo', 20)
+  })
+  it('initialize with the given name', () => {
     expect(neo.name).to.equal('Neo')
-    neo.eat('🥑')
-    expect(neo.stomach).to.include('🥑')
-    neo.eat('🍕')
-    expect(neo.stomach).to.deep.equal(['🥑', '🍕'])
+  })
+  it('initialize with the given age', () => {
+    expect(neo.age).to.equal(20)
+  })
+  it('initialize with an empty stomach', () => {
+    expect(neo.stomach).to.be.an('array')
+    expect(neo.stomach.length).to.equal(0)
+  })
+  it('get eat, poop and toString methods from their prototype', () => {
+    expect(neo.__proto__.eat).to.be.not.undefined;
+    expect(neo.__proto__.poop).to.be.not.undefined;
+    expect(neo.__proto__.toString).to.be.not.undefined;
+  })
+  it('can eat up to 10 foods', () => {
+    foods.forEach(item => neo.eat(item))
+    foods.forEach(item => expect(neo.stomach).to.include(item))
+  })
+  it('can eat no more than 10 foods', () => {
+    foods.forEach(item => neo.eat(item))
+    neo.eat(11)
+    expect(neo.stomach).to.not.include(11)
+  })
+  it('can poop to empty stomach', () => {
+    foods.forEach(item => neo.eat(item))
     neo.poop()
-    expect(neo.stomach).to.have.lengthOf(0)
+    expect(neo.stomach.length).to.equal(0)
+  })
+  it('can state name and age', () => {
+    const str = neo.toString()
+    expect(str).to.include('Neo')
+    expect(str).to.include('20')
   })
 })
 
-// - Build a Car constructor that takes `make`, `model` and `milesPerGallon`.
-// - Give cars the ability to get fueled with `fill(gallons)` method. Add `gallons` to `fuel`.
-// - Give cars ability to `drive(distance)`, the driven `distance` should be added to an `odometer` property, and subtracted from the property `fuel`.
-// - A car which runs out of `fuel` can't `drive()` anymore - instead it should return a string "I ran out of fuel at {odometer} miles!"
-describe('Car', () => {
-  it('behaves correctly', () => {
-    const c = new Car('Bat', 'Mobile', 10);
-    c.fill(50)
-    expect(c.fuel).to.equal(50)
-    c.drive(5)
-    expect(c.fuel).to.equal(25)
-    expect(c.odometer).to.equal(5)
-    c.drive(5)
-    expect(c.fuel).to.equal(0)
-    expect(c.odometer).to.equal(10)
-    expect(c.drive(999)).to.equal(`I ran out of fuel at 50 miles!`)
-    c.fill(25)
-    expect(c.fuel).to.equal(25)
+describe('Instances of Car', () => {
+  let batmobile
+  beforeEach(() => {
+    batmobile = new Car('BatMobile', 20)
+  })
+  it('initialize with the given model', () => {
+    expect(batmobile.model).to.equal('BatMobile')
+  })
+  it('initialize with the given milesPerGallon', () => {
+    expect(batmobile.milesPerGallon).to.equal(20)
+  })
+  it('initialize with an empty tank', () => {
+    expect(batmobile.tank).to.equal(0)
+  })
+  it('initialize with an odometer at 0 miles', () => {
+    expect(batmobile.odometer).to.equal(0)
+  })
+  it('get fill and drive methods from their prototype', () => {
+    expect(batmobile.__proto__.fill).to.be.not.undefined;
+    expect(batmobile.__proto__.drive).to.be.not.undefined;
+  })
+  it('fill method increases the tank by the given gallons', () => {
+    batmobile.fill(10)
+    expect(batmobile.tank).to.equal(10)
+    batmobile.fill(10)
+    expect(batmobile.tank).to.equal(20)
+  })
+  it('drive method when enough fuel increases odometer correctly', () => {
+    batmobile.fill(10)
+    batmobile.drive(50)
+    expect(batmobile.odometer).to.equal(50)
+  })
+  it('drive method when enough fuel decreases tank correctly', () => {
+    batmobile.fill(10)
+    batmobile.drive(100)
+    expect(batmobile.tank).to.equal(5)
+  })
+  it('drive method when NOT enough fuel increases miles by drivable miles', () => {
+    batmobile.fill(10)
+    batmobile.drive(201)
+    expect(batmobile.odometer).to.equal(200)
+  })
+  it('drive method when NOT enough fuel empties the tank', () => {
+    batmobile.fill(10)
+    batmobile.drive(201)
+    expect(batmobile.tank).to.equal(0)
+  })
+  it('drive method when NOT enough fuel returns correct string', () => {
+    batmobile.fill(10)
+    expect(batmobile.drive(201)).to.include(200)
   })
 })
 
+describe('Instances of Baby', () => {
+  let baby
+  beforeEach(() => {
+    baby = new Baby('Lucy', 'trains')
+  })
+  it('initialize with the given name', () => {
+    expect(baby.name).to.equal('Lucy')
+  })
+  it('initialize with the given favorite toy', () => {
+    expect(baby.favoriteToy).to.equal('trains')
+  })
+  it('get a play method from their prototype', () => {
+    expect(baby.__proto__.play).to.be.not.undefined;
+  })
+  it('can play with favorite toy', () => {
+    expect(baby.play()).to.include('trains')
+  })
+  it('inherit the methods on Person.prototype', () => {
+    expect(Person.prototype).to.equal(baby.__proto__.__proto__)
+  })
+})
