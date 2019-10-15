@@ -18,4 +18,7 @@ There is an additional task 4 which requires written explanations and has no tes
 
 **1. Using Code Sandbox**
 
+* Fork the sandbox. Submit your project by pasting the link to your fork in the submission form.
+* See your tests running on the "Browser" tab, NOT the "Tests" tab
+
 [LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=tests)
