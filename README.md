@@ -47,7 +47,8 @@ npm run test:watch
 
 1. Fork & clone to your local computer
 1. `cd` into your newly cloned repository
-1. Install and Start using `npm`
+1. Install using `npm`
+1. Run start command
 
 ```sh
 git clone <insert your git clone url here>
