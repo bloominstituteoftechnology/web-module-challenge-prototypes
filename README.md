@@ -22,3 +22,7 @@ There is an additional task 4 which requires written explanations and has no tes
 * See your tests running on the "Browser" tab, NOT the "Tests" tab
 
 [LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=tests)
+
+<img src="https://tk-assets.lambdaschool.com/9956cb81-4b85-4a5b-9d6a-96a3da927e04_instrus.png"
+     alt="instructions on how to use Code Sandbox"
+     style="float: left; margin-right: 10px;" />
