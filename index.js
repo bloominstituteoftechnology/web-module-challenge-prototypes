@@ -8,28 +8,16 @@
 */
 
 // EXAMPLE SOLUTION CODE:
-// function Airplane(name) {
-//   this.name = name;
-//   this.isFlying = false;
-// }
-// Airplane.prototype.takeOff = function () {
-//   this.isFlying = true;
-// };
-// Airplane.prototype.land = function () {
-//   this.isFlying = false;
-// };
-class Airplane {
-  constructor(name) {
-    this.name = name;
-    this.isFlying = false;
-  }
-  takeOff() {
-    this.isFlying = true;
-  }
-  land() {
-    this.isFlying = false;
-  }
+function Airplane(name) {
+  this.name = name;
+  this.isFlying = false;
 }
+Airplane.prototype.takeOff = function () {
+  this.isFlying = true;
+};
+Airplane.prototype.land = function () {
+  this.isFlying = false;
+};
 
 
 /*
@@ -100,7 +88,7 @@ function Baby() {
 ///////// END OF CHALLENGE /////////
 if (typeof exports !== 'undefined') {
   module.exports = module.exports || {}
-  if (Airplane) { module.exports.AirplaneClass = Airplane }
+  if (Airplane) { module.exports.Airplane = Airplane }
   if (Person) { module.exports.Person = Person }
   if (Car) { module.exports.Car = Car }
   if (Baby) { module.exports.Baby = Baby }

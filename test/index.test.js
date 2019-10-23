@@ -11,7 +11,7 @@ if (typeof exports !== 'undefined') {
   // Node/Non-browser test env
   var chai = require('chai')
   var {
-    AirplaneClass,
+    Airplane,
     Car,
     Person,
     Baby,
@@ -22,11 +22,11 @@ var expect = chai.expect
 
 describe('Instances of Airplane', () => {
   it('initialize with the given name', () => {
-    const a = new AirplaneClass('Gulfstream 550')
+    const a = new Airplane('Gulfstream 550')
     expect(a.name).to.eq(`Gulfstream 550`)
   })
   it('behave correctly', () => {
-    const myPlane = new AirplaneClass('Jumbo')
+    const myPlane = new Airplane('Jumbo')
     expect(myPlane.name).to.equal('Jumbo')
     expect(myPlane.isFlying).to.equal(false)
     myPlane.takeOff()
