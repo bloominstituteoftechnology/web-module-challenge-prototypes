@@ -29,8 +29,7 @@ Two options are included below.
 
   [LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=browser)
 
-  <img src="https://tk-assets.lambdaschool.com/ca399496-ca49-4f71-9ee7-55401d8cfe64_sandbox-instructions.png"
-      alt="instructions on how to use Code Sandbox" />
+  <img alt='instructions Code Sandbox' src='./instructionsCodeSandbox.png'>
 </details>
 
 <details>
@@ -39,15 +38,10 @@ Two options are included below.
   1. Fork repo and add TL as collaborator on Github.
   1. Clone _your_ fork (not Lambda's repo by mistake!).
   1. `cd` into your newly cloned repository.
-  1. Create a new branch: `git checkout -b <firstName-lastName>`.
-  1. Install dependencies using npm.
-  1. Run the test:watch command.
+  1. Create a new branch by typing `git checkout -b <firstName-lastName>`.
+  1. Install dependencies by typing `npm install`.
+  1. Run tests by typing `npm run test:watch`.
   1. Work on your branch, push commits and create PR as usual.
 
-  ```sh
-    git clone <insert your git clone url here>
-    cd <repo folder name>
-    npm install
-    npm run test:watch
-  ```
+  <img alt='instructions VSCode' src='./instructionsVSCode.png'>
 </details>
