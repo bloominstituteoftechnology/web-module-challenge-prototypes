@@ -14,20 +14,22 @@ There is an additional task 4 which requires written explanations and has no tes
 
 ## Get Started
 
-Two options are included below. The CodeSandbox option is fast & highly recommended.
+Two options are included below.
 
-<summary>1. Using Code Sandbox</summary>
+<details>
+  <summary>1. Using Code Sandbox</summary>
 
-* Launch the sandbox using the link below.
-* Sign into Code Sandbox.
-* Fork the sandbox.
-* See your tests running on the "Browser" tab (NOT the "Tests" tab).
-* The way you'll submit your work will be by pasting a link to your fork into the submission form.
+  * Launch the sandbox using the link below.
+  * Sign into Code Sandbox.
+  * Fork the sandbox.
+  * See your tests running on the "Browser" tab (NOT the "Tests" tab).
+  * The way you'll submit your work will be by pasting a link to your fork into the submission form.
 
-[LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=browser)
+  [LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=browser)
 
-<img src="https://tk-assets.lambdaschool.com/ca399496-ca49-4f71-9ee7-55401d8cfe64_sandbox-instructions.png"
-     alt="instructions on how to use Code Sandbox" />
+  <img src="https://tk-assets.lambdaschool.com/ca399496-ca49-4f71-9ee7-55401d8cfe64_sandbox-instructions.png"
+      alt="instructions on how to use Code Sandbox" />
+</details>
 
 <details>
   <summary>2. Using VSCode and the Command Line</summary>
