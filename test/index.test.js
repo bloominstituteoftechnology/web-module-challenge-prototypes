@@ -95,9 +95,8 @@ describe('Instances of Car', () => {
   it('initialize with an odometer at 0 miles', () => {
     expect(batmobile.odometer).to.equal(0)
   })
-  it('get fill and drive methods from their prototype', () => {
+  it('get fill methods from their prototype', () => {
     expect(batmobile.__proto__.fill).to.be.not.undefined;
-    expect(batmobile.__proto__.drive).to.be.not.undefined;
   })
   it('fill method increases the tank by the given gallons', () => {
     batmobile.fill(10)
@@ -105,27 +104,27 @@ describe('Instances of Car', () => {
     batmobile.fill(10)
     expect(batmobile.tank).to.equal(20)
   })
-  it('drive method when enough fuel increases odometer correctly', () => {
+  it('STRETCH: drive method when enough fuel increases odometer correctly', () => {
     batmobile.fill(10)
     batmobile.drive(50)
     expect(batmobile.odometer).to.equal(50)
   })
-  it('drive method when enough fuel decreases tank correctly', () => {
+  it('STRETCH: drive method when enough fuel decreases tank correctly', () => {
     batmobile.fill(10)
     batmobile.drive(100)
     expect(batmobile.tank).to.equal(5)
   })
-  it('drive method when NOT enough fuel increases miles by drivable miles', () => {
+  it('STRETCH: drive method when NOT enough fuel increases miles by drivable miles', () => {
     batmobile.fill(10)
     batmobile.drive(201)
     expect(batmobile.odometer).to.equal(200)
   })
-  it('drive method when NOT enough fuel empties the tank', () => {
+  it('STRETCH: drive method when NOT enough fuel empties the tank', () => {
     batmobile.fill(10)
     batmobile.drive(201)
     expect(batmobile.tank).to.equal(0)
   })
-  it('drive method when NOT enough fuel returns correct string', () => {
+  it('STRETCH: drive method when NOT enough fuel returns correct string', () => {
     batmobile.fill(10)
     expect(batmobile.drive(201)).to.include(200)
   })
