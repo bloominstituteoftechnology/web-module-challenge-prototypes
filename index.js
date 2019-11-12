@@ -43,15 +43,6 @@ function Person(name, age) {
   this.name = name;
   this.age = age;
   this.stomach = [];
-  // this.eat = function(food) {
-  //   if (this.stomach.length < 10) this.stomach.push(food);
-  // };
-  // this.poop = function() {
-  //   this.stomach = [];
-  // };
-  // this.toString = function() {
-  //   return `${this.name}, ${this.age}`;
-  // };
 }
 
 Person.prototype.eat = function(food) {
@@ -78,8 +69,25 @@ Person.prototype.toString = function() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+}
 
+Car.prototype.fill = function(gallons) {
+  this.tank += gallons;
+}
+Car.prototype.drive = function(distance) {
+  const milesUntilEmpty = this.tank * this.milesPerGallon;
+  if (distance > milesUntilEmpty) {
+    this.odometer += milesUntilEmpty;
+    this.tank  = 0;
+    return `I ran out of fuel at ${this.odometer} miles!`;
+  }
+  this.odometer += distance;
+  this.tank -= distance / this.milesPerGallon;
 }
 
 /*
