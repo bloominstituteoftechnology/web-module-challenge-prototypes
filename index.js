@@ -101,7 +101,7 @@ Car.prototype.drive = function(distance) {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby(name, age, favoriteToy) {
-
+//code here
 }
 
 /* 
