@@ -78,6 +78,7 @@ function Car(model, milesPerGallon) {
   this.model = model,
   this.milesPerGallon = milesPerGallon,
   this.tank = 0,
+  this.milesPerGallon = milesPerGallon,
   this.odometer = 0
 }
 
@@ -85,9 +86,12 @@ Car.prototype.fill = function(gallons){
   return this.tank += gallons;
 }
 
-Car.prototype.drive = function(distance, milesPerGallon){
+Car.prototype.drive = function(distance){
   this.odometer +=distance;
-  this.tank -= distance/milesPerGallon;
+  this.tank -=  (distance/this.milesPerGallon);
+  if (this.tank <= 0) {
+    return `I ran out of fuel at ${this.odometer-1} miles!`
+    }
 }
 
 /*
@@ -111,10 +115,10 @@ Baby.prototype.play = function(){
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Implicit binding: look at the left of "." when calling
+  2. Explicit binding: using call, apply, bind to identify meaning of this
+  3. New binding: when function invoked with the "new" keyword, this is bound to new object being constructed
+  4. Window binding: if none of the above apply, then this will apply to window (unless strict mode is on)
 */
 
 
