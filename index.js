@@ -48,15 +48,18 @@ function Person(name, age, stomach) {
     this.stomach = [];
 }
 Person.prototype.poop = function(stomach, someFood) {
-    if (stomach < 10) {
-        this.stomach.push(this.someFood);
+    stomach = [];
+}
+
+
+Person.prototype.eat = function(someFood) {
+    if (this.stomach.length < 10) {
+        this.stomach.push(someFood);
+    } else {
+        view(`You cannot eat ${someFood}; you're stomach is full. \nYou must poop first.`);
     }
 }
 
-Person.prototype.eat = function(someFood) {
-    let edible = someFood;
-    this.stomach.push(edible);
-}
 
 /*
   TASK 2
