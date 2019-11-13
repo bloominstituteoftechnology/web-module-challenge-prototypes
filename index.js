@@ -1,3 +1,6 @@
+//'console.log' to 'view'
+const view = logIn => console.log(logIn);
+
 /*
   EXAMPLE TASK:
     - Write an Airplane constructor that initializes `name` from an argument.
@@ -43,13 +46,16 @@ function Person(name, age, stomach) {
     this.name = name;
     this.age = age;
     this.stomach = [];
-    this.eat = function(someFood) {
-
-        let edible = someFood;
-        stomach.push(edible);
-
-
+}
+Person.prototype.poop = function(stomach, someFood) {
+    if (stomach < 10) {
+        this.stomach.push(this.someFood);
     }
+}
+
+Person.prototype.eat = function(someFood) {
+    let edible = someFood;
+    this.stomach.push(edible);
 }
 
 /*
@@ -66,8 +72,14 @@ function Person(name, age, stomach) {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
+    this.tank = 0;
+    this.odometer = 0;
+    view(this.tank);
+}
 
+Car.prototype.fill = function(milesPerGallon) {
+    this.tank += milesPerGallon;
 }
 
 /*
