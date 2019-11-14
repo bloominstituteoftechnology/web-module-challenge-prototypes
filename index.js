@@ -70,7 +70,17 @@ Person.prototype.toString = function() {
 */
 
 function Car(model, milesPerGallon) {
-
+  this.model = model,
+  this.milesPerGallon = milesPerGallon,
+  this.tank = 0,
+  this.odometer = 0
+  // this.fill = function(gallons){
+  //   return this.tank + gallons;
+  // }
+}
+Car.prototype.fill = function(gallons){
+  console.log(this.tank += gallons);
+  return this.tank + gallons; 
 }
 
 /*
@@ -80,18 +90,34 @@ function Car(model, milesPerGallon) {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(childAttributes) {
+  Person.call(this, childAttributes); // binding this to Person
+  this.isChild = childAttributes.isChild; // this will be a special attribute to Baby
+}
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.checkIfChild = function() {
+  if(this.isChild) {
+    console.log(`My name is ${this.name} and I am a child object`);
+  }
+};
+function Baby(name, age, favoriteToy) {
+  let Baby = Object.create(Person);
+  this.name = name;
+  this.age = age;
+  this.favoriteToy = favoriteToy;
+}
+Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}`;
 }
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. If the new keyword is used when we are calling the function, this inside the function is a new object.
+  2. If apply, call, or bind are used when we call a function, this inside the function is the object that we passed in as the argument.
+  3. If a function is called as a method this is the object that the function is a property of. 
+  4. If a function is invoked as a free function, invoked without any of the above conditions, this is the global object.
 */
 
 
