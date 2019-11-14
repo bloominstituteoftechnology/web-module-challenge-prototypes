@@ -47,9 +47,11 @@ function Person(name, age, stomach) {
     this.age = age;
     this.stomach = [];
 }
-Person.prototype.poop = function(stomach, someFood) {
-    for (let stomConts = this.stomach.length; stomConts >= 0; stomConts++) {
-        this.stomach.pop();
+Person.prototype.poop = function(stomach) {
+    if (this.stomach.length > 0) {
+        // this.stomach.slice(0, 9);
+        // this.stomach = [0];
+        this.stomach = [];
     }
 }
 
