@@ -45,16 +45,16 @@ function Person(name, age) {
   this.age = age
 }
 Person.prototype.eat = function(someFood){
-  if(this.stomach.length < 10){
-    return this.stomach.push(someFood)
+  if(this.stomach.length < 10){ // means if there are 10 items or less in the stomach reutrn the next line 
+    return this.stomach.push(someFood)// .push allows to have the food items added to the array 
   }
 }
-Person.prototype.poop = function() {
-  return this.stomach = []
+Person.prototype.poop = function() { //don't forget to capitalize constructor
+  return this.stomach = [] // poop is a empty array for when the stomach is empty
 }
 
 Person.prototype.toString = function() {
-  return `${this.name}, ${this.age}`
+  return `${this.name}, ${this.age}` // this will return a name and a age 
 }
 
 /*
@@ -71,13 +71,13 @@ Person.prototype.toString = function() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car(model, milesPerGallon) {
+function Car(model, milesPerGallon) { // model and milesPerGallon are arguments
  this.model = model
  this.milesPerGallon = milesPerGallon
  this.tank = 0
  this.odometer = 0
 }
-Car.prototype.fill = function(gallons) {
+Car.prototype.fill = function(gallons) { // 
   return this.tank += gallons ;
 }
 Car.prototype.drive = function(distance){}
@@ -98,14 +98,14 @@ Car.prototype.drive = function(distance){
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby(name, age, favoriteToy) {
+function Baby(name, age, favoriteToy) { //arguments 
  this.name = name
  this.age = age
  this.favoriteToy = favoriteToy
 }
-Baby.prototype = Object.create(Person.prototype);
+Baby.prototype = Object.create(Person.prototype); // telling the child about the parent
 
-Baby.prototype.play = function(){
+Baby.prototype.play = function(){ // new method which when called will return a string 
   return `playing with ${this.favoriteToy}`
 }
 
