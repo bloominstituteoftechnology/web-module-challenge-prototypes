@@ -40,11 +40,22 @@ Airplane.prototype.land = function () {
 */
 
 function Person(name, age) {
-this.name = name
-this.age = age
-Person.prototype.eat = function(){
-
-}
+  this.name = name
+  this.age = age
+  this.stomach = []
+  Person.prototype.eat = function (food) {
+    this.stomach.push(food)
+    if (this.stomach.length >= 11) {
+      this.stomach.pop()
+      return `${this.stomach} is too full!`
+    }
+  }
+  Person.prototype.poop = function () {
+    this.stomach = []
+  }
+  Person.prototype.toString = function () {
+    return `${this.name}, ${this.age}`
+  }
 }
 
 /*
@@ -61,8 +72,24 @@ Person.prototype.eat = function(){
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model = model
+  this.milesPerGallon = milesPerGallon
+  this.tank = 0
+  this.odometer = 0
+  Car.prototype.fill = gallons => this.tank += gallons
+  Car.prototype.drive = distance => {
+    let maxDistance = this.tank * milesPerGallon
+    if (distance <= maxDistance) {
+      this.odometer += distance
+    } else {
+      this.odometer = maxDistance
+    }
+    this.tank -= Math.floor(distance / this.milesPerGallon)
+    if (this.tank === 0) {
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }
+  }
 }
 
 /*
@@ -72,8 +99,13 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy, ) {
+  Person.call(this)
+  Baby.prototype = Object.create(Person.prototype)
+  this.name = name
+  this.age = age
+  this.favoriteToy = favoriteToy
+  Baby.prototype.play = () => `Playing with ${favoriteToy}.`
 }
 
 /* 
@@ -92,8 +124,16 @@ function Baby() {
 ///////// END OF CHALLENGE /////////
 if (typeof exports !== 'undefined') {
   module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Baby) { module.exports.Baby = Baby }
+  if (Airplane) {
+    module.exports.Airplane = Airplane
+  }
+  if (Person) {
+    module.exports.Person = Person
+  }
+  if (Car) {
+    module.exports.Car = Car
+  }
+  if (Baby) {
+    module.exports.Baby = Baby
+  }
 }
