@@ -39,8 +39,11 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person() 
+const myPerson {
+  name: 'name',
+  age: 'age'
+}
 }
 
 /*
@@ -57,8 +60,15 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer =0;
+}
+{
+  Car.prototype.fill(gallons)
+    return (this.tank += gallons)
 }
 
 /*
@@ -69,17 +79,25 @@ function Car() {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby() {
-
+  const person = {
+    name: 'name',
+    age: 'age',
+    favoriteToy: 'x',
+    play: function() {
+      console.log(`Playing with ${favoriteToy}`)
+    }
+    person.play();
+  }
 }
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Value of the scope will be the object.
+  2. The object that a dot calls is this.
+  3. This is specific with the object it created and returned
+  4. When you use call or apply method, the this is defined
 */
 
 
