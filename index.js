@@ -39,8 +39,38 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
+function Person(name, age, stomachSize){
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+  this.stomachSize = stomachSize;
 
+};
+
+Person.prototype.eat = function(someFood) {
+  if (this.stomach.length < 10){
+  this.stomach.push(someFood)
+  }
+}
+
+// Why does else not work here?
+
+// Person.prototype.eat = function(someFood) {
+//   if (this.stomach.length < 10){
+//   this.stomach.push(someFood)
+//   } else {
+//     Person.prototype.poop = function() {
+//       this.stomach = []
+//     }
+//   }
+// }
+
+Person.prototype.poop = function() {
+  this.stomach = []
+}
+
+Person.prototype.toString = function() {
+  return `${this.name} " " ${this.age}`
 }
 
 /*
@@ -57,8 +87,29 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
+  this.tank = 0,
+  this.odometer = 0,
+  this.model = model,
+  this.milesPerGallon = milesPerGallon,
+  this.distance = 0
 
+}
+
+Car.prototype.fill = function (gallons) {
+  this.tank += gallons;
+
+}
+
+
+// Stretch
+Car.prototype.drive = function (distance) {
+  this.odometer += distance;
+  // const gallons = distance / this.milesPerGallon;
+  // if (this.tank - gallons < 0) {
+  //   this.odometer = distance;
+  //   return `I ran out of fuel at ${this.odometer} miles!`
+  // }
 }
 
 /*
@@ -68,18 +119,26 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+function Baby(name,age, favoriteToy) {
+this.favoriteToy = favoriteToy
+this.name = name,
+this.age = age
+}
+
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function (){
+  return `Playing with ${this.favoriteToy}`
 
 }
 
 /* 
   TASK 4
-
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window/Global bindig. When in the global scope, this refers to the window
+  2. Implicit Binding. if after the dot calls a function, the object before it is this. ex. Obj.sayHi(`Ethan`) Obj being this and sayHi the function
+  3. New Binding. When a constructor is used, this refers to the object created and returned. Must use the New keyword to use
+  4. Explicit Binding. We can re-purpose/override a constructor with new informationg with .apply and .call
 */
 
 
