@@ -1,3 +1,4 @@
+// @ts-nocheck
 /*
   EXAMPLE TASK:
     - Write an Airplane constructor that initializes `name` from an argument.
@@ -39,10 +40,28 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age, stomach) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
 
+let info = new Person ('neo', 12, []);
+
+
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`;
+}
+
+Person.prototype.eat = function(someFood, stomach, length) {
+  if (this.stomach.length < 10) { 
+    this.stomach.push(someFood); }
+}
+
+Person.prototype.poop = function(poop){
+  if ( Person.stomach = 10 ) {
+    this.stomach = []; }
+}
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -57,9 +76,21 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon, tank, odometer) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
+
+const car = new Car('audi', 0);
+
+Car.prototype.fill = function(gallons){
+  this.gallons = gallons;
+  this.tank = gallons + this.tank;
+}
+
+
 
 /*
   TASK 3
@@ -68,18 +99,32 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
 
+function Baby(name, age, favoriteToy) {
+  this.name = name;
+  this.age = age;
+  this.favoriteToy = favoriteToy;
+
+  Person.call();
+}
+
+let child = new Baby('lucy', 2, 'x');
+
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function() {
+  return `playing with ${this.favoriteToy}`
 }
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window/Global Object Binding - the value of “this” will be the window or console obj
+  2. Implicit Binding - whats on the object before the dot (this)
+  3. New binding - a specific instance of your object
+  4. Explicit binding - using call/apply methods
+
 */
 
 
