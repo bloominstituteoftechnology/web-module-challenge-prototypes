@@ -8,6 +8,7 @@
 */
 
 // EXAMPLE SOLUTION CODE:
+
 function Airplane(name) {
   this.name = name;
   this.isFlying = false;
@@ -39,9 +40,18 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+  this.name = name,
+  this.age = age,
+  this.stomach = []
 }
+Person.prototype.eat = function(someFood){
+  return this.stomach = []
+}
+Person.prototype.toString = function(){ /* giving instances of person a method */
+  return `${this.name}, ${this.age}`
+}
+
 
 /*
   TASK 2
@@ -57,8 +67,23 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model = model,
+  this.milesPerGallon = milesPerGallon,
+  this.tank = 0,
+  this.odometer = 0
+}
+Car.prototype.fill = function(gallons){
+  this.tank += gallons;
+}
+Car.prototype.drive = function(distance){
+  this.odometer += distance;
+  this.tank-= distance / this.milesPerGallon;
+  if(this.tank < 0){
+    this.odometer -= Math.abs(this.tank) * this.milesPerGallon;
+    this.tank = 0;
+    return `I ran out of fuel at ${this.odometer} miles!`
+  }
 }
 
 /*
@@ -68,28 +93,47 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
 
+function Baby(name, age, favoriteToy) { /* Baby constructor subclassing Person */ 
+  Person.call(this, name, age),        /* Where you call the method after constructor*/
+  this.favoriteToy = favoriteToy       
+}
+Baby.prototype = Object.create(Person.prototype)
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`;
+};
+const newBaby = {
+  console.log(newBaby.toString());
+  newBaby.eat("apple sauce")
 }
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. When entering the global scope, or when you are in the global scope, whatever the value of "this" is will be the console Object. 
+  2. The second principle for the "this" keyword is implicit binding. When implicit binding is called within an object, it will refer to that abject and using or calling this with the dot notation. 
+  3. The third principle for the "this" keyword is new binding. This means that new binding is a constructor function and will always refer to objects that were or are constructed.
+  4. The fourth and last principle of the "this" keyword is explicit binding. Explicit binding is assign "this" to be a specific value. We can use .call and pass it in a new object, and any additional arguments. Another way to assign "this" to be a specific value is to use apply which passes in an object and an array with arguments. 
 */
 
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
-if (typeof exports !== 'undefined') {
-  module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Baby) { module.exports.Baby = Baby }
+
+if (typeof exports !== "undefined") { /* a look into exports in JavaScript. */
+  module.exports = module.exports || {};
+  if (Airplane) {
+    module.exports.Airplane = Airplane;
+  }
+  if (Person) {
+    module.exports.Person = Person;
+  }
+  if (Car) { 
+    module.exports.Car = Car; 
+  }
+  if (Baby) { 
+    module.exports.Baby = Baby; 
+  }
 }
