@@ -39,8 +39,27 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+}
 
+Person.prototype.eat = function (someFood) {
+  let stomachLength = this.stomach.length;
+  if(stomachLength < 10){
+    this.stomach.push(someFood);
+  } else{
+    return;
+  }
+}
+
+Person.prototype.poop = function () {
+  this.stomach = [];
+}
+
+Person.prototype.toString = function () {
+  return this.name + ', ' + this.age;
 }
 
 /*
@@ -57,8 +76,29 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
+  this.tank = 0;
+  this.odometer = 0;
+  this.milesPerGallon = milesPerGallon;
+  this.model = model;
+}
 
+Car.prototype.fill = function (gallons) {
+  this.tank = this.tank += gallons;
+}
+
+Car.prototype.drive = function (distance) {
+  const availableMiles = this.tank * this.milesPerGallon;
+  const gasUsed = distance / this.milesPerGallon;
+  const remainingGas = this.tank - gasUsed;
+  if(remainingGas >= 1){
+    this.odometer += distance;
+    this.tank -= gasUsed; 
+  } else {
+    this.odometer += availableMiles;
+    this.tank = 0;
+    return `I ran out of fuel at ${this.odometer} miles!`
+  }
 }
 
 /*
@@ -68,18 +108,28 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
 
+function Baby(name, age, favoriteToy) {
+  Person.call(this);
+  this.name = name, 
+  this.age = age,
+  this.favoriteToy = favoriteToy;  
 }
+
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function (){
+  return `Playing with ${this.favoriteToy}`;
+};
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. The Global Scope principle applies `this` to the `window` object when the funciton containing `this` is in the global scope. This is because function within the global scope are actually methods on the `window` object itself and therefore `this` pointsz  to  `window`.
+  2. The Implicit Binding principle occurs when a function is called by a preceding dot, and defines the `this` keyword by the object before that dot. 
+  3. The New Binding principle refers `this` to the specific instance of the object that is created and returned by the constructor function. `this` preserves the context of the parent object while inheriting certain properties of the newly created intance. 
+  4. The Explicit Binding principle applies when the `call` or `apply` methods are used, allowing you to execute a function in a different explictly-defined context which `this` points to.
 */
 
 
