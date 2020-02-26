@@ -39,9 +39,23 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
+Person.prototype.eat = function(someFood){
+  if(this.stomach.length < 10){
+    this.stomach.push(someFood);
+  }
+};
+Person.prototype.poop = function(){
+    this.stomach = [];
+  };
+Person.prototype.toString = function(){
+        return `${this.name}, ${this.age}`;
+      };
+  
 
 /*
   TASK 2
@@ -57,29 +71,71 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(mod, mpg) {
+  this.model = mod;
+  this.milesPerGallon = mpg;
+  this.tank = 0;
+  this.odometer = 0;
+}
+Car.prototype.fill = function(gallons){
+  this.tank += gallons;
+}
+Car.prototype.drive = function(miles){
+  let gallonsNeeded = miles/this.milesPerGallon; 
+  for(let i=0; i < gallonsNeeded; i++){
+    if(this.tank === 0){
+      return `I ran out of fuel at ${this.odometer} miles!`;
+      break;
+    }
+    else{
+      this.odometer += this.milesPerGallon;
+      this.tank --;
+    }
+  }
 }
 
 /*
+ let gallonsUsed = miles/this.milesPerGallon;
+    let diff1 = this.tank-gallonsUsed;
+    
+    if(diff1 >= 0){
+      this.tank = this.tank - gallonsUsed;
+      this.odometer += miles;
+    }
+    else{
+      this.tank = this.tank + diff1;
+      this
+    }
   TASK 3
     - Write a Baby constructor subclassing Person.
     - Besides `name` and `age`, Baby takes a third argument to initialize `favoriteToy`.
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, toy) {
+  Person.call(this, name, age,);
+  this.favoriteToy = toy;
 }
 
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`;
+};
+const jeff = new Baby('jeff', 1, 'dildo');
+console.log(jeff.play);
+console.log(jeff.eat('sperm'));
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Is the function called by new?
+  2. Is the function called by call(), apply(), or bind()?
+  3. Is the function called as a method, ie: obj.func()?
+  4. Is the function called in the global scope?
+
+      If strict mode is enabled, return undefined.
+      Otherwise, return the global object, ie: window.
 */
 
 
