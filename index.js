@@ -122,9 +122,6 @@ Baby.prototype = Object.create(Person.prototype);
 Baby.prototype.play = function(){
   return `Playing with ${this.favoriteToy}`;
 };
-const jeff = new Baby('jeff', 1, 'dildo');
-console.log(jeff.play);
-console.log(jeff.eat('sperm'));
 /* 
   TASK 4
 
