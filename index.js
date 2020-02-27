@@ -102,10 +102,10 @@ Baby.prototype.play = function() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window/Global: In the global scope this will become the console object because it has no context
+  2. Implicit Binding: Is when this takes whatever is before the dot
+  3. New Binding: In this case "this" refers to an object in the constructor function
+  4. Explicit binding: This is defined when we use call or apply. 
 */
 
 
