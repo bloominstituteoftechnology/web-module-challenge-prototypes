@@ -39,9 +39,27 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name,age) {
+  this.name = name,
+  this.age = age ,
+  this.stomach = []
 }
+
+
+
+Person.prototype.eat = function(someFood){
+  if(this.stomach.length < 10){
+    return this.stomach.push(someFood)
+  }
+}
+Person.prototype.poop = function(){
+  this.stomach = []
+}
+
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}` 
+}
+
 
 /*
   TASK 2
@@ -57,7 +75,30 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model,mpg,) {
+  this.model = model,
+  this.milesPerGallon = mpg,
+  this.tank = 0,
+  this.odometer = 0
+
+
+}
+Car.prototype.fill = function(gall){
+  this.tank = this.tank + gall;
+}
+Car.prototype.toString = function (){
+  return `${this.tank}, ${this.odometer} `
+}
+
+Car.prototype.drive = function(dist){
+  
+  if(this.tank == 0){
+    return `I ran out of fuel at ${this.odometer}`
+  }else{
+    this.tank = this.tank -  dist / this.milesPerGallon
+  }
+
+  
 
 }
 
@@ -68,18 +109,24 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+function Baby(name, age, favtoy) {
+  Person.call(this,name,age)
+  this.favoriteToy = favtoy
+
 
 }
-
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`
+}
+Object.setPrototypeOf(Baby.prototype, Person.prototype)
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. window binding if no other rules apply to the the this this defaults to the window
+  2. Explicit binding allows you to state what the this keyword 
+  3. Implicit only applies o objects with method 
+  4. new binding constructs a new object
 */
 
 
