@@ -8,17 +8,16 @@
 */
 
 // EXAMPLE SOLUTION CODE:
-function Airplane(name) {
-  this.name = name;
-  this.isFlying = false;
+function Airplane (name) {
+  this.name = name
+  this.isFlying = false
 }
 Airplane.prototype.takeOff = function () {
-  this.isFlying = true;
-};
+  this.isFlying = true
+}
 Airplane.prototype.land = function () {
-  this.isFlying = false;
-};
-
+  this.isFlying = false
+}
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -39,8 +38,21 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person (name, age) {
+  this.name = name
+  this.age = age
+  this.stomach = []
+}
+Person.prototype.eat = function (food) {
+  if (this.stomach.length < 10) {
+    this.stomach.push(food)
+  }
+}
+Person.prototype.poop = function () {
+  this.stomach = []
+}
+Person.prototype.toString = function () {
+  return `${this.name},  ${this.age}`
 }
 
 /*
@@ -57,9 +69,48 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car (model, milesPerGallon) {
+  this.model = model
+  this.milesPerGallon = milesPerGallon
+  this.tank = 0
+  this.odometer = 0
+}
+Car.prototype.fill = function (gallons) {
+  this.tank += gallons
+}
+Car.prototype.drive = function (distance) {
+  this.odometer += distance
+  //82 increasing our odo by our distance travelled
+
+  if (this.milesPerGallon * this.tank < distance) { 
+    //84 is checking if mpg * tank < distance driven -> if it is less, then that means we do not have enough gas to drive the distance required, which will ultimately make us run out of gas
+
+    this.odometer = this.milesPerGallon * this.tank
+    //87 is assigning the odometer to our mpg * tank (max distance able to travel to zero)
+
+    this.tank = 0
+    //91 setting tank to zero if our distance is greater than our tank allows
+
+    return `Ran out of gas at ${this.odometer} miles`
+    //93 returning our string with our max odometer allowance for that tank
+
+  } else {
+    this.tank -= distance / this.milesPerGallon
+    //98 if our gas in our tank is greater than our distance needed then we do have enough gas so we will subtract our tank from our distance divided by our mpg
+
+    return `We are ${this.tank} miles until empty.`
+  }
 
 }
+
+// const myCar = new Car('Thunderbird', 10)
+
+// myCar.fill(100)
+// console.log(' ')
+// console.log(myCar.drive(80))
+// console.log(' ')
+// console.log('TANK', myCar.tank)
+// console.log('ODO', myCar.odometer)
 
 /*
   TASK 3
@@ -68,9 +119,24 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+Baby.prototype = Object.create(Person.prototype)
 
+function Baby (name, age, favoriteToy) {
+  Person.call(this, name, age);
+
+  this.favoriteToy = favoriteToy
 }
+
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`
+}
+
+const littleBaby = new Baby('Sam', 1, 'Horse');
+
+
+console.log(littleBaby.favoriteToy)
+console.log(littleBaby.play())
+
 
 /* 
   TASK 4
@@ -82,14 +148,21 @@ function Baby() {
   4. 
 */
 
-
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 if (typeof exports !== 'undefined') {
   module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Baby) { module.exports.Baby = Baby }
+  if (Airplane) {
+    module.exports.Airplane = Airplane
+  }
+  if (Person) {
+    module.exports.Person = Person
+  }
+  if (Car) {
+    module.exports.Car = Car
+  }
+  if (Baby) {
+    module.exports.Baby = Baby
+  }
 }
