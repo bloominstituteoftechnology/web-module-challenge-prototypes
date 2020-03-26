@@ -92,10 +92,13 @@ Car.prototype.toString = function (){
 
 Car.prototype.drive = function(dist){
   
-  if(this.tank == 0){
+  if(dist >= this.tank * this.milesPerGallon ){
     return `I ran out of fuel at ${this.odometer}`
   }else{
     this.tank = this.tank -  dist / this.milesPerGallon
+    this.odometer = this.odometer + dist
+
+  
   }
 
   
