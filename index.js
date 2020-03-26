@@ -116,10 +116,11 @@ Baby.prototype.play = function () {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. First "this"" checks whether the
+  function is called with new keyword.
+  2. "this" keyword refers to the object it belongs to.
+  3. "this" has different values depending on where it is used
+  4. "this" refers to an object which is executing the current piece of javascript code.
 */
 
 
