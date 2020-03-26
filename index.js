@@ -76,7 +76,7 @@ function Car(model, milesPerGallon) {
 }
 Car.prototype.fill = function(gallons){
   if( this.tank = 0)
-  
+  this.tank.push(gallons)
 }
 
 /*
@@ -86,18 +86,26 @@ Car.prototype.fill = function(gallons){
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(attr) {
+ this.name = attr.name,
+ this.age = attr.age,
+ this.favoriteToy = attr.favoriteToy
+ this.play = function(){
+   return `Playing with ${this.favoriteToy}`
+ } 
 }
-
+ const person = new Baby({
+name: 'xxx',
+age: 18,
+ })
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. If the new keyword is used when calling the function, `this` inside the function is a brand new object.
+  2.  If call or bind are used to call a function, `this` inside the function is the object that is passed in as the argument.
+  3.  Whenever javaScript's call method is used, `this` is explicitly defined.
+  4. When in the global scope, the value of `this` will be the window/console Object
 */
 
 
