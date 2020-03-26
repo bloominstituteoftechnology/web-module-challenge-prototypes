@@ -29,7 +29,7 @@ Airplane.prototype.land = function () {
 /*
   TASK 1
     - Write a Person Constructor that initializes `name` and `age` from arguments.
-    - All instances of Person should initialize with an empty `stomach` array.
+    - All instances of Person should initialize with an empty `stomach` array. 
     - Give instances of Person the ability to `.eat("someFood")`:
         + When eating an edible, it should be pushed into the `stomach`.
         + The `eat` method should have no effect if there are 10 items in the `stomach`.
@@ -39,10 +39,23 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+ this.name = name;
+ this.age = age;
+ this.stomach = [];
 }
+Person.prototype.eat = function(someFood){
+if (this.stomach.length < 10){
 
+  this.stomach.push(someFood)
+}
+};
+Person.prototype.poop = function (){
+  this.stomach=[];
+}
+Person.prototype.toString = function () {
+  console.log(`${this.name}, ${this.age}`);
+}
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -57,8 +70,13 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.tank =0,
+  this.odometer = 0
+}
+Car.prototype.fill = function(gallons){
+  if( this.tank = 0)
+  
 }
 
 /*
