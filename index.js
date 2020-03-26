@@ -39,7 +39,7 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person(name, age) {
+function Person(name, age, stomach) {
  this.name = name;
  this.age = age;
  this.stomach = [];
@@ -89,12 +89,12 @@ Car.prototype.fill = function(gallons){
 function Baby(attr) {
  this.name = attr.name,
  this.age = attr.age,
- this.favoriteToy = attr.favoriteToy
+ this.favoriteToy = attr.favoriteToy,
  this.play = function(){
    return `Playing with ${this.favoriteToy}`
  } 
 }
- const person = new Baby({
+ Person.prototype new Baby({
 name: 'xxx',
 age: 18,
  })
