@@ -41,28 +41,38 @@ Airplane.prototype.land = function () {
 
 //
 
-function Person(attributes) {
- this.name = 'Zion';
- this.age = 4 ;
+function Person(name, age) {
+ this.name = name;
+ this.age =  age;
+ this.stomach = [];
 }
 
  
-Person.prototype.eat = function() {
- console.log('${this.name} eats < 10  = []');
+Person.prototype.eat = function(edible) {
+ if (this.stomach.length < 10) {
+  this.stomach.push(edible);
+  }
 }
 
 Person.prototype.poop = function(){
-  console.log('${this.name} eats == 10 == poop');
-
+  this.stomach = [];
 }
 
-const person = new Person({
-  name: 'Zion',
-  age: 4,
-});
+Person.prototype.toString = function(){
+return '${this.name}, ${this.age}';
+}
 
-person.eat();
-person.poop();
+personOne = new Person('Zion', 4);
+  
+
+console.log(personOne.toString());
+
+personOne.eat('ramen');
+personOne.eat('pizza');
+personOne.eat('tacos');
+console.log(personOne.stomach);
+personOne.poop();
+console.log(personOne.stomach);
 
 
 /*
@@ -79,9 +89,9 @@ person.poop();
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+//function Car =  {
 
-}
+
 
 /*
   TASK 3
