@@ -39,9 +39,29 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
+
+Person.prototype.eat = function (food) {
+  if (this.stomach.length < 10) {
+      this.stomach.push(food);
+  }
+}
+
+Person.prototype.poop = function() {
+  this.stomach = [];
+}
+
+Person.prototype.toString = function () {
+  return `${this.name}, ${this.age}`;
+}
+
+let cat = new Person("Mary", 50);
+
+
 
 /*
   TASK 2
@@ -56,9 +76,22 @@ function Person() {
     - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
+let car = new Car("Ford", "Focus");
 
-function Car() {
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+}
 
+Car.prototype.fill = function (gallons) {
+  this.tank += gallons;
+}
+
+Car.prototype.drive = function (distance) {
+  this.odometer += distance;
+  this.tank -= distance / this.milesPerGallon;
 }
 
 /*
@@ -68,18 +101,26 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+    this.favoriteToy = favoriteToy;
 }
+
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function () {
+  return `Playing with ${this.favoriteToy}`;
+}
+
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. 'this' is used in a method and method is called after dot
+  2. 'new' keyword is used, will point to the object which is being made.
+  3. you can set 'this' using call, apply
+  4. global scope will point this to window object 
 */
 
 
