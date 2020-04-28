@@ -40,10 +40,19 @@ Airplane.prototype.land = function () {
 */
 
 function Person(name, age) {
-
-
-}
-
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+};
+Person.prototype.eat = function eat(someFood) {
+  if (this.stomach.length <= 10) { return this.stomach.push(someFood) };
+};
+Person.prototype.poop = function poop() {
+  return this.stomach(this.stomach.splice(0, this.stomach.length));
+};
+Person.prototpe.nameAge = function toString(name, age) {
+  return `${name}, ${age}`;
+};
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
