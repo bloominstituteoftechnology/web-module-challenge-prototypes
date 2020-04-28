@@ -45,12 +45,12 @@ function Person(name, age) {
   this.stomach = [];
 };
 Person.prototype.eat = function eat(someFood) {
-  if (this.stomach.length <= 10) { return this.stomach.push(someFood) };
+  if (this.stomach.length < 10) { return this.stomach.push(someFood) };
 };
 Person.prototype.poop = function poop() {
-  return this.stomach(this.stomach.splice(0, this.stomach.length));
+  return this.stomach.splice(0, this.stomach.length);
 };
-Person.prototpe.nameAge = function toString(name, age) {
+Person.prototype.nameAge = function toString(name, age) {
   return `${name}, ${age}`;
 };
 /*
