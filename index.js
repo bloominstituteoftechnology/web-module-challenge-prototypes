@@ -50,8 +50,8 @@ Person.prototype.eat = function eat(someFood) {
 Person.prototype.poop = function poop() {
   return this.stomach.splice(0, this.stomach.length);
 };
-Person.prototype.nameAge = function toString(name, age) {
-  return `${name}, ${age}`;
+Person.prototype.toString = function toString() {
+  return String(this.name) + ", " + String(this.age);
 };
 /*
   TASK 2
