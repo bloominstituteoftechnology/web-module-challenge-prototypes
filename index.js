@@ -100,10 +100,10 @@ Baby.prototype.play = function play(favoriteToy) {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Gobal Binding: is when the 'this' references the object in the window or console scope.
+  2. Implicit Binding: is when the 'this' references the Object name to the left of the dot in a function or method.
+  3. New Binding: is when the 'this' references the specific object that is created by the constructor function.
+  4. Explicit Binding: is when the 'this' is defined by the object using a call or apply method.
 */
 
 
