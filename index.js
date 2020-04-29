@@ -108,10 +108,10 @@ function Baby(name, age, favoriteToy) {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. The value of "this" will be the window/console object.
+  2. When a preceding dot calls the function. The "this" keyword is the object before the dot.
+  3. In a constructor functions, "this" refers to the specific instance of the object that is created and returned by the constructor function.
+  4. "This" is specifically defined when using JavaScript's Call or apply method.
 */
 
 
