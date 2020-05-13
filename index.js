@@ -88,7 +88,9 @@ Car.prototype.fill=function(gallons){
 this.tank=this.tank+gallons
 }
 
+Car.prototype.drive=function(distance){
 
+}
 
 /*
   TASK 3
@@ -117,10 +119,10 @@ this.play("cars");
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. the global object binds "this" to the window object. 
+  2. implicit binding is when "this" refers to whats to the left of the dot when the dot calls a function.
+  3. new binding binds "this" to the instance of the object thats being created and returned by a constructor function.
+  4. explicit binding is when this is explicitly defined to bind "this" to an object by calling the constuctor object with .call and .apply.
 */
 
 
