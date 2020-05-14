@@ -39,17 +39,22 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person(name, age,) {
+function Person(name, age) {
   this.name = "Neo"
   this.age = 20
   this.stomach = []
-  }
-  
-
   Person.prototype.eat =
   Person.prototype.poop =
   Person
+ }
+ 
+
+  Person.prototype.toString = function() {
+  return `${this.name}, ${this.age}`;
+ };
   
+
+
 
 
 
@@ -79,8 +84,11 @@ function Car(model, milesPerGallon) {
    this.odometer = 0
    this.milesPerGallon = 20
    this.model = 'BatMobile'
-}
- Car
+   }
+   Car.prototype.fill = function(gallons) {
+    this.tank += gallons;
+   }
+ 
 
 
 
@@ -94,22 +102,26 @@ function Car(model, milesPerGallon) {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby(name,age) {
-  this.name = 'Lucy'
-  this.age = 5
-  this.favoriteToy = 'trains'
+    this.name = 'Lucy'
+    this.age = 5
+    this.favoriteToy = 'trains'
+ }
+  Baby.prototype = Object.create(Person.prototype)
+  Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}`;
+};
+
+
   
-
-
-}
 
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
+  1. new
+  2. call
+  3. obj.fuction
   4. 
 */
 
