@@ -56,7 +56,7 @@ Person.prototype.poop = function() {
 };
 
 Person.prototype.toString = function() {
-  return `${name}, ${age}`;
+  return `${this.name}, ${this.age}`;
 };
 
 /*
@@ -104,7 +104,7 @@ Car.prototype.drive = function(distance) {
 
     this.tank -= distance / this.milesPerGallon;
     this.odometer += distance;
-    
+
   }
 };
 
@@ -132,8 +132,8 @@ Baby.prototype.play = function() {
   In your own words explain the four principles for the "this" keyword below:
   1. window- this will refer to the console/ all of global JS
   2. implicit- this will refer to w/e is being called by a method
-  3. new- 
-  4. explicit-
+  3. new- refers to what is being created by the constructor
+  4. explicit-this refers to what is being called by .call or .apply
 */
 
 
