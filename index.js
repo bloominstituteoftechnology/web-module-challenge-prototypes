@@ -102,10 +102,13 @@ Baby.prototype.play = function play(favoriteToy) {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Global Binding, which is where it affects the whole window.
+
+  2.implicit binding using dot notation it points to a specific item followin the .this 
+
+  3. New Binding is when it is part of an object and is used in constructo functions 
+
+  4. Explicit Binding is a way to override a constructor object using .speak, .call or .apply
 */
 
 ///////// END OF CHALLENGE /////////
