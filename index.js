@@ -59,7 +59,7 @@ Person.prototype.toString = function(){
   return `${this.name}, ${this.age}`;
 }
 
-const personOne = new Person('Matthias', 65); 
+// const personOne = new Person('Matthias', 65); 
 
 
 
@@ -89,7 +89,12 @@ Car.prototype.fill = function(gallons){
   return this.tank += gallons;
 }
 
-const carOne = new Car(civic, 32); 
+Car.prototype.drive = function(distance){
+  return this.odometer += distance; 
+  /// how do I calculate miles per gallon? 
+}
+
+const carOne = new Car('civic', 32); 
 
 
 
@@ -100,22 +105,41 @@ const carOne = new Car(civic, 32);
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby(favoriteToy){
-  Person.call(this, favoriteToy);
-  this.isBaby = favoriteToy.isChild;
+function Baby(name, age, favoriteToy){
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
 }
+
+
 Baby.prototype = Object.create(Person.prototype); 
 
-const babyOne = new Baby('Maria', '11 months', 'Rattle'); 
+//play method
+Baby.prototype.play = function(){
+  return `Baby ${this.name} is playing with ${this.favoriteToy}`; 
+};
 
+
+
+const babyOne = new Baby('Maria', '11 months', 'rattles'); 
+
+babyOne.eat('crackers');
+babyOne.eat('cheerios');
+babyOne.eat('filet mignon'); 
+babyOne.poop();
+
+console.log(babyOne.stomach);
+console.log(babyOne.play());
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window Binding - this is the default binding if none of the other principles apply, or you are in STRICT MODE. 
+  2. Implicit Binding - 
+  3. Explicit Binding - 
+    a. .call - 
+    b. .apply - 
+    c. .bind - 
+  4. NEW Binding - 
 */
 
 
