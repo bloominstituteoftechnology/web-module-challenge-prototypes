@@ -39,9 +39,26 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
+
+Person.prototype.eat = function (edible){
+  if(this.stomach.length < 10){
+    this.stomach.push(edible);
+  }
+}
+
+Person.prototype.poop = function(){
+  this.stomach = [];
+}
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`;
+}
+
+const person = new Person('Oleg', 54);
 
 /*
   TASK 2
@@ -57,9 +74,31 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon){
+this.model = model;
+this.milesPerGallon = milesPerGallon;
+this.tank = 0;
+this.odometer = 0;
 }
+
+Car.prototype.fill = function(gallons){
+this.tank += gallons; 
+}
+
+
+Car.prototype.drive = function(distance){
+if (distance >= (this.tank * this.milesPerGallon)){
+  this.odometer += this.milesPerGallon*this.tank;
+  this.tank = 0;
+}
+else{
+  this.tank = this.tank - distance/this.milesPerGallon;
+  this.odometer += distance;
+}
+if (this.tank == 0){
+    return `I ran out of fuel at ${this.odometer} miles!`;
+}}
+
 
 /*
   TASK 3
@@ -68,18 +107,27 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+function Baby (name, age, favoriteToy) {
+Person.call(this, name, age);
+this.favoriteToy = favoriteToy;
+this.name = name;
+this.age = age;
+}
 
+Baby.prototype =Object.create(Person.prototype);
+
+Baby.prototype.play = function (){
+  return `Playing with ${this.favoriteToy}`;
 }
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. If a function in the global scope, the value of this will be the window object.
+  2. If a function is called by a prcending dot, this allways before that dot.
+  3. If a constractor function is used, this refers to the specific object that i created and returned by that function.
+  4. It's a Call and Apply method.
 */
 
 
