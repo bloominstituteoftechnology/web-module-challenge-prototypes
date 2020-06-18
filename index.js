@@ -90,8 +90,15 @@ Car.prototype.fill = function(gallons){
 }
 
 Car.prototype.drive = function(distance){
-  return this.odometer += distance; 
-  /// how do I calculate miles per gallon? 
+  const milesToGo = (this.tank * this.milesPerGallon);
+  
+  if(distance > milesToGo){
+    this.odometer += milesToGo;
+    this.tank = 0;} else { 
+  if(distance < milesToGo){
+
+    `I ran out of fuel at ${this.odometer} miles!`;
+    }
 }
 
 const carOne = new Car('civic', 32); 
@@ -134,12 +141,12 @@ console.log(babyOne.play());
 
   In your own words explain the four principles for the "this" keyword below:
   1. Window Binding - this is the default binding if none of the other principles apply, or you are in STRICT MODE. 
-  2. Implicit Binding - 
-  3. Explicit Binding - 
-    a. .call - 
-    b. .apply - 
-    c. .bind - 
-  4. NEW Binding - 
+  2. Implicit Binding - The most common rule (80% of cases). Where the function is invoked, we look to the left of the full stop to find the context of "this". (only applies with object methods)
+  3. Explicit Binding - Is specified by the programmers 
+    a. .call - will immediately invoke the function and pass in arguments 1 by 1 
+    b. .apply - will immediately incoke the function and pass in the arguments as an ARRAY
+    c. .bind - arguments passed in 1 by 1 - but the function is not invoked - instead it returns a new function that can be invoked later on. 
+  4. NEW Binding - Using a constructor function and the keyword NEW to create a new object "this" points to WHEN a function is invoked 
 */
 
 
