@@ -107,7 +107,7 @@ this.favoriteToy = favoriteToy
 Baby.prototype = Object.create(Person.prototype);
 
 Baby.prototype.play = function(favoriteToy){
-  return `Playing with ${favoriteToy}.`;
+  return `Playing with ${this.favoriteToy}.`;
 }
 
 const babyOne = new Baby ('Sean', 1, 'trains');
@@ -116,10 +116,10 @@ console.log(babyOne.play);
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window Binding is the default principle where 'this' only applies to the window.
+  2. Implicit Binding is the most common principle where 'this' only applies to objects with methods.
+  3. Explicit Binding uses .call, .apply, and .bind to explicitly state what 'this' refers to.
+  4. New Binding uses the 'new' keyword to construct a new object that 'this' points to. 
 */
 
 
