@@ -154,19 +154,20 @@ Baby.prototype.play = function(favoriteToy){
   return `Playing with ${favoriteToy}`
 }
 
-const babyOne = new Baby(`Jake`, 3 , `Boo-Boo Keys`);
+
+// const babyOne = new Baby(`Jake`, 3 , ``);
 
 
-console.log(`${this.name} is ${this.age} and his favorite toy is ${babyOne.favoriteToy}`);
+// console.log(babyOne.play(`Boo-Boo Keys`));
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. By itself 'this' refers to the global object
+  2. In a function it refers to the object being passed through(parameters)
+  3. Different methods can be used to refer 'this'
+  4. Has differences between strict mode and non-strict mode
 */
 
 
