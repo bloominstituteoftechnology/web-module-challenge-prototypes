@@ -79,7 +79,7 @@ console.log(p.toString());
         + should initialize with an `odometer` at 0
     - Give cars the ability to get fueled with a `.fill(gallons)` method. 
     Add the gallons to `tank`.
-    
+
     - STRETCH: Give cars ability to `.drive(distance)`. The distance driven:
         + Should cause the `odometer` to go up.
         + Should cause the the `tank` to go down taking `milesPerGallon` into account.
@@ -89,13 +89,15 @@ console.log(p.toString());
 */
 
 function Car(model,milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
   this.tank = 0;
   this.odometer = 0;
 
 }
 
 Car.prototype.fill  = function(gallons){
-  this.tank =+ gallons;
+  this.tank  = this.tank + gallons;
 }
 let car = new Car('Bishop Emmet', 122);
 car.fill(20);
@@ -106,13 +108,26 @@ car.fill(20);
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name,age,favoriteToy) {
+    Person.call(this,name,age);
+    this.favoriteToy = favoriteToy;
+}
+Baby.prototype.play = function(){
+  
+  let s = "Playing with x being the favorite toy."+this.favoriteToy ;
+  return s;
 }
 
-/* 
-  TASK 4
 
+let b = new Baby('flapper',22,'Willson Roads');
+console.log(b.play());
+
+// How do you call the person function within b?
+//poop.call(b) ;
+//b.poop();
+
+/* 
+  TASK,'ffa' 
   In your own words explain the four principles for the "this" keyword below:
   1. 
   2. 
