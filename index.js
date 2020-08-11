@@ -119,9 +119,9 @@ Baby.prototype.play = function(){
   let s = "Playing with x being the favorite toy."+this.favoriteToy ;
   return s;
 }
-let b = {};
+let bb = {name:"",age:0, favoriteToy: ""};
 
-b = new Baby('flapper',22,'Willson Roads');
+let b = new Baby('flapper',22,'Willson Roads');
 console.log(b.play());
 
 // b.prototype.call.poop();
@@ -133,10 +133,10 @@ console.log(b.play());
 /* 
   TASK,'ffa' 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. assignment - assigning an implicit value
+  2. to call objects
+  3. to call functions
+  4. to refer to private encapsulated data within a Constructor
 */
 
 
