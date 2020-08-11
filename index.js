@@ -52,7 +52,9 @@ function Person(name,age) {
 Person.prototype.eat = function(food){
   /// EETING FOOOD
   this.stomach.map(function(e){
-    e.push(food);
+    if(this.stomach.length <= 10){
+      e.push(food);
+    } 
   });
 
 
@@ -117,11 +119,13 @@ Baby.prototype.play = function(){
   let s = "Playing with x being the favorite toy."+this.favoriteToy ;
   return s;
 }
+let b = {};
 
-
-let b = new Baby('flapper',22,'Willson Roads');
+b = new Baby('flapper',22,'Willson Roads');
 console.log(b.play());
 
+// b.prototype.call.poop();
+//b.prototype.poop();
 // How do you call the person function within b?
 //poop.call(b) ;
 //b.poop();
