@@ -1,6 +1,10 @@
 # Test stuff
 unit.xml
 
+
+node_modules
+nodemodules
+
 # Logs
 logs
 *.log
