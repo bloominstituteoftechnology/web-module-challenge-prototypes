@@ -39,9 +39,39 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
+// create constructor persona
+function Person(attributes) {
+  this.name = attributes.name;
+  this.age = attributes.age;
+  this.stomach = [];
 
 }
+
+// give Person ability to eat food and poop
+// can not exceed ten items in stomach
+
+Person.prototype.eat = function (someFood) {
+  if (this.stomach.length < 10) {
+    this.stomach.push(someFood)
+  }
+}
+
+Person.prototype.poop = function () {
+  this.stomach = [];
+}
+
+Person.prototype.toString = function () {
+  return `${this.name},${this.age}`
+}
+
+const realPerson = new Person({
+  name: 'Neo',
+  age: 20,
+})
+
+console.log(realPerson.toString())
+
+
 
 /*
   TASK 2
@@ -57,10 +87,26 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(attributes) {
+  this.model = attributes.model
+  this.milesPerGallon = attributes.milesPerGallon
+  this.tank = 0
+  this.odometer = 0
+}
+
+Car.prototype.fill = function(gallons){
+   gallons = this.tank
+}
+
+Car.prototype.drive = function(distance){
+  this.odometer = distance
 
 }
 
+let bestCar = new Car ({
+  model: 'Batmobile',
+
+})
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -68,28 +114,41 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(attributes) {
+  this.name = attributes.name
+  this.age = attributes.age
+  this.favToy = attributes.favToy
 }
 
-/* 
+Baby.prototype.play = function(){
+  return `${this.name} likes to play with ${this.favToy}`
+}
+
+let bigBaby = new Baby ({
+  name: 'Gerald',
+  age: 2,
+  favToy: 'Teddy Bear'
+})
+
+console.log(bigBaby.play())
+/*
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1.
+  2.
+  3.
+  4.
 */
 
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
-if (typeof exports !== 'undefined') {
-  module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Baby) { module.exports.Baby = Baby }
-}
+// if (typeof exports !== 'undefined') {
+//   module.exports = module.exports || {}
+//   if (Airplane) { module.exports.Airplane = Airplane }
+//   if (Person) { module.exports.Person = Person }
+//   if (Car) { module.exports.Car = Car }
+//   if (Baby) { module.exports.Baby = Baby }
+// }
