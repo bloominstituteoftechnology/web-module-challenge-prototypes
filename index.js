@@ -156,7 +156,7 @@ console.log(mina.play());
   In your own words explain the four principles for the "this" keyword below:
   1. window binding/global object binding
   2. implicit binding, use cases, refers to left side of .
-  3. explicit binding, call and apply funcs
+  3. explicit binding, call and apply funcs.
   4. new binding, refers to parameter
 */
 
