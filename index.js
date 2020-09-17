@@ -139,10 +139,10 @@ console.log(babyOne.play())
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. when in global scope, the value will be the window object
+  2. when a function is called with a dot the object before dot is this
+  3. when constructor function is used this links to the object that is created and returned
+  4. call and apply explicitly defines this
 */
 
 
