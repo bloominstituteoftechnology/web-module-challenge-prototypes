@@ -53,12 +53,6 @@ There is an additional task 4 which requires written explanations and has no tes
 
 If you run into trouble while coding, fight the good fight for 20 minutes and then get on the help channel. __Remember to formulate your help request in a professional manner__ - like you would at the job - by including error messages, screenshots, and any other pertinent information about the problem, as well as what things you have attempted already while trying to solve it.
 
-### Task 2b - Exit Ticket
-
-Once you begin, you will have 15 minutes to answer the questions [here](https://app.codesignal.com/public-test/bvaz9NW52Asuc8DGZ/LK7SEZ9FcLpjgj).
-
-The completion of these questions is mandatory for MVP. However, passing the quiz doesn't affect your standing as a Lambda School student whatsoever. This is Lambda School testing itself! Please answer honestly and to the best of your ability without using external references.
-
 ### Task 3 - Stretch 
 
 There are stretch goals found throughout `index.js`. Do not start work on these until you have finished MVP. 
