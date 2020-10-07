@@ -1,5 +1,5 @@
 {
-  "name": "js-exercise-prototype",
+  "name": "prototypes-and-inheritance",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,13 +15,7 @@
     "test": "NODE_OPTIONS=--no-warnings ./node_modules/.bin/mocha ./test",
     "test:watch": "./node_modules/.bin/mocha --growl --reporter=list --watch './test'"
   },
-  "keywords": [
-    "object",
-    "array",
-    "traversal",
-    "exercises",
-    "workout"
-  ],
+  "keywords": [],
   "author": "Dan Levy",
   "license": "MIT",
   "dependencies": {
