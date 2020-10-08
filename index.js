@@ -39,9 +39,26 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
+
+Person.prototype.eat = function (someFood) {
+  if (this.stomach.length < 10) {
+    this.stomach.push(someFood);
+  }
+};
+
+Person.prototype.poop = function () {
+  this.stomach = [];
+};
+
+Person.prototype.toString = function () {
+  return `${this.age} ${this.name}`;
+};
+
 
 /*
   TASK 2
@@ -57,9 +74,19 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
+
+Car.prototype.fill = function (gallons) {
+  return (this.tank = gallons + this.tank);
+};
+
+Car.prototype.drive = function (distance) {};
+
 
 /*
   TASK 3
@@ -68,25 +95,33 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
 }
+
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function () {
+  return `Playing with ${this.favoriteToy}`;
+};
+
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Global Scope- visible throughout the program unless shadowed
+  2. Object's Method- object property containing a function definition
+  3. call() or apply() method- call(): can be used to invoke a method with an owner object as an argument.. apply(): calls a function with a given this value, and arguments provided as an array(or array-like object)
+  4. bind() method- creates a new function, when invoked, has the this sets to the provided value. It also allows an object to borrow a method from another object without making a copy of that method.
 */
 
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
-if (typeof exports !== 'undefined') {
+  if (typeof exports !== 'undefined') {
   module.exports = module.exports || {}
   if (Airplane) { module.exports.Airplane = Airplane }
   if (Person) { module.exports.Person = Person }
