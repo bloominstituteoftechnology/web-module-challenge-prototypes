@@ -115,6 +115,7 @@ let bestCar = new Car ({
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby(attributes) {
+  Person.call(attributes);
   this.name = attributes.name
   this.age = attributes.age
   this.favToy = attributes.favToy
@@ -135,10 +136,14 @@ console.log(bigBaby.play())
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
+
   1. Window binding refers to the global object when "this" is not in a function scope
+  
   2. Implicit Binding is when the "this" keyword is calling the object that is to the left of the dot
+  
   3. Explicit binding allows you to use "call" or "apply" and immediately invoke the function whereas bind
   only creates a new function and must be invoked later
+  
   4. New binding lets you apply a new function name to an already existing one
 */
 
