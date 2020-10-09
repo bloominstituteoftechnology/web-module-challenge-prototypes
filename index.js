@@ -53,6 +53,9 @@ Person.prototype.eat = function (someFood) {
 Person.prototype.poop = function () {
   this.stomach = [];
 };
+Person.prototype.toString = function () {
+  return `${this.name}, ${this.age}`;
+};
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -90,6 +93,11 @@ function Baby(name, age, favoriteToy) {
   Person.call(this, name, age);
   this.favoriteToy = favoriteToy;
 }
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function () {
+  return `Playing with ${this.favoriteToy}`;
+};
 
 /* 
   TASK 4
