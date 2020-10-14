@@ -96,6 +96,7 @@ function Baby(name, age, favoriteToy) {
   Person.call(this, name, age,)
   this.favoriteToy = favoriteToy;
 }
+Baby.prototype = Object.create(Person.prototype);
 Baby.prototype.play = function() {
   return `Playing with ${this.favoriteToy}`
 }
@@ -104,10 +105,10 @@ Baby.prototype.play = function() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. In global scope the "this" keyword will refer to the window in the browser or the object in the global/console in node
+  2. In implicit binding the "this" keyword will refer to whatever gets passed into the function
+  3. In new binding the "this" keyword will refer the the object that it is created in and returned ny the constructor function
+  4. In explicit binding the "this" keyword will refer to whatever function you explicitly use them with.
 */
 
 
