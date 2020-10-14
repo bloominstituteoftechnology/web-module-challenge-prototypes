@@ -112,8 +112,8 @@ Baby.prototype.play = function () {
   In your own words explain the four principles for the "this" keyword below:
   1. whenever the function is contained inside the global scope the 'this' keyword will be the "window object"
   2. to accass and object within the window the function needs to have a dot after the 'this' keyword and an object that you want to access after that dot
-  3. 
-  4. 
+  3. whenever the contructor function is used 'this' refers to a specific instance of the object
+  4. whenever you use 'call' or 'apply' , 'this' is explicitily defined
 */
 
 
