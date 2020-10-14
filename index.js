@@ -106,10 +106,10 @@ Baby.prototype.play = function(){
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Default binding: In javascript, the "this" keyword references the window object by default (when we don't give the keyword any context).
+  2. Implicit binding: Implicit binding is when we essentially "dot into" an object. The keyword will be referencing whichever object is stated to the left of the dot.
+  3. Explicit binding: Explicit binding is when we give the function a specific object to reference with .call or .apply methods.
+  4. New binding: The "new" keyword creates a separate object with the same properties and methods.
 */
 
 
