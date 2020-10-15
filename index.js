@@ -106,10 +106,17 @@ Car.prototype.fill = function(gallons) {
   this.tank = this.tank += gallons;
 }
 
+Car.prototype.drive = function(distance) {
+  this.odometer = this.odometer += distance;
+  this.tank = this.tank - Math.floor((distance/this.milesPerGallon));
+}
+
 const prius = new Car("prius", 60);
 console.log(prius);
 prius.fill(50);
 console.log(prius);
+prius.drive(30);
+console.log(prius)
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -117,24 +124,26 @@ console.log(prius);
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby(name,age,favoriteToy) {
-Person.call(this, name, age);
-this.favoriteToy = favoriteToy;
-
-Baby.prototype = Object.create(Person.prototype)
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
+}
+Baby.prototype = Object.create(Person.prototype);
 Baby.prototype.play = function() {
-  return `Playing with ${favoriteToy}`;
-}
+  return `${this.name} is playing with ${this.favoriteToy}`
 }
 
+let Maya = new Baby("Maya", 4, "Rattle")
+console.log(Maya);
+console.log(Maya.play());
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window is the global object
+  2. Implicit applies to object with methods, using dot notation
+  3. Explicit invokes the function explicitly =.call .apply
+  4. New Binding- using the new keyword
 */
 
 
