@@ -1,10 +1,12 @@
-/*
-  EXAMPLE TASK:
-    - Write an Airplane constructor that initializes `name` from an argument.
-    - All airplanes built with Airplane should initialize with an `isFlying` of false.
-    - Give airplanes the ability to `.takeOff()` and `.land()`:
-        + If a plane takes off, its `isFlying` property is set to true.
-        + If a plane lands, its `isFlying` property is set to false.
+/*This example shows how to go about completing these tasks
+
+  EXAMPLE TASK
+    Use the Airplane constructor below to do the following:
+      1. Initialize `name` from an argument
+      2. Initialize `isFlying` with a value of false
+      3. Give the airplanes constructed the ability to `.takeOff()` and `.land()`
+          -If a plane takes off, its `isFlying` property is set to true.
+          -If a plane lands, its `isFlying` property is set to false.
 */
 
 // EXAMPLE SOLUTION CODE:
@@ -12,10 +14,10 @@ function Airplane(name) {
   this.name = name;
   this.isFlying = false;
 }
-Airplane.prototype.takeOff = function () {
+Airplane.prototype.takeOff = function() {
   this.isFlying = true;
 };
-Airplane.prototype.land = function () {
+Airplane.prototype.land = function() {
   this.isFlying = false;
 };
 
@@ -27,16 +29,19 @@ Airplane.prototype.land = function () {
 */
 
 /*
-  TASK 1
-    - Write a Person Constructor that initializes `name` and `age` from arguments.
-    - All instances of Person should initialize with an empty `stomach` array.
-    - Give instances of Person the ability to `.eat("someFood")`:
-        + When eating an edible, it should be pushed into the `stomach`.
-        + The `eat` method should have no effect if there are 10 items in the `stomach`.
-    - Give instances of Person the ability to `.poop()`:
-        + When an instance poops, its `stomach` should empty.
-    - Give instances of Person a method `.toString()`:
-        + It should return a string with `name` and `age`. Example: "Mary, 50"
+  TASK 1 - People got to eat and poop!
+
+  Use the Person constructor below to do the following:
+      1. Initialize `name` and `age` from arguments
+      2. All instances of Person should initialize with an empty `stomach` array
+      3. Give instances of Person the ability to `.eat("someFood")`
+          - When a person eats, the food received should be pushed into their `stomach` array
+          - The `eat` method should have no effect if there are 10 items in the `stomach`
+      4. Give instances of Person the ability to `.poop()`
+          - When an instance poops, its `stomach` should empty
+      5. Give instances of Person a method `.toString()`
+          - When toString is invoked, it should return a string with `name` and `age` of that instance
+          -For example: when toString is invoked, it could return: "Mary, 50"
 */
 
 function Person() {
@@ -44,17 +49,25 @@ function Person() {
 }
 
 /*
-  TASK 2
-    - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
-    - All instances built with Car:
-        + should initialize with an `tank` at 0
-        + should initialize with an `odometer` at 0
-    - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
-    - STRETCH: Give cars ability to `.drive(distance)`. The distance driven:
-        + Should cause the `odometer` to go up.
-        + Should cause the the `tank` to go down taking `milesPerGallon` into account.
-    - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
-        + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
+  TASK 2 - Cars got to drive!
+
+  Use the Car constructor below to do the following:
+      1. Initialize `model` and `milesPerGallon` from arguments
+      2. All instances built with Car should
+          - initialize with an `tank` set at 0
+          - initialize with an `odometer` set at 0
+      3. Give cars the ability to fuel up with `.fill(gallons)`
+          - when `.fill()` is invoked, add the `gallons` received to the `tank`
+     
+  STRETCH GOALS: 
+      1. Give cars the ability to `.drive(distance)` 
+          - when invoked, the `odometer` should go up by the `distance` driven
+          - when invoked, the `tank` should go down depending on the `milesPerGallon` value
+      2. If a car's `tank` becomes empty while driving, the `drive` method should return the
+         following string:
+          
+         "I ran out of fuel at x miles!" 
+         (x being the `odometer` value when the fuel ran out)
 */
 
 function Car() {
@@ -62,18 +75,23 @@ function Car() {
 }
 
 /*
-  TASK 3
-    - Write a Baby constructor subclassing Person.
-    - Besides `name` and `age`, Baby takes a third argument to initialize `favoriteToy`.
-    - Besides the methods on Person.prototype, babies have the ability to `.play()`:
-        + Should return a string "Playing with x", x being the favorite toy.
+  TASK 3 - Baby must play!
+
+  Use the Baby constructor below to do the following:
+      1. Make `Baby` a constructor subclassing `Person` from Task 1
+      2. Besides `name` and `age`, `Baby` takes a third argument to initialize `favoriteToy`
+      3. Besides the methods on Person.prototype, `Baby` should have the ability to `.play()`
+          - when invoked, `play()` should return the following string:
+          
+          "Playing with x"
+          (x being the favorite toy)
 */
 function Baby() {
 
 }
 
 /* 
-  TASK 4
+  TASK 4 - Let's talk about `this`
 
   In your own words explain the four principles for the "this" keyword below:
   1. 

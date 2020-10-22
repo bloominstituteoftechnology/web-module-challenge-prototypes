@@ -15,33 +15,17 @@ In order to complete these tasks you will need your newly aquired knowledge of c
 
 ### Task 1 - Set up Project
 
-Two options are included below.
-
 <details>
-  <summary>1. Using Code Sandbox</summary>
-
-  * Launch the sandbox using the link below.
-  * Sign into Code Sandbox.
-  * Fork the sandbox.
-  * See your tests running on the "Browser" tab (NOT the "Tests" tab).
-  * The way you'll submit your work will be by pasting a link to your fork into the submission form.
-
-  [LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=browser)
-
-  <img alt='instructions Code Sandbox' src='./instructionsCodeSandbox.png'>
-</details>
-
-<details>
-  <summary>2. Using VSCode and the Command Line</summary>
+  <summary>Using VSCode and the Command Line</summary>
 
   1. Fork repo
-  1. Clone _your_ fork (not Lambda's repo by mistake!).
-  1. `cd` into your newly cloned repository.
-  1. Create a new branch by typing `git checkout -b <firstName-lastName>`.
-  1. Install dependencies by typing `npm install`.
-  1. Run tests by typing `npm run test:watch`.
-  1. Work on your branch, push commits and create PR as usual.
-  1. Make sure to commit often!!
+  2. Clone _your_ fork (not Lambda's repo by mistake!).
+  3. `cd` into your newly cloned repository.
+  4. Create a new branch by typing `git checkout -b <firstName-lastName>`.
+  5. Install dependencies by typing `npm install`.
+  6. Run tests by typing `npm run test:watch`.
+  7. Work on your branch, push commits and create PR as usual.
+  8. Make sure to commit often!!
 
   <img alt='instructions VSCode' src='./instructionsVScode.png'>
 </details>
