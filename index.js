@@ -96,17 +96,28 @@ Car.prototype.fill = function(gallons) {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby() {
+  this.name = name;
+  this.age = age;
+  this.favoriteToy = favoriteToy;
+}
+
+Baby.prototype = Object.create( Person.prototype );
+
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`;
+
 
 }
+
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. If you log (log(this)) in the global space it will retreive all the data from the browser window. This is referred to as "Window/Global Object Binding"
+  2. When you call a function with a "this" followed by a dot (this.exmaple) the object to the left of the dot is "this". This is referred to as "Implicit Binding".
+  3. You can call a specific instance in your binded object by using "this" followed by the name of the instance.  
+  4. Explicit Binding is a way to call a function with user specified arguments
 */
 
 
