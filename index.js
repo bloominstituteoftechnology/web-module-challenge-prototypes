@@ -118,10 +118,10 @@ Baby.prototype = Object.create(Person.prototype);
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window Binding: .this can target the window or the console. 
+  2. Implicit Binding: used when inside of a function thats inside of an object
+  3. New Binding: used when a constructor function is in action.  
+  4. Explicit Binding: I'm not even sure how this works.
 */
 
 
