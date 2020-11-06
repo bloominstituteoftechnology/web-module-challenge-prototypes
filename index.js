@@ -111,18 +111,30 @@ Car.prototype.fill = function(gallons) {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(attrs) {
+  Person.call(this, attrs);
+  this.favoriteToy = attrs.favoriteToy;
 }
+Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}`;
+}
+
+// let john = new Baby({
+//   name: "John",
+//   age: 3,
+//   favoriteToy: "Fidget Spinner"
+// });
+
+// console.log(john.play());
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Global binding with the "this" keyword binds "this" to the global scope. A globally binded "this" will be refering to the global scopes object keys.
+  2. Implicit binding with the "this" keyword gets "this" to imply you're refering to the object it's in.
+  3. New binding with "this" gets "this" to imply its value is the most recent "new" assignment of the object/function the "this" keyword is in.
+  4. Explicit binding is when you assign an already-declared new bound variable to another already-declared new bound variable with the "call" or "apply" methods.
 */
 
 
