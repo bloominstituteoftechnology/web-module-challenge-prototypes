@@ -103,9 +103,9 @@ function Car(model, milesPerGallon) {
 function Baby(name, age, favoriteToy) {
   this.favoriteToy = favoriteToy;
 
-  Person.call(this, name, age);
+  Person.call(this, name, age, favoriteToy);
 
-  Baby.prototype.play = function (favoriteToy) {
+  Baby.prototype.play = function () {
     return `Playing with ${favoriteToy}`
   }
 
