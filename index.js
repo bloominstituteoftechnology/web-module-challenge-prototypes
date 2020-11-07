@@ -127,10 +127,10 @@ Baby.prototype.play = function ()
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Implicit binding: This occurs when dot notation is used to invoke a function. 
+  2. Explicit binding: This sort of binding only occurs when .call(), .apply(), or .bind() are used in a function.
+  3. New binding: The new binding is used to create an object from a constructor function
+  4. Global Binding: In the global scope, the 'this' keyword will be a window / console object. 
 */
 
 
