@@ -15,25 +15,6 @@ In order to complete these tasks you will need your newly aquired knowledge of c
 
 ### Task 1 - Set up Project
 
-Two options are included below.
-
-<details>
-  <summary>1. Using Code Sandbox</summary>
-
-  * Launch the sandbox using the link below.
-  * Sign into Code Sandbox.
-  * Fork the sandbox.
-  * See your tests running on the "Browser" tab (NOT the "Tests" tab).
-  * The way you'll submit your work will be by pasting a link to your fork into the submission form.
-
-  [LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype?previewwindow=browser)
-
-  <img alt='instructions Code Sandbox' src='./instructionsCodeSandbox.png'>
-</details>
-
-<details>
-  <summary>2. Using VSCode and the Command Line</summary>
-
   1. Fork repo
   1. Clone _your_ fork (not Lambda's repo by mistake!).
   1. `cd` into your newly cloned repository.
@@ -44,7 +25,7 @@ Two options are included below.
   1. Make sure to commit often!!
 
   <img alt='instructions VSCode' src='./instructionsVScode.png'>
-</details>
+
 
 ### Task 2a - MVP
 
@@ -61,4 +42,4 @@ There are stretch goals found throughout `index.js`. Do not start work on these 
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
+see Canvas
