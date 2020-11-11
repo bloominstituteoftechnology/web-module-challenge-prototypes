@@ -117,13 +117,7 @@ Baby.prototype.play = function(){
     return `Playing with ${this.favoriteToy}`
 }
 
-//   this.name = person.name;
-//   this.age = person.age;
-//   this.favoriteToy = person.favoriteTo
-// Baby.prototype.play = function(toy){
-//   console.log(`Playing with ${toy}`)
-// }
-// const newBaby = new Baby('Kyla', 1, ``);
+
 /* 
   TASK 4
 
