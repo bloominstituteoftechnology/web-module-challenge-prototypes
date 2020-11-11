@@ -119,7 +119,7 @@ Baby.prototype.play = function(){
 
 
 /* 
-  TASK 4
+  TASK 4- done
 
   In your own words explain the four principles for the "this" keyword below:
   1. In an object method, this refers to the "owner" of the method.
