@@ -7,6 +7,8 @@
         + If a plane lands, its `isFlying` property is set to false.
 */
 
+const { prototype } = require("mocha");
+
 // EXAMPLE SOLUTION CODE:
 function Airplane(name) {
   this.name = name;
@@ -39,17 +41,33 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+  this.age = age;
+  this.name = name;
+  this.stomach = [];
 }
+
+  Person.prototype.eat = function(someFood){
+    if (this.stomach.length < 10){
+    this.stomach.push(someFood);
+    }
+  }
+  Person.prototype.poop = function(){
+    this.stomach = [];
+  }
+  Person.prototype.toString = function(){
+   return `${this.name}, ${this.age}`
+  }
+
 
 /*
   TASK 2
-    - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
+    X- Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
     - All instances built with Car:
         + should initialize with an `tank` at 0
         + should initialize with an `odometer` at 0
     - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
+    
     - STRETCH: Give cars ability to `.drive(distance)`. The distance driven:
         + Should cause the `odometer` to go up.
         + Should cause the the `tank` to go down taking `milesPerGallon` into account.
@@ -57,9 +75,17 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon
+    this.tank = 0
+    this.odometer = 0
 }
+
+Car.prototype.fill = function(gallon){
+    this.tank += gallon
+}; 
+
 
 /*
   TASK 3
@@ -68,9 +94,20 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+function Baby(name, age, favoriteToy) {
+  this.name = name
+  this.age = age
+  this.favoriteToy = favoriteToy
+  }
+  Baby.prototype = Object.create (Person.call)
 
-}
+  Baby.prototype.play = function(favoriteToy){ 
+  // this.favoriteToy
+  return `Playing with ${this.favoriteToy}`
+  }
+
+
+
 
 /* 
   TASK 4
