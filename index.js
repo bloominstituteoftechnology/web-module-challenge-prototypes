@@ -39,10 +39,39 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age){
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
 
+Person.prototype.eat = function(edible){
+  if(this.stomach.length < 10){
+    this.stomach.push(edible);
+  }
+}
+
+Person.prototype.poop = function(){
+  this.stomach = [];
+}
+
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`;
+}
+
+const personOne = new Person('Tim', 29);
+
+console.log(personOne.toString());
+
+personOne.eat('pizza');
+personOne.eat('taco');
+personOne.eat('hamburger');
+
+console.log(personOne.stomach);
+
+personOne.poop();
+
+console.log(personOne.stomach);
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -57,9 +86,19 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
+Car.prototype.fill = function(gallons){
+  return this.tank  += gallons
+  }
+
+const carOne = new Car('Tesla', 360);
+
+carOne.fill(78)
 
 /*
   TASK 3
@@ -68,16 +107,29 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
+}
+Baby.prototype = Object.create(Person.prototype);
 
+Baby.prototype.play = function(){
+    return `Playing with ${this.favoriteToy}`
 }
 
+//   this.name = person.name;
+//   this.age = person.age;
+//   this.favoriteToy = person.favoriteTo
+// Baby.prototype.play = function(toy){
+//   console.log(`Playing with ${toy}`)
+// }
+// const newBaby = new Baby('Kyla', 1, ``);
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
+  1. In an object method, this refers to the "owner" of the method.
+  2. when used alone, this also refers to the Global objec
   3. 
   4. 
 */

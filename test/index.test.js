@@ -148,6 +148,7 @@ describe('Instances of Baby', () => {
     expect(baby.__proto__.play).to.be.not.undefined;
   })
   it('can play with favorite toy', () => {
+    // console.log(baby)
     expect(baby.play()).to.include('trains')
   })
   it('inherit the methods on Person.prototype', () => {
