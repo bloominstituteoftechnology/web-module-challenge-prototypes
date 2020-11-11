@@ -76,8 +76,8 @@ function Baby() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
+  1. Window/Global Object Binding: when global the value of 'this' is the window object
+  2. Implicit Binding: 
   3. 
   4. 
 */
