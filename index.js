@@ -123,9 +123,9 @@ Baby.prototype.play = function(){
 
   In your own words explain the four principles for the "this" keyword below:
   1. In an object method, this refers to the "owner" of the method.
-  2. when used alone, this also refers to the Global objec
-  3. 
-  4. 
+  2. When used alone, this also refers to the Global object.
+  3. In a function, in strict mode, this is undefined
+  4. In an event, this refers to the element that received the event.
 */
 
 
