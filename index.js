@@ -1,5 +1,5 @@
 /*
-  EXAMPLE TASK:
+  EXAMPLE TASK: //test
     - Write an Airplane constructor that initializes `name` from an argument.
     - All airplanes built with Airplane should initialize with an `isFlying` of false.
     - Give airplanes the ability to `.takeOff()` and `.land()`:
