@@ -39,9 +39,42 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age){
+  this.name = name;
+  this.age =age;
+  this.stomach = [];
 }
+
+Person.prototype.eat = function(edible){
+  if(this.stomach.length < 10){
+    this.stomach.push(edible);
+  }
+}
+
+Person.prototype.poop = function(){
+  this.stomach = [];
+}
+
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`;
+}
+const personOne = new Person('Conner', 27);
+const personTwo = new Person('Casey', 30);
+const personThree = new Person('Melissa', 65);
+
+console.log(personOne.toString());
+console.log(personTwo.toString());
+console.log(personThree.toString());
+
+personOne.eat('taco');
+personOne.eat('pizza');
+personOne.eat('shusi');
+
+console.log(personOne.stomach);
+
+personOne.poop();
+
+console.log(personOne.stomach);
 
 /*
   TASK 2
@@ -57,8 +90,15 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+}
 
+Car.prototype.fill = function(gallons){
+    this.tank = gallons + this.tank
 }
 
 /*
@@ -68,18 +108,28 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, inherit) {
+  Person.call(this, inherit);
+  this.name = "Lucy";
+  this.age = 5;
+  this.favoriteToy = "trains";
 }
+
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play= function(){
+  console.log(`Playing with ${this.favoriteToy}`);
+}
+
+
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. .this in Widnow binding should not be used, will call for global object if "strict" is not on
+  2. Implicit Binding simply calls for the object to the left of .this within methods
+  3. Explicit Binding uses the methods of .call, .apply, or binding to call a function later
+  4. New Binding takes a new object and passes the info on 
 */
 
 
