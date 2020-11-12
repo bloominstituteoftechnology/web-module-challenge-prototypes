@@ -55,20 +55,20 @@ Person.prototype.poop = function(){
 Person.prototype.toString = function(){
   return`${this.name},${this.age}`;
 }
-const personOne = new Person("Jake from StateFarm", 20);
-const personTwo = new Person("A Aron", 29);
-const personThree = new Person("Blake",24);
+// const personOne = new Person("Jake from StateFarm", 20);
+// const personTwo = new Person("A Aron", 29);
+// const personThree = new Person("Blake",24);
 
-console.log(personOne.toString());
-console.log(personTwo.toString());
-console.log(personThree.toString());
+// console.log(personOne.toString());
+// console.log(personTwo.toString());
+// console.log(personThree.toString());
 
-personOne.eat("Tacos");
-personTwo.eat("Pizza");
-personThree.eat("Sushi");
+// personOne.eat("Tacos");
+// personTwo.eat("Pizza");
+// personThree.eat("Sushi");
 
-personOne.poop();
-console.log(personOne.stomach);
+// personOne.poop();
+// console.log(personOne.stomach);
 
 
 /*
@@ -88,14 +88,22 @@ console.log(personOne.stomach);
 function Car(model, milesPerGallon) {
   this.model = model;
   this.milesPerGallon = milesPerGallon;
-  this.tank.apply = [0];
-  this.odometer = [0];
+  this.tank = 0;
+  this.odometer = 0;
 }
+
 Car.prototype.fill = function(gallons){
-  if(this.tank.length < 20){
-    this.tank.push(gallons);
-  }
+  this.tank =+ gallons;
 }
+
+
+
+// do not know why this part does not work compared to line95
+// Car.prototype.fill = function(gallons){
+//   if(this.tank.length < []){
+//     this.tank.push(gallons);
+//   }
+// }
 
 /*
   TASK 3
@@ -105,26 +113,54 @@ Car.prototype.fill = function(gallons){
         + Should return a string "Playing with x", x being the favorite toy.
 */
 
+// Baby constructor - check
+// arg of name,age,favoriteToy - check
+// person.prototype - check
+// baby ability to .play - check
+// return string - check
 
-
-
-
-
-function Baby(name, age, favoriteToy) {
-  this.name = name,
-  this.age = age,
+function Baby(name, age, favoriteToy){
+  Person.call(this, name, age)
   this.favoriteToy = favoriteToy;
 }
-Baby.prototype.play = function(){
-  console.log(`${this.name} is ${this.age} years old and loves playing with ${this.favoriteToy}.`)
-}
-const daBabyRapper = new Baby({
+Baby.prototype = Object.create(Person.prototype);
+
+const daBabyRapper = new Person({ 
   name:"50 Cent",
   age:"2 and a half",
   favoriteToy:"money",
-});
-daBabyRapper.play();
+});// what do i need to do to get daBabyRapper to work?? not nessassary to invoke
 
+Baby.prototype.play = function(){
+ return `Playing with ${this.favoriteToy}`
+}
+
+//Baby.prototype = function(){
+//  console.log(`Playing with ${this.favoriteToy}.`); // the ${} may not be this.favoriteToy
+//};
+
+// tabbing this out b/c i think its now the best use case for this task:
+
+// this has to be for the baby constructor:
+// Baby.prototype.play = function(){
+//   console.log(`Playing with ${this.favoriteToy}.`);
+// }
+
+// this code did not have the person.prototype method to inherit// person first //
+// function Baby(name, age, favoriteToy) {
+//   this.name = name,
+//   this.age = age,
+//   this.favoriteToy = favoriteToy;
+// }
+// Baby.prototype.play = function(){
+//   console.log(`${this.name} is ${this.age} years old and loves playing with ${this.favoriteToy}.`)
+// }
+// const daBabyRapper = new Baby({
+//   name:"50 Cent",
+//   age:"2 and a half",
+//   favoriteToy:"money",
+// });
+// daBabyRapper.play();
 
 /// this .bind could only pass in two arg as placeholder values
 // const daBabyRapper = new Person("50 Cent", "unknown", "money");
