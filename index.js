@@ -127,7 +127,7 @@ const personTwo = new Baby({
   1. Implicit binding is the most common use case of the 'this' keyword, it takes the function left of the dot as it's refrence point. I used 'this' this way on line 114 it's great for finding specific code. 
 
   2. New binding is when 'this' is used to refer a specific item in constructor functions. I used this quite a bit in the problems proposed to me, it's extremley usful for creating new objects. 
-  
+
   3. Explicit binding is whenever I used .call, .apply is also considered explicit binding but I did not end up using it in my code. This one I'm a little fuzzy on but .call can be used to link certain parent attribues after .prototype and object.create are in play.
 
   4. Window object binding is the principle that if 'this' is not preceded by a . or in laymans terms if this is not specifying anything in particular it will refrence the global window object. I would'nt know of a case to utilize this except for when you do want to reference the whole page so it's best to stay away from usinig 'this' that way.
@@ -135,7 +135,7 @@ const personTwo = new Baby({
 
 
 ///////// END OF CHALLENGE /////////
-///////// END OF CHALLENGE /////////
+///////// END OF CHALLENGE //////////
 ///////// END OF CHALLENGE /////////
 if (typeof exports !== 'undefined') {
   module.exports = module.exports || {}
