@@ -39,7 +39,7 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person(name,age) {
+function Person(name,age){
   this.name = name;
   this.age = age;
   this.stomach = [];
@@ -68,7 +68,7 @@ personTwo.eat("Pizza");
 personThree.eat("Sushi");
 
 personOne.poop();
-console.log(personOne.stomach)
+console.log(personOne.stomach);
 
 
 /*
@@ -85,8 +85,16 @@ console.log(personOne.stomach)
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank.apply = [0];
+  this.odometer = [0];
+}
+Car.prototype.fill = function(gallons){
+  if(this.tank.length < 20){
+    this.tank.push(gallons);
+  }
 }
 
 /*
@@ -96,18 +104,44 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
 
+
+
+
+
+
+function Baby(name, age, favoriteToy) {
+  this.name = name,
+  this.age = age,
+  this.favoriteToy = favoriteToy;
 }
+Baby.prototype.play = function(){
+  console.log(`${this.name} is ${this.age} years old and loves playing with ${this.favoriteToy}.`)
+}
+const daBabyRapper = new Baby({
+  name:"50 Cent",
+  age:"2 and a half",
+  favoriteToy:"money",
+});
+daBabyRapper.play();
+
+
+/// this .bind could only pass in two arg as placeholder values
+// const daBabyRapper = new Person("50 Cent", "unknown", "money");
+// daBabyRapper.play();
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+
+  1. Window/Global Object Binding: 'this' defaults to the window/global scope when all other binding rules are not used,   
+
+  2. Implicit Binding:
+
+  3. New Binding:
+
+  4. Explicit Binding: 
 */
 
 
