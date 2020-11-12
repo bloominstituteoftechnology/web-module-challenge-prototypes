@@ -12,9 +12,18 @@ function Airplane(name) {
   this.name = name;
   this.isFlying = false;
 }
+//Constructor can be used as many times as you need it 
+// const boeing747 = Airplane("Boeing 747") returns { name: "Boeing 747", isFlying: false }
+// console.log(boeing747) -- logs the following -- { name: "Boeing 747", isFlying: false }
+
 Airplane.prototype.takeOff = function () {
   this.isFlying = true;
 };
+
+// boeing747.takeOff() --> { name: "Boeing747", isFlying: true}
+
+
+
 Airplane.prototype.land = function () {
   this.isFlying = false;
 };
@@ -28,19 +37,74 @@ Airplane.prototype.land = function () {
 
 /*
   TASK 1
-    - Write a Person Constructor that initializes `name` and `age` from arguments.
+    - Write a Person Constructor that initializes `name` and `age` from arguments. 
+    
+    //person constructor = 
+    
+    function Person(object) {
+      this.name = object.name
+      this.age = object.age
+    }
+
+
+
+
+
     - All instances of Person should initialize with an empty `stomach` array.
+
+    //  //person constructor = 
+    
+    function Person(object) {
+      this.name = object.name
+      this.age = object.age
+      this.stomach = [] //.this attaches "name" "age" and "stomach" to the context "Person"
+    }
+
     - Give instances of Person the ability to `.eat("someFood")`:
         + When eating an edible, it should be pushed into the `stomach`.
         + The `eat` method should have no effect if there are 10 items in the `stomach`.
-    - Give instances of Person the ability to `.poop()`:
+
+    Person.prototype.eat = function (someFood) {   //Person needs to be capitalized because it is a constructor function  //think of it as Person.eat(banana)
+      if (this.stomach.length < 10) {    //properties do not need parenthses (like .length), methods do (like .push(someFood))
+        this.stomach.push(someFood)
+      }
+    };
+    - Give instances of Person the ability to `.poop()`:  //adding information to a function will require parameters (like in Person.prototype.eat = function(someFood)), whilst simply manipulating information or removing information will not require parameters (like in Person.prototype.poop))
         + When an instance poops, its `stomach` should empty.
+
+    Person.prototype.poop = function () {
+      this.stomach = []
+    }
+
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
+
+
+      Person.prototype.toString = function () {
+        // there can only be one return in a function - anything below your return will not be executed
+        return `${this.name}, ${this.age}`
+      }
 */
 
-function Person() {
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [] //.this attaches "name" "age" and "stomach" to the context "Person"
+}
+  
+Person.prototype.eat = function (someFood) {   //Person needs to be capitalized because it is a constructor function  //think of it as Person.eat(banana)
+  if (this.stomach.length < 10) {    //properties do not need parenthses (like .length), methods do (like .push(someFood))
+    this.stomach.push(someFood)
+  }
+};
 
+Person.prototype.poop = function () {
+  this.stomach = []
+}
+
+Person.prototype.toString = function () {
+  return `${this.name}, ${this.age}`// there can only be one return in a function - anything below your return will not be executed
+  
 }
 
 /*
@@ -57,13 +121,28 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
+
+Car.prototype.fill = function(gallons) {
+  return this.tank = this.tank + gallons
+}
+
+Car.prototype.drive = function(distance) {
+  let odo = this.odometer = this.odometer + distance
+  let tan = this.tank = this.tank - milesPerGallon
+  // // if (this.tank = 0) {
+  //   return `I ran out of fuel at ${this.odometer} miles!`
+  // // }
+  
 
 /*
   TASK 3
-    - Write a Baby constructor subclassing Person.
+    - Write a Baby constructor subclassing Person. //baby.extends(Person)
     - Besides `name` and `age`, Baby takes a third argument to initialize `favoriteToy`.
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
