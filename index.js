@@ -173,11 +173,11 @@ Baby.prototype.play = function(){
 
   1. Window/Global Object Binding: 'this' defaults to the window/global scope when all other binding rules are not used,   
 
-  2. Implicit Binding:
+  2. Implicit Binding: when invoking the function, looking to the left of the period 'this' is what it is referring to 
 
-  3. New Binding:
+  3. New Binding: 'this' points to it when constructing a function using the 'new' keyword for an object
 
-  4. Explicit Binding: 
+  4. Explicit Binding: we tell JS exactly what to do with 'this' should refer to
 */
 
 
