@@ -84,16 +84,20 @@ function Car(model, milesPerGallon) {
 Car.prototype.fill = function(gallon){
     this.tank += gallon    
 }; 
-Car.prototype.drive = function(distance, gallons){
-    if (this.odometer += distance){
-      return this.tank - (gallons/this.milesPerGallon)
-    } 
-    if (this.tank === 0){
-    console.log(`I ran out of fuel at ${this.odometer} miles!`)
-    return (`I ran out of fuel at ${this.odometer} miles!`)
-    }
+Car.prototype.drive = function(distance){
+  const maxMiles = this.milesPerGallon * this.tank
+  this.odometer += distance
+  
+  if (distance > maxMiles){
+  return `I ran out of fuel at ${maxMiles} miles!`
+  } else {
+    return `We travelled ${distance} miles.`
+  }
 };
-   
+const sedan = new Car('Toyota', 20);
+sedan.fill(10);
+sedan.drive(210)
+sedan;
 
 
 /*
