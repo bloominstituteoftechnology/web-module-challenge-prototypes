@@ -5,6 +5,7 @@
 ## Objectives
 
 - explain the four principles of the 'this' keyword and demonstrate each explanation with an example of their uses
+
 - describe, and use prototypes, constructor functions the new keyword, and pseudo-classical inheritance to build objects
 
 ## Introduction

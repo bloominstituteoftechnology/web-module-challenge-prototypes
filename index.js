@@ -39,9 +39,30 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age){
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
+
+Person.prototype.eat = function(edible){
+  if(this.stomach.length < 10){
+    this.stomach.push(edible);
+  }
+}
+
+Person.prototype.poop = function(){
+  this.stomach = [];
+}
+
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`;
+}
+
+const personOne = new Person({
+  name:"Nathan",
+  age:20
+})
 
 /*
   TASK 2
@@ -57,9 +78,22 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
+
+Car.prototype.fill = function(gallons){
+  this.tank += gallons;
+}
+
+const carOne = new Car('Tesla', 20);
+
+carOne.fill(20)
+
+
 
 /*
   TASK 3
@@ -68,18 +102,35 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name,age,favoriteToy);
+  this.favoriteToy = favoriteToy;
+    
+};
 
+Baby.prototype = Object.create(Person.prototype)
+
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`
 }
+
+const personTwo = new Baby({
+  name: 'Jon',
+  age: 4,
+  favoriteToy:"truck"
+});
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Implicit binding is the most common use case of the 'this' keyword, it takes the function left of the dot as it's refrence point. I used 'this' this way on line 114 it's great for finding specific code. 
+
+  2. New binding is when 'this' is used to refer a specific item in constructor functions. I used this quite a bit in the problems proposed to me, it's extremley usful for creating new objects. 
+  
+  3. Explicit binding is whenever I used .call, .apply is also considered explicit binding but I did not end up using it in my code. This one I'm a little fuzzy on but .call can be used to link certain parent attribues after .prototype and object.create are in play.
+
+  4. Window object binding is the principle that if 'this' is not preceded by a . or in laymans terms if this is not specifying anything in particular it will refrence the global window object. I would'nt know of a case to utilize this except for when you do want to reference the whole page so it's best to stay away from usinig 'this' that way.
 */
 
 
