@@ -27,7 +27,7 @@ In order to complete these tasks you will need your newly aquired knowledge of c
   <img alt='instructions VSCode' src='./instructionsVScode.png'>
 
 
-### Task 2a - MVP
+### Task 2 - MVP
 
 Find the file `index.js` and complete tasks 1, 2 and 3 until all of your tests pass.
 There is an additional task 4 which requires written explanations and has no tests.
@@ -40,6 +40,4 @@ There are stretch goals found throughout `index.js`. Do not start work on these 
 
 ## Submission format
 
-Follow these steps for completing your project.
-
-see Canvas
+Please see canvas for cohort specific submission instructions
