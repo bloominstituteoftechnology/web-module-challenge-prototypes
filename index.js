@@ -130,10 +130,10 @@ let newBaby = new Baby('Bill', 4, 'Doll');
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. When 'this' is used in the global scope, the value of 'this' will be the window.
+    2. When 'this' is used with a preceding dot, the object before the dot is 'this'.
+    3. When 'this' is used within a constructor function, 'this' refers to the specific instance of the object that is created and returned by the function.
+    4. When 'this' is used with the call or apply method, 'this' is explicitly defined.
   */
   
   
