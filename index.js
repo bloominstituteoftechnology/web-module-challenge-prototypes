@@ -38,10 +38,25 @@ function Airplane(name) {
       - Give instances of Person a method `.toString()`:
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
+
   
- function Person() {
-    
-  }
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+};
+Person.prototype.eat = function (someFood) {
+  if (this.stomach.length < 10) {
+    this.stomach.push(someFood);
+  }; 
+};
+Person.prototype.poop = function() {
+  this.stomach = [];
+};
+Person.prototype.toString = function() {
+  return this.name + ', ' + this.age;
+};
  
  
 
@@ -62,12 +77,34 @@ function Airplane(name) {
       - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
-  
- function Car() {
-    
-  }
+
   
   
+function Car(type, mPG) {
+  this.model = type;
+  this.milesPerGallon = mPG;
+  this.tank = 0;
+  this.odometer = 0;
+};
+
+let ThisCar = new Car('Ford', 24);
+
+Car.prototype.fill = function (gallons) {
+  let newTank = parseFloat(gallons) + parseFloat(this.tank);
+  this.tank = newTank;
+  return newTank;
+};
+Car.prototype.drive = function (distance) {
+  let mileage = distance / this.milesPerGallon;
+  let newOdometer = this.odometer + distance;
+  let newTank = this.tank - mileage;
+  this.odometer = newOdometer;
+  this.tank = newTank.toFixed(2);
+  return {Tank: this.tank, Odometer:this.odometer};
+}
+
+
+
   /*
     TASK 3
       - Write a Baby constructor subclassing Person.
@@ -75,9 +112,19 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
-  }
+
+function Baby(name, age, toy) {
+  Person.call(this, name, age);
+  this.favoriteToy = toy;   
+}
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function() {
+  return ("Playing with " + this.favoriteToy);
+}
+
+let newBaby = new Baby('Bill', 4, 'Doll');
+
  
   
   /* 
