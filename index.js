@@ -39,8 +39,10 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+this.name = name;
+this.age = age;
+this.stomach = [];
 }
 
 /*
@@ -57,10 +59,15 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+this.model = model;
+this.milesPerGallon = milesPerGallon;
+this.tank= 0;
+this.odometer= 0;
 }
-
+Car.prototype.fill = function(gallons) {
+  this.tank = this.tank + gallons;
+};
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -68,18 +75,22 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+person.call(this, name, age)
+this.favoriteToy = favoriteToy
 }
 
+Baby.prototype.play = function(){
+  return 'playing with ${this.favoriteToy}'
+}
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Is the function called by new?
+  2. Is the funciton called by call(), apply(), or bind()?
+  3. Is the function called as a method?
+  4. Is the function called in the global scope?
 */
 
 
