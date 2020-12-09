@@ -102,10 +102,10 @@ Baby.prototype.play = function () {
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. GLOBAL CONTEXT - Outside of any function;
+  2. FUNCTION CONTEXT - Inside of a function
+  3. CLASS CONTEXT - Inside of a class
+  4. DERIVED CLASSES - Derived constructors have no initial 'this' binding
 */
 
 
