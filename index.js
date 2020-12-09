@@ -63,6 +63,7 @@ person.prototype.tostring = function () {
   
   
   
+
   
   /*
     TASK 2
@@ -108,7 +109,7 @@ person.prototype.tostring = function () {
   Baby.prototype = Object.create(person.prototype)
 
   Baby.prototype.play = function () {
-    
+
     return `playing with ${this.favoriteToy}`
   }
  
