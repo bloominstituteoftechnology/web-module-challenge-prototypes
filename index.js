@@ -85,14 +85,15 @@ Car.prototype.fill = function(gallons){
 }
 Car.prototype.drive = function(distance){
   this.odometer += distance;
-  this.tank -= (distance/this.milesPerGallon){  //milesPerGallon*(gallons/distance) NOT THIS!
-    if(this.tank.length === 0){
-      return `I ran out of fuel at ${this.odometer} miles!"`;
+  this.tank -= distance/this.milesPerGallon;  //milesPerGallon*(gallons/distance) NOT THIS!
+    
+  if(this.tank.length === 0){
+    return `I ran out of fuel at ${this.odometer} miles!"`;
     }else{
-      this.tank -= distance/this.milesPerGallon;
+    this.tank -= distance/this.milesPerGallon;
     }
-  }           
-}
+}           
+
 
   
   /*
@@ -102,23 +103,29 @@ Car.prototype.drive = function(distance){
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
-function Baby(paramName,paramAge,favoriteToy) {
-  this.name = paramName;
-  this.age = paraAge;
-  this.toy = favoriteToy; 
+function Baby(paramName,paramAge,paramToy){
+    Person.call(this, paramName, paramAge); // pulling all params from Person
+  this.favoriteToy = paramToy; // initializing favoriteToy
 }
-Baby.prototype.play(this,)
-Baby.prototype = Object.create(Person.prototype)
 
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function(){ //.play equaling a func or the str
+  return `Playing with ${this.favoriteToy}`; //triple check your param and such for caps error/ s's
+}
 
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+
+    1. Window Binding - 
+
+    2. Explicit Binding - 
+
+    3. Implicit Binding - 
+
+    4. New Binding - 
   */
   
   
