@@ -68,26 +68,26 @@ Person.prototype.toString = function(){ // a method `.toString()`:
       - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
       - STRETCH: Give cars ability to `.drive(distance)`. The distance driven:
           + Should cause the `odometer` to go up.
-          + Should cause the the `tank` to go down taking `milesPerGallon` into account.
+          + Should cause the `tank` to go down taking `milesPerGallon` into account.
       - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
-function Car(model, milesPerGallon) {
+function Car(model, milesPerGallon) { // initializes `model` and `milesPerGallon` from arg
   this.model = model;
   this.milesPerGallon = milesPerGallon;
-  this.tank = 0;
-  this.odometer = 0;
+  this.tank = 0; // initialize with an `tank` at 0
+  this.odometer = 0; // initialize with an `odometer` at 0
 }
-Car.prototype.fill = function(gallons){
-  this.tank += gallons;  
+Car.prototype.fill = function(gallons){ // cars the ability to get fueled with a `.fill(gallons)` method
+  this.tank += gallons;  // Add the gallons to `tank`
 }
-Car.prototype.drive = function(distance){
-  this.odometer += distance;
-  this.tank -= distance/this.milesPerGallon;  //milesPerGallon*(gallons/distance) NOT THIS!
+Car.prototype.drive = function(distance){ // cars ability to `.drive(distance)
+  this.odometer += distance; // cause the `odometer` to go up
+  this.tank -= distance/this.milesPerGallon; // cause the `tank` to go down taking `milesPerGallon` into account  //milesPerGallon*(gallons/distance) NOT THIS! 
     
-  if(this.tank.length === 0){
-    return `I ran out of fuel at ${this.odometer} miles!"`;
+  if(this.tank.length === 0){  // runs out of `fuel`
+    return `I ran out of fuel at ${this.odometer} miles!"`; // return a string "I ran out of fuel at x miles!"
     }else{
     this.tank -= distance/this.milesPerGallon;
     }
