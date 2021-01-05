@@ -75,6 +75,7 @@ Car.prototype.fill = function (gallons) {
 
 Car.prototype.drive = function (distance) {
   this.tank = this.tank - distance / this.mpg;
+  this.odometer += distance;
   console.log(
     `You drive ${distance} miles, using up ${
       distance / this.mpg
