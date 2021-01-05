@@ -61,7 +61,26 @@ Person.prototype.eat = function (fruit) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
 
-function Car() {}
+function Car(model, mpg) {
+  this.model = model;
+  this.mpg = mpg;
+  this.tank = 0;
+  this.odometer = 0;
+}
+
+Car.prototype.fill = function (gallons) {
+  this.tank += gallons;
+  console.log(`You add ${gallons} gallons of fuel to the tank.`);
+};
+
+Car.prototype.drive = function (distance) {
+  this.tank = this.tank - distance / this.mpg;
+  console.log(
+    `You drive ${distance} miles, using up ${
+      distance / this.mpg
+    } gallons of fuel.`
+  );
+};
 
 /*
     TASK 3
