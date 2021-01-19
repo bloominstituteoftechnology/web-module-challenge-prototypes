@@ -40,12 +40,23 @@ function Airplane(name) {
   */
   
  function Person() {
-    
+    this.name = Jacob;
+    this.age = 21;
+    this.stomach = empty;
   }
- 
- 
+ Person.prototype.hungry = function () {
+   this.stomach = hungry;
+ }
+ Person.prototype.fed = function () {
+  this.stomach = fed;
+}
+Person.prototype.poop = function () {
+  this.stomach = empty;
+}
 
-  
+  Person(Person.prototype.hungry);
+  Person(Person.prototype.fed);
+  Person(Person.prototype.poop);
   
   
   
@@ -64,10 +75,16 @@ function Airplane(name) {
   */
   
  function Car() {
-    
+    this.tank = 0;
+    this.odometer = 0;
   }
   
+  Car.prototype.fillTank = function () {
+    this.tank + 1;
+  }
   
+  Car(Car.prototype.fillTank);
+
   /*
     TASK 3
       - Write a Baby constructor subclassing Person.
@@ -76,17 +93,22 @@ function Airplane(name) {
           + Should return a string "Playing with x", x being the favorite toy.
   */
  function Baby() {
-   
+   this.name = Rodney;
+   this.age = 2;
+   this.favoriteToy = Rattler;
   }
- 
+Baby.prototype.play = function () {
+  return `${this.name} is very happy when playing with his ${this.favoriteToy}`
+}
+Baby(Baby.prototype.play);
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. call
+    2. apply
+    3. bind
+    4. always global scoped
   */
   
   
