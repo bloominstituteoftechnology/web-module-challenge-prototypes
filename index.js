@@ -39,13 +39,13 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
 
-function Person(newName, newAge) {
-  this.name = newName;
-  this.age = newAge;
-  this.stomach = [];
+function Person(newName, newAge) { //creating the class 'Person', is essentially a template for creating new objects
+  this.name = newName;//this is bound to Person. so 'this'Person.name = newName param
+  this.age = newAge;//same as above but with age
+  this.stomach = [];//creates an empty array of 'this'Person.stomach
 }
 
-Person.prototype.eat = function (someFood) {
+Person.prototype.eat = function (someFood) { //allows
   if (this.stomach.length <= 10) {
     return this.stomach.push(someFood);
   } else {
@@ -100,11 +100,11 @@ function Baby(newName, newAge, favToy) {
   this.favoriteToy = favToy;
 }
 
-Baby.prototype.play = function () {
-  return `Playing with ${this.favToy}`;
-};
-
 Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function () {
+  return `Playing with ${this.favoriteToy}`;
+};
 
 /*
     TASK 4
