@@ -82,10 +82,11 @@ function Car (model, mpg) {
   this.milesPerGallon = mpg;
   this.tank = 0;
   this.odometer = 0;
-  this.fill = function (gallons) {
-    this.tank += gallons;
-  };
 }
+
+Car.prototype.fill = function (gallons) {
+  this.tank += gallons;
+};
 
   /*
     TASK 3
@@ -94,10 +95,17 @@ function Car (model, mpg) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
-function Baby() {
-
+function Baby(newName, newAge, favToy) {
+  Person.call(this, newName, newAge);
+  this.favoriteToy = favToy;
+  this.play = Baby.prototype.play;
 }
 
+Baby.prototype.play = function () {
+  return `Playing with ${this.favToy}`;
+};
+
+Baby.prototype = Object.create(Person.prototype);
 
   /*
     TASK 4
