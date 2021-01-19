@@ -98,7 +98,6 @@ Car.prototype.fill = function (gallons) {
 function Baby(newName, newAge, favToy) {
   Person.call(this, newName, newAge);
   this.favoriteToy = favToy;
-  this.play = Baby.prototype.play;
 }
 
 Baby.prototype.play = function () {
@@ -107,15 +106,14 @@ Baby.prototype.play = function () {
 
 Baby.prototype = Object.create(Person.prototype);
 
-  /*
+/*
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1.
-    2.
-    3.
-    4.
-  */
-
+    1. function call
+    2. implicit binding, binds to what would be to the left of the period
+    3. explicit binding
+    4. new binding creates a new object to bind this to
+*/
 
   ///////// END OF CHALLENGE /////////
 
