@@ -40,12 +40,25 @@ function Airplane(name) {
   */
   
  function Person() {
-    
-  }
- 
- 
 
-  
+  this.name = Justin;
+  this.age = 21;
+  this.stomach = empty;
+}
+ 
+Person.prototype.hungry = function () {
+  this.stomach = hungry;
+}
+Person.prototype.fed = function () {
+ this.stomach = fed;
+}
+Person.prototype.empty = function () {
+ this.stomach = empty;
+}
+
+Person(Person.prototype.hungry);
+Person(Person.prototype.fed);
+Person(Person.prototype.empty);
   
   
   
@@ -64,8 +77,16 @@ function Airplane(name) {
   */
   
  function Car() {
-    
-  }
+
+  this.tank = 0;
+  this.odometer = 0;
+}
+
+Car.prototype.fillTank = function () {
+  this.tank + 1;
+}
+
+Car(Car.prototype.fillTank);
   
   
   /*
@@ -76,17 +97,25 @@ function Airplane(name) {
           + Should return a string "Playing with x", x being the favorite toy.
   */
  function Baby() {
-   
-  }
- 
+
+  this.name = Aurie;
+  this.age = 2;
+  this.favoriteToy = Ball;
+ }
+
+Baby.prototype.play = function () {
+ return `${this.name} is very happy when playing with his ${this.favoriteToy}`
+}
+Baby(Baby.prototype.play);
+
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. To call something
+    2. To bind something
+    3. implicit binding
+    4. explicit binding
   */
   
   
