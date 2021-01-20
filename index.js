@@ -107,18 +107,25 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+
+  class Baby extends Person{
+   constructor (name, age, favoriteToy){
+     super(name, age);
+     this.favoriteToy = favoriteToy;
+   }
   }
- 
-  
+
+  Baby.prototype.play = function (){
+    return `Playing with ${this.favoriteToy}`
+
+  }
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. global context - this refers to the window or console  object
+    2. implicit binding - this refers to whatever object is before the dot when a function is called after it
+    3. new binding - makes a new object that this points to
+    4. explicit binding - uses call, apply, or bind to tell JS to point to a value
   */
   
   
