@@ -77,23 +77,23 @@ function Airplane(name) {
   */
   
  function Car(model, milesPerGallon) {
-    this.model = model;
-    this.milesPerGallon = milesPerGallon;
-    this.tank = 0;
-    this.odometer = 0;
-    Car.prototype.fill = function(gallons){
-      this.tank += gallons;
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+  Car.prototype.fill = function(gallons){
+    this.tank += gallons;
+  }
+  Car.prototype.drive = function(distance){
+    let maxDistance = this.tank * this.milesPerGallon;
+    if (maxDistance < distance){
+      this.tank = 0;
+      this.odometer += maxDistance;
+      return `I ran out of fuel at ${maxDistance} miles!`;
     }
-    Car.prototype.drive = function(distance){
-      let maxDistance = this.fuel * this.milesPerGallon;
-      if (maxDistance < distance){
-        this.fuel = 0;
-        this.odometer += maxDistance;
-        return `I ran out of fuel at ${maxDistance} miles!`;
-      }
-      this.odometer += distance;
-      this.fuel -= (distance/this.milesPerGallon);
-    }
+    this.odometer += distance;
+    this.tank -= (distance/this.milesPerGallon);
+  }
   }
   
   
@@ -113,7 +113,6 @@ function Airplane(name) {
    }
   }
  
-  
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
