@@ -85,9 +85,18 @@ function Car(model, milesPerGallon) {
         this.tank = this.tank + gallons;
     }
     Car.prototype.drive = function(distance) {
-        this.odometer = this.odometer + distance;
-        this.tank = this.tank - (distance / this.milesPerGallon)
+        const milesLeft = this.tank * this.milesPerGallon;
+        if (distance <= milesLeft) {
+            this.odometer = this.odometer + distance;
+            this.tank = this.tank - (distance / this.milesPerGallon)
+        }
+        if (distance > milesLeft) {
+            this.odometer = this.odometer + milesLeft;
+            this.tank = 0;
+            return (`I ran out of gas at ${this.odometer}`)
+        }
     }
+
 }
 
 
@@ -114,10 +123,10 @@ Baby.prototype = Object.create(Person.prototype);
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. It is a pronoun and, as such, is contextual
+  2. It will refer to the window or console object if used in a global context
+  3. It refers to the current object
+  4. It can be explicitly or implicitly bound
 */
 
 
