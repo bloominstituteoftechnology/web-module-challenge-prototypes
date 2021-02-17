@@ -58,10 +58,6 @@ Person.prototype.toString = function () {
 }
 
 
-  
-  
-  
-  
   /*
     TASK 2
       - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -69,6 +65,8 @@ Person.prototype.toString = function () {
           + should initialize with an `tank` at 0
           + should initialize with an `odometer` at 0
       - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
+
+
       - STRETCH: Give cars ability to `.drive(distance)`. The distance driven:
           + Should cause the `odometer` to go up.
           + Should cause the the `tank` to go down taking `milesPerGallon` into account.
@@ -76,10 +74,21 @@ Person.prototype.toString = function () {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car (model, milesPerGallon) {
+   this.model = model;
+   this.milesPerGallon = milesPerGallon;
+   this.tank = 0;
+   this.odometer = 0; 
   }
-  
+  Car.prototype.fill = function (gallons) {
+    this.tank += gallons;
+  }
+
+
+
+
+
+
   
   /*
     TASK 3
@@ -88,18 +97,24 @@ Person.prototype.toString = function () {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+ function Baby(name, age, favoriteToy) {
+   Person.call(this,name,age)
+   this.favoriteToy = favoriteToy;
   }
- 
+  Baby.prototype = Object.create(Person.prototype);
+  Baby.prototype.play = function () {
+    return `Playing with ${this.favoriteToy}`
+  }
+
+
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. this refers to whatever is in it's constructor.
+    2. if you type in this globally it will output the entire JS.
+    3. whenever a preceding dot calls a function, the object before the dot is this. myObj.sayHello('Ryan'); (this sentence here on #3 is not my own like it should be.)
+    4. I also am copying and pasting this from Canvas => Simply put, A constructor function is a function that returns an object. It's an object creator. We use them a lot in JavaScript, and they lend themselves to a paradigm called object-oriented programming. The function CordialPerson will create an object for us. When we call the function, we have to use the new keyword.
   */
   
   
