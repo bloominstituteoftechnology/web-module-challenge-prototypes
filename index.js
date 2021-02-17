@@ -39,11 +39,24 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = function();
   }
- 
- 
+  Person.prototype.eat = function (food) {
+    if (this.stomach.length !== 10) {
+      this.stomach.push (food);
+    }
+  }
+  Person.prototype.poop = function () {
+    this.stomach = ();
+  }
+ Person.prototype.toString = function () {
+   return this.name + ', ' + this.age;
+ }
+ const Billy = new Person ('Billy', 8);
+ console.log (Billy);
 
   
   
@@ -63,9 +76,18 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(model, milesPerGallon) {
+   this.model = model;
+   this.milesPerGallon = milesPerGallon;
+   this.tank = 0;
+   this.odometer = 0;
   }
+  Car.prototype.fill = function(gallons) {
+    this.tank = this.tank + gallons;
+  }
+  let Honda = new Car (civic, 30);
+  Honda.fill(30);
+  console.log(Honda);
   
   
   /*
@@ -75,18 +97,25 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+ function Baby(babyatters) {
+  Person.call(this, babyatters);
+  this.favoriteToy = babyatters.favoriteToy;
+ }
+
+Baby.prototype.play = function () {
+  return "Playing with" + this.favoriteToy;
+}   
   }
- 
-  
+ const Adele = new Baby ({name: "Adele", age: 5, favoriteToy: "Barbie"})
+  console.log (Adele)
+  console.log (Adele.play());
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. The first is Global binding which when in the global scope, the value of "this" will be the windows/console object.
+    2. Implicit binding which is whenever a function is called by a preceding dot, the object left of the dot gets "this".
+    3. New binding, where whenever a constuctor funciton is used "this" refers to the specific instance of the object that is created and returned by the constructor function.
+    4. Explicit binding which whenever JavaScript's call or apply method is used, "this" is explicitly defined.
   */
   
   
