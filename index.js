@@ -100,10 +100,10 @@ Baby.prototype.play = function () {
 /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Global binding - refers to the global context where the function is invoked. In a browser, it refers to the window.
+    2. Implicit binding - occurs when dot notation is used.
+    3. Explicit binding - occurs when you use .call(), .apply(), or .bind().
+    4. New binding - occurs when using a constructor notation or the new keyword.
   */
 
 ///////// END OF CHALLENGE /////////
