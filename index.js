@@ -41,8 +41,9 @@ function Airplane(name) {
   
  function Person(name, age) {
   this.name = name;
-this.age = age;
-this.stomach = stomach;
+  this.age = age;
+  this.stomach = stomach
+  ;
 
 }
 
@@ -50,7 +51,7 @@ Person.prototype.eat = function (someFood) {
 
 if (this.stomach.length < 10) {
   return this.stomach.push(someFood);
-}
+  }
 };
 
 Person.prototype.poop = function () {
@@ -63,9 +64,6 @@ Person.prototype.poop = function () {
 
  
  
-
-  
-  
   
   
   /*
@@ -112,7 +110,7 @@ Car.prototype.fill = function (gallons) {
   */
  function Baby(name, age, favoriteToy) {
   Person.call(this, name, age);
-  this.favoriteToy = favoriteToy;
+  this.favoriteToy = "favoriteToy";
 }
 
 
@@ -128,10 +126,12 @@ Baby.prototype.play = function () {
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. If a function is globally scoped and is called, the "this" within the function will equal the window object.
+    2. If a function is ran with a dot preceeding it, the object before the dot is "this" keyword
+    3. If a function is ran with a dot preceeding it in a function that has a constructor, the specific 
+        object that is created is the "this' object and also return by the constructor function.
+    4. If a function is called or applied, "this" has to be explicitly defined.
+
   */
   
   
