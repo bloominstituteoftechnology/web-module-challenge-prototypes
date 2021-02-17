@@ -13,7 +13,7 @@
       alert(msg)
     }
     </script>
-    <link  href="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.2.0/mocha.min.css" onerror="showInstallMessage()" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.2.0/mocha.min.css" onerror="showInstallMessage()" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.2.0/mocha.min.js" onerror="showInstallMessage()"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.2.0/chai.min.js" onerror="showInstallMessage()"></script>
     <script>
@@ -32,12 +32,9 @@
   </head>
   <body onload="mocha.run()">
     <div id="mocha"></div>
-
     <!-- load code you want to test here -->
-    <script src="index.js"></script>
-
+    <script type="module" src="index.js"></script>
     <!-- load your test files here -->
     <script src="test/index.test.js"></script>
-
   </body>
 </html>
