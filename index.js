@@ -40,25 +40,39 @@ function Airplane(name) {
   */
   
  function Person(name, age) {
-   this.name= name;
-   this.age = age;
-   this.stomach= []
-   person. prototype.eat= function(food){
-     if (this.stomach.length < 10){
-       this.stomach.push(food)
-     }
-   }
-   person.prototype.poop = function(){
-     this.stomach = [];
-   }
-    person.prototype.toString = function() {
-      return `${this.name}, ${this.age}`;
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+    
     }
-  }
- 
+    Person.prototype.eat = function (food) {
+      if (this.stomach.length < 10) {
+        this.stomach.push(food);
+      
+      }
+      return this.stomach
+    };
+    
+    Person.prototype.poop = function () {
+      this.stomach = [];
+    };
+    // return console.log (this.stomach.length)
+    // console.log(this.stomach.length)
+    // };
+    Person.prototype.toString = function personTooString () {
+      return `${this.name}, ${this.age}`;
+    };
+    const Bob = new Person("Bob",35)
+
+    console.log(Bob)
+
+    // Person.prototype.this.name=function()
+    // return `$(this.bob)`
+  
+
+//  console.log(Person(Bob, age))
  
 
-  
   
   
   
