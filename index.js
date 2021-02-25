@@ -97,18 +97,26 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+ function Baby(name, age, favoriteToy) {
+   this.name = name;
+   this.age = age;
+   this.favoriteToy = favoriteToy;
   }
+  Baby.prototype = Object.create(Person.prototype);
+
+  Baby.prototype.play = function(){
+    return `Playing with ${this.favoriteToy}`;
+  }
+
  
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. If you use the word 'new' when calling an object, it is a new object in the function.
+    2. If you use 'apply', 'call, or 'bind' to call an object, the 'this' is an argument in the function.
+    3. If dot notation is used to call a function, 'this' is the object to the left of the dot.
+    4. if it is invoked without any of the other rules, 'this' is a global window.  
   */
   
   
