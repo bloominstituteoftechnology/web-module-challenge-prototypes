@@ -43,8 +43,10 @@ function Person(name, age) {
   this.age = age;
   this.stomach = [];
 }
-Person.prototype.eat = function (anArray) {
-  return this.stomach.push(anArray);
+Person.prototype.eat = function (food) {
+  if (this.stomach.length < 10) {
+    return this.stomach.push(food);
+  }
 };
 Person.prototype.poop = function () {
   return (this.stomach = []);
@@ -84,13 +86,19 @@ Car.prototype.fill = function (gallons) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
-function Baby() {}
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = "x";
+}
+Baby.prototype.play = function () {
+  return `Playing with ${this.favoriteToy}`;
+};
 
 /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
+    1. you can reference the global scope
+    2. you can refernece a declared var
     3. 
     4. 
   */
