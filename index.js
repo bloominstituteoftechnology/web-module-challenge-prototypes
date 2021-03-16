@@ -39,16 +39,26 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
   }
- 
- 
 
-  
-  
-  
-  
+  Person.prototype.eat = function(someFood) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(someFood);
+    }
+  }
+
+  Person.prototype.poop = function() {
+    return this.stomach = [];
+  }
+
+  Person.prototype.toString = function() {
+    return `${this.name}, ${this.age}`;
+  } 
+
   /*
     TASK 2
       - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -63,8 +73,23 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(model, milesPerGallon) {
+  this.tank = 0;
+  this.odometer = 0;
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  }
+
+  Car.prototype.fill = function(gallons) {
+    return this.tank += gallons;
+  }
+
+  Car.prototype.drive = function(distance) {
+    this.odometer += 1;
+    this.tank -= 1;
+    if (this.tank == 0) {
+      return `I ran out of fuel at ${this.odometer}`;
+    }
   }
   
   
@@ -75,20 +100,25 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+ function Baby(name, age, favoriteToy) {
+   Person.call(this, name, age, favoriteToy);
+   this.favoriteToy = favoriteToy;
   }
  
+  Baby.prototype = Object.create(Person.prototype); 
+
+  Baby.prototype.play = function() {
+    return `Playing with ${this.favoriteToy}`;
+  }
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. call and apply are examples of explicit binding
+    2. new keyword when creating a new object
+    3. at func invoking we would use implicit binding
+    4. window binding is global
   */
-  
   
   ///////// END OF CHALLENGE /////////
 
