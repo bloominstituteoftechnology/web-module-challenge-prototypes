@@ -39,14 +39,24 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function Person(name, age, stomach = []) {
+    this.name = name,
+    this.age = age,
+    this.stomach = stomach,
+    this.eat = function(someFood) {
+      if(stomach.length < 10) {
+      stomach.push(someFood);
+      };
+    },
+    this.poop = function() {
+      stomach = [];
+    },
+    this.toString = function() {
+      return `${this.name}, ${this.age}`
+    }
   }
  
  
-
-  
-  
   
   
   /*
@@ -63,8 +73,17 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(model, milesPerGallon) {
+    this.model = model,
+    this.milesPerGallon = milesPerGallon, 
+    this.tank = 0,
+    this.odometer = 0,
+    this.fill = function(gallons) {
+      this.tank += gallons;
+    };
+    this.drive = function() {
+      
+    };
   }
   
   
@@ -83,10 +102,10 @@ function Airplane(name) {
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. The new keyword is used when calling a function, and inside the function 'this' refers to the new object geing created. This is only function scope
+    2. Apply/bind/call can be used to foce a function call to use a particular object for 'this'.
+    3. When the function is called as a medthod, the this object is the object that the function is property of
+    4. If the function is called without conditions above, the this object is global.
   */
   
   
