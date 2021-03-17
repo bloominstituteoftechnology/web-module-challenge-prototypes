@@ -43,24 +43,24 @@ function Airplane(name) {
     this.name = name;
     this.age = age;
     this.stomach = [];
-    this.eat = function (someFood) {
-      if (this.stomach.length < 10) {
-        this.stomach.push(someFood);
-      } 
-    }
-  this.poop = function (){
+    
+  }
+
+  Person.prototype.eat = function (someFood) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(someFood);
+    } 
+  }
+  Person.prototype.poop = function (){
     this.stomach = []
   }  
-  // this.toString = function () {
-    // return `${name}, ${age}`
-
+  Person.prototype.toString = function () {
+    return `${this.name}, ${this.age}`
   }
-
-
   
-  Person.prototype.toString = function personToString () {
-    return this.eat ()
-  }
+  // Person.prototype.toString = function personToString () {
+  //   return this.eat ()
+  // }
   
   
 
@@ -86,10 +86,17 @@ function Airplane(name) {
   */
   
  function Car(model, milesPerGallon) {
-  this.model = model;
-  this.milesPerGallon = milesPerGallon;  
-  // this.tank = tank;
-  // this.odometer = odometer;
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;  
+    this.tank = 0;
+    this.odometer = 0;
+    // this.fill = function (gallons){
+    //   // this.tank += gallons;
+    //   this.tank = this.tank + gallons;
+    // }
+  }
+  Car.prototype.fill = function (gallons) {
+    this.tank = this.tank + gallons;
   }
   
   
@@ -100,11 +107,24 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby(name, age, favoriteToy) {
+//  function Baby(name, age, favoriteToy) {
    
- } 
+//  } 
 // 
- 
+function Baby (name, age, favoriteToy) {
+  // step 1: binding 'this' to Parent constructor with .call
+  // this.babyName = name;
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
+  // Person.call(this, age);
+  // this.isChild = childAttributes.isChild;
+  
+}
+// step 2: copy Parent's prototype to child
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}`
+}
   
   /* 
     TASK 4
