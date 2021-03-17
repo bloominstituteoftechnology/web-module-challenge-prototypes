@@ -113,10 +113,10 @@ console.log(ryan);
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Global Binding - 'this' applies to the entire global scope or the entire object. 
+    2. Implicit Binding - When a method is hard coded on a object. Whatever is to the left of the dot becomes the context for 'this'. Just like dot syntax. 
+    3. New Binding - 'this' referes to a specific instance of an object. Refers to the instance the method is called on.
+    4. Explicit Binding - Whenever JS call or apply method is used, 'this' is explicityly defined. 'this' is equal to the object. "Adds" it to the original object as a prototype. 
   */
   
   
