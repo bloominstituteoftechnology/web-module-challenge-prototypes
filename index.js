@@ -39,8 +39,23 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function Person(name, age, stomach) {
+   this.stomach = []
+   this.name = name
+   this.age = age
+  }
+
+  Person.prototype.eat = function() {
+    const personEats = "pizza"
+    return personEats
+  }
+
+  Person.prototype.poop = function() {
+    this.stomach = [];
+  }
+
+  Person.prototype.toString = function() {
+    return `${this.name}, ${this.age}`
   }
  
  
@@ -63,8 +78,14 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(model, milesPerGallon) {
+   this.tank = 0
+   this.odometer = 0
+  }
+
+  Car.prototype.fill = function() {
+    const gallons = 0
+    return this.tank(gallons)   
   }
   
   
@@ -75,18 +96,33 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
+ 
+  function Baby(name, age, favoriteToy) {
+  this.favoriteToy = favoriteToy
    
   }
- 
+
+  Baby.prototype.play = function () {
+    return `Playing with ${this.favoriteToy}`
+  }
+
+  function Personn(name, age) {
+    Baby.call(name, age, favoriteToy)
+  }
+
+  Person.call(this, name, age)
+
+ const newBaby = new Baby("Joy", "1", "Blocks")
+
+ Baby()
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. "this" looks to the left of a dot notation
+    2. "this" needs to refer to something in order for it to work
+    3. "this" could be windows if their is nothing to associate with
+    4. "this" refers to a global object
   */
   
   
