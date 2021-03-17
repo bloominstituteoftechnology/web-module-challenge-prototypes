@@ -39,10 +39,32 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+    this.eat = function (someFood) {
+      if (this.stomach.length < 10) {
+        this.stomach.push(someFood);
+      } 
+    }
+  this.poop = function (){
+    this.stomach = []
+  }  
+  // this.toString = function () {
+    // return `${name}, ${age}`
+
   }
- 
+
+
+  
+  Person.prototype.toString = function personToString () {
+    return this.eat ()
+  }
+  
+  
+
+
  
 
   
@@ -63,8 +85,11 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;  
+  // this.tank = tank;
+  // this.odometer = odometer;
   }
   
   
@@ -75,18 +100,19 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
+ function Baby(name, age, favoriteToy) {
    
-  }
+ } 
+// 
  
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Global context.  Refers to a global object
+    2. Implicit binding.  points to the object on which the function is called (a method on an object)
+    3. Explicit binding.  points to a certain value using call, apply or bind.  Call and apply can be used to invoke a specific value
+    4. New binding. using the "new" keyword constructs a new object and "this" points it
   */
   
   
@@ -101,5 +127,5 @@ export default{
     foo,
     Person, 
     Car,
-    Baby
+    Baby,
 }
