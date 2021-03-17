@@ -55,7 +55,7 @@ function Airplane(name) {
     return this.stomach = [];
   }
 
-  Person.prototype.toString = function() {
+  Person.prototype.toString = function() { 
     return `${this.name}, ${this.age}`;
   } 
 
