@@ -106,10 +106,10 @@ function Airplane(name) {
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. this refers 
-    2. 
-    3. 
-    4. 
+    1. this refers to the window or global where it was called
+    2. if this is followed by a dot, it is notating a key inside an object
+    3. this can also refer to a function
+    4. this can also point to a function being called by a new object
   */
   
   
