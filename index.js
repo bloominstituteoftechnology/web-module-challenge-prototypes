@@ -73,10 +73,19 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car(model) {
-    
+ function Car(model, milesPerGallon) {
+    this.tank = 0;
+    this.odometer = 0;
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+  }
+  Car.prototype.fill = function (gallons){
+    this.tank = this.tank + gallons
   }
   
+  Car.prototype.drive = function (distance){
+    this.distance = this.odometer + this.distance && this.tank - this.odometer
+  }
   
   /*
     TASK 3
@@ -85,15 +94,19 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
-  }
- 
+ function Baby(name,age,favoriteToy) {
+   Person.call(this, name, age)
+   this.favoriteToy = favoriteToy
+    }
+ Baby.prototype = Object.create(Person.prototype)
+ Baby.prototype.play = function(favoriteToy){
+    return `playing with ${this.favoriteToy}`
+ }
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
+    1. this refers 
     2. 
     3. 
     4. 
