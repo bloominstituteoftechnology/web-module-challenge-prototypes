@@ -120,7 +120,7 @@ this.tank = this.tank + gallons
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. "this" is a 'global object'
+    1. "this" is a global object
     2. "this" needs to be defined 
     3. "this" could be windows if their is nothing associating with it
     4. "this" looks to the left of the dot notation 
