@@ -130,10 +130,10 @@ console.log(newBaby)
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Window/Global Binding will allow 'this' to have global scope, refering to anything within the global scople.
+    2. Implicit Binding is the most common use case and allows for 'this' to change depending on the object passed as the argument in the function.
+    3. New Binding is for when 'this' is whatever is created in the constuctor function; it allows for the newly constructed object to have the constructor as the basis for 'this'.
+    4. Explicit Binding is when 'this' has a set value, because it used when calling or overriding another construtor function.
   */
   
   
