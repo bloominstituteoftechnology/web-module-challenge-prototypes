@@ -56,7 +56,7 @@ Person.prototype.poop = function() {
 }
 
 Person.prototype.toString = function() {
-  return(`${this.name}, ${this.age}`);
+  return `${this.name}, ${this.age}`;
 }
 
 let personOne = new Person('jeff', 42)
@@ -69,6 +69,7 @@ console.log(personOne);
 
 console.log(personOne.toString());
   
+
   /*
     TASK 2
       - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -83,10 +84,26 @@ console.log(personOne.toString());
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
-  }
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+}
   
+Car.prototype.fill = function(gallons) {
+  return this.tank += gallons;
+}
+
+let newCar = new Car("Model X", 70);
+
+console.log(newCar)
+console.log(newCar.fill(20));
+console.log(newCar)
+
+// Car.prototype.drive = function(distance) {
+//   return
+// }
   
   /*
     TASK 3
@@ -95,11 +112,10 @@ console.log(personOne.toString());
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
-  }
- 
+function Baby () {
   
+}
+
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
