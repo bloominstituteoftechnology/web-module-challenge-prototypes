@@ -99,18 +99,21 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby(favoriteToy) {
+ function Baby(name,age,favoriteToy) {
    Person.call(this, favoriteToy);
    this.favoriteToy = favoriteToy;
+   this.age= age;
+   this.name = name;
+   
   
   }
-  Baby.prototype = Object.create(Person.prototype)
+   Baby.prototype = Object.create(Person.prototype)
   Baby.prototype.play = function(){
   return `Playing with ${this.favoriteToy}`
   }
- 
+  
  let barkon = new Baby("soccer");
- barkon.play();
+ console.log(barkon)
 
   /* 
     TASK 4
