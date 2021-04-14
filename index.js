@@ -98,7 +98,11 @@ Car.prototype.fill = function (gallons) {
 }
 
 Car.prototype.drive = function (distanceMiles) {
-  this.odometer += distanceMiles; this.tank -= (distanceMiles / this.milesPerGallon)
+  this.odometer += distanceMiles;
+  this.tank -= (distanceMiles / this.milesPerGallon);
+  if (this.thank <= 0) {
+    return `I ran out of fuel at ${this.odometer} miles!`;
+  }
 };
 
 const lambo = new Car("lambo", 60);
@@ -110,6 +114,8 @@ const lambo = new Car("lambo", 60);
 // lambo.drive(240);
 // console.log(lambo.odometer, lambo.tank);
 
+
+
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -117,18 +123,32 @@ const lambo = new Car("lambo", 60);
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+  // Call to copy parent's properties
+  Person.call(this, name, age);
+  // Baby's personal argument
+  this.favoriteToy = favoriteToy;
 }
 
+// Set the child's prototype equal to parent's
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function () {
+  return `${this.name} is now playing with ${this.favoriteToy}`
+};
+
+const babyPace = new Baby("Baby Pace", 1, "Stretch Armstrong");
+
+console.log(babyPace);
+console.log(babyPace.play());
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window/ Global Object Binding = If "this" is not inside of an object (global scope) it refers to the window or global object. 
+  2. Implicit Binding = If "this" is inside of an object where it would preced a function or helps to define a key valu pair inside of a constructor than it is refering to the object it is preceding. 
+  3. New Binding = "this" refers to the new object being created and passed into the constructor function.
+  4. Explicit binding = when the call or apply method is used "this" refers to the object being passed.  
 */
 
 
