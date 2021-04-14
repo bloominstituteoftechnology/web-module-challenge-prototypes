@@ -39,9 +39,23 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function Person(name,age) {
+    this.name=name; 
+    this.age=age; 
+    this.person=stomach[]; 
   }
+  Person.prototype.eat=function(){
+    this.edible=stomach[];
+    if (length.stomach==10){
+
+    }
+  };
+  Person.prototype.poop = function (){
+
+  }; 
+  Person.prototype.toString = function () {
+    console.log(${name}, ${age}); 
+  };
  
  
 
@@ -63,9 +77,16 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(model, milesPerGallon) {
+    this.model = model; 
+    this.milesPerGallon = milesPerGallon; 
+    this.tank = 0; 
+    this.odometer = 0; 
   }
+  Car.prototype.fill = function () {
+    tank=gallons++; 
+  };
+  
   
   
   /*
@@ -75,18 +96,34 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+ function Baby(name, age, favoriteToy) {
+   this.name = name; 
+   this.age = age; 
+   this.favoriteToy = favoriteToy; 
+
+        function Person(name, age, favoriteToy){
+            Baby.call(name, age, favoriteToy);
+        }
+        Person.prototype = Object.create(Baby.prototype);
+        Person.prototype.constructor === Baby
+        Person.prototype.constructor === Person
+  }
+  Baby.prototype.play = function () {
+    return 'Playing with ${this.favoriteToy}'; 
   }
  
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. WINDOW/GLOBAL OBJECT BUILDING: when in the global scope, the value of "this" will be the window/console object 
+    2. IMPLICIT BINDING: whenever a preceeding dot calls a function, the object before the dot will contain a funtion inside of it which is 
+       called 
+    3. NEW BINDING: Whenever a constructor function is used, this refers to the specific instance  of the object tht is created and returned by 
+       the constructor function. 
+    4. EXPLICIT BINDING: Whenever we use a JavaScript call or apply method, this is explicitly defined. We can override how a construtor  object
+       is set by taking an object-oriented approach. 
+       
   */
   
   
