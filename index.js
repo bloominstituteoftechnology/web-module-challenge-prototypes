@@ -96,9 +96,18 @@ lambdaStudentThree.eat
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
-  }
+ function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0; 
+ }
+ 
+ Car.prototype.fill = function (gallons) {
+   this.tank += gallons;
+ }
+ const vehicle = new Car('honda', 25);
+ console.log(vehicle);
   
   
   /*
@@ -108,18 +117,34 @@ lambdaStudentThree.eat
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
-  }
+ function Baby(name, age,favoriteToy) {
+  Person.call(this,name,age,);
+  this.favoriteToy = favoriteToy
+  
+ }
+ Baby.prototype = Object.create(Person.prototype)
+ Baby.prototype.play = function(){
+   return `${this.name}, ${this.age}, Playing with ${this.favoriteToy}`}
+   let liam = new Baby("Abe",5,"truck")
  
+ console.log(Baby);
   
   /* 
     TASK 4
-    In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+     In your own words explain the four principles for the "this" keyword below:
+    1.Window Binding 
+      this is an error - it's not something we want. If we don't give 'this' any context it will return the window, the global in node or undefined in 'strict mode'
+    
+    2. Iplicit Binding
+     is applies to objects with methods, when a functionis invoked, look to the left of the dot, thats what 'this' refers to
+    3. Explicit binding 
+      explicitly tell javaScript using .call, .apply or .bind what the this keyword refers to 
+      .call - we pass in our arguments 1 by 1 - immediately invokes the function 
+      .apply - we pass in our arguments as an array - immediately invokes the function
+      .bind - we pass in our arguments 1 by 1 - it does not immediately invoke the function, instead it ruturns a brand new function that can be invoked later 
+    4. new binding
+      using the 'new' keyword constructs a new object and 'this' points to it 
+      when a function is invoked as a constructor function using the new keyword 'this' points to the newly created object 
   */
   
   
