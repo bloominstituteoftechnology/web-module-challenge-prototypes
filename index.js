@@ -39,15 +39,30 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
   }
- 
- 
+  Person.prototype.eat = function(edible){
+    if(this.stomach.length < 10){
+      this.stomach.push(edible);
+    }
+  }
+  Person.prototype.poop = function(){
+    this.stomach = [];
+  }
+  Person.prototype.toString = function(){
+    return `${this.name}, ${this.age}`;
+  }
+  const isaac = new Person('Isaac', 21);
 
-  
-  
-  
+  isaac.eat('pizza')
+  isaac.eat('spaghetti')
+  isaac.eat('rice')
+  console.log(isaac.stomach) 
+  isaac.poop()
+  console.log(isaac.stomach) 
   
   /*
     TASK 2
@@ -63,11 +78,31 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
   }
-  
-  
+  Car.prototype.fill = function(gallons){
+    this.tank = this.tank + gallons
+  }
+  Car.prototype.drive = function(distance){
+    this.odometer = this.odometer + distance
+    this.tank = this.tank - distance
+    if(this.tank = 0){
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }
+  }
+  const Mercedes = new Car('E-Class', 25)
+  Mercedes.fill(20)
+  console.log(Mercedes)
+  Mercedes.drive(10)
+  console.log(Mercedes)
+  Mercedes.drive(50)
+  console.log(Mercedes)
+
+
   /*
     TASK 3
       - Write a Baby constructor subclassing Person.
@@ -75,18 +110,31 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+ function Baby(name, age, favoriteToy) {
+   Person.call(this, name, age)
+   this.favoriteToy = favoriteToy
   }
- 
-  
+  Baby.prototype = Object.create(Person.prototype)
+  Baby.prototype.play = function(){
+    return `Playing with ${this.favoriteToy}`
+  }
+  const Jack = new Baby('Jack', 1, 'ball')
+  Jack.eat('pizza')
+  Jack.eat('spaghetti')
+  Jack.eat('rice')
+  console.log(Jack.stomach) 
+  Jack.poop()
+  console.log(Jack.stomach) 
+  Jack.play()
+  console.log(Jack)
+
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. implicit binding - implicit binding uses dot notation to "imply" that whatever is left of the dot becomes the "this" for a function.
+    2. explicit binding - explicit binding uses .call .apply or .bind and is explicit because the object is declared.
+    3. new binding - using new binding will create a new object and that can inherit functions from a parent.
+    4. window binding - if "this" does not have context then the window object will be returned.
   */
   
   
