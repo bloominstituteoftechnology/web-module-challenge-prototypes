@@ -81,7 +81,7 @@ function Airplane(name) {
     this.tank += gallons;
   }
   
-  
+
   /*
     TASK 3
       - Write a Baby constructor subclassing Person.
@@ -103,10 +103,10 @@ function Airplane(name) {
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Window Binding- With 'this' it will return the container. that is holding the function.  
+    2. Implicit Binding - it is applies to the objects with a method. The 'this' refers to the left side of the dot.
+    3. New Binding - it uses the 'new' object. it involves constructor function.
+    4. Explicit uses - Uses the .call(), .apply(), .bind(), The this in this as the owner.
   */
   
   
