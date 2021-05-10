@@ -1,130 +1,142 @@
-/*
-  EXAMPLE TASK:
-    - Write an Airplane constructor that initializes `name` from an argument.
-    - All airplanes built with Airplane should initialize with an `isFlying` of false.
-    - Give airplanes the ability to `.takeOff()` and `.land()`:
-        + If a plane takes off, its `isFlying` property is set to true.
-        + If a plane lands, its `isFlying` property is set to false.
-*/
+import { fifaData } from './fifa.js';
+// console.log(fifaData);
 
-// EXAMPLE SOLUTION CODE:
-function Airplane(name) {
-  this.name = name;
-  this.isFlying = false;
+// console.log('its working');
+// ⚽️ M  V P ⚽️ //
+
+
+/* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
+(a) Home Team name for 2014 world cup final
+(b) Away Team name for 2014 world cup final
+(c) Home Team goals for 2014 world cup final
+(d) Away Team goals for 2014 world cup final
+(e) Winner of 2014 world cup final */
+
+let worldCup2014 = fifaData.filter(function (item) {
+    return item.Year === 2014 && item.Stage === 'Final'
+})
+
+// // a. 
+// console.log(worldCup2014[0]['Home Team Name'])
+// // b.
+// console.log(worldCup2014[0]['Away Team Name'])
+// // c.
+// console.log(worldCup2014[0]['Home Team Goals'])
+// // d.
+// console.log(worldCup2014[0]['Away Team Goals'])
+// // e.
+// console.log(worldCup2014[0]['Win conditions'])
+
+// Highlight the entire block above (a-e) and uncomment to check answers
+
+/* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
+
+const finalsData = []
+
+function getFinals(data) {
+    data.filter (function (item) {
+        if (item.Stage === 'Final') {
+            return finalsData.push(item)
+        }
+    })
+    return finalsData
 }
-Airplane.prototype.takeOff = function() {
-  this.isFlying = true;
-};
-Airplane.prototype.land = function() {
-  this.isFlying = false;
-};
 
-/*
-// 👇 COMPLETE YOUR WORK BELOW 👇
-// 👇 COMPLETE YOUR WORK BELOW 👇
-// 👇 COMPLETE YOUR WORK BELOW 👇
-*/
+console.log(getFinals(fifaData))
 
-/*
-  TASK 1
-    - Write a Person Constructor that initializes `name` and `age` from arguments.
-    - All instances of Person should initialize with an empty `stomach` array.
-    - Give instances of Person the ability to `.eat("someFood")`:
-        + When eating an edible, it should be pushed into the `stomach`.
-        + The `eat` method should have no effect if there are 10 items in the `stomach`.
-    - Give instances of Person the ability to `.poop()`:
-        + When an instance poops, its `stomach` should empty.
-    - Give instances of Person a method `.toString()`:
-        + It should return a string with `name` and `age`. Example: "Mary, 50"
-*/
+/* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
-  this.stomach = [];
+const years = []
+
+function getYears(getFinals) {
+    getFinals.map(function (data) {
+        return years.push(data.Year)
+    })
+    return years
 }
-Person.prototype.eat = function(edible) {
-  if (this.stomach.length < 10) {
-    this.stomach.push(edible);
-  }
-};
-Person.prototype.poop = function() {
-  this.stomach = [];
-};
-Person.prototype.toString = function() {
-  return `${this.name}, ${this.age}`;
-};
 
-/*
-  TASK 2
-    - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
-    - All instances built with Car:
-        + should initialize with an `tank` at 0
-        + should initialize with an `odometer` at 0
-    - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
-    - STRETCH: Give cars ability to `.drive(distance)`. The distance driven:
-        + Should cause the `odometer` to go up.
-        + Should cause the the `tank` to go down taking `milesPerGallon` into account.
-    - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
-        + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
-*/
+console.log(getYears(finalsData))
 
-function Car(model, milesPerGallon) {
-  this.tank = 0;
-  this.odometer = 0;
-  this.milesPerGallon = milesPerGallon;
-  this.model = model;
+/* Task 4: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
+
+let winners = []
+
+function getWinners(getFinals) {
+    getFinals.map (function (data) {
+        if (data['Home Team Goals'] > data['Away Team Goals']) {
+            return winners.push(data["Home Team Name"])
+        } else {
+            return winners.push(data["Away Team Name"])
+        }
+    })
+    return winners
 }
-Car.prototype.fill = function(gallons) {
-  this.tank = gallons + this.tank;
-};
-Car.prototype.drive = function(distance) {
-  this.odometer = this.odometer + distance;
-  this.tank = this.tank - this.milesPerGallon * 0.1;
-};
 
-/*
-  TASK 3
-    - Write a Baby constructor subclassing Person.
-    - Besides `name` and `age`, Baby takes a third argument to initialize `favoriteToy`.
-    - Besides the methods on Person.prototype, babies have the ability to `.play()`:
-        + Should return a string "Playing with x", x being the favorite toy.
-*/
-function Baby(name, age, favoriteToy) {
-  this.name = name;
-  this.age = age;
-  this.favoriteToy = favoriteToy;
-  // this.stomach = [];
+console.log(getWinners(finalsData))
+
+
+/* Task 5: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
+Parameters: 
+ * callback function getWinners
+ * callback function getYears
+ */
+
+function getWinnersByYear(getWinners, getYears) {
+    let winnerSet = getWinners(finalsData)
+    let yearSet = getYears(finalsData)
+    let stringList = []
+    for ( let i = 0; i< winnerSet.length; i++) {
+        stringList.push(`In ${yearSet[i]}, ${winnerSet[i]} won the world cup!`)
+    }
+    return stringList
 }
-Baby.prototype = Object.create(Person.prototype);
-Baby.prototype.play = function() {
-  return `Playing with ${this.favoriteToy}`;
+console.log(getWinnersByYear(getWinners, getYears))
+
+/* Task 6: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
+
+function getAverageGoals(data) {
+    const sum = data.reduce (function (acc, item) {
+       return acc += (item['Home Team Goals'] + item['Away Team Goals'])
+    }, 0)
+    return (sum/data.length)
+}
+
+console.log(getAverageGoals(fifaData))
+
+/// STRETCH 🥅 //
+
+/* Stretch 1: Create a function called `getCountryWins` that takes the parameters `data` and `team initials` and returns the number of world cup wins that country has had. 
+Hint: Investigate your data to find "team initials"!
+Hint: use `.reduce` */
+
+function getCountryWins(/* code here */) {
+
+    /* code here */
+
 };
 
-/* 
-  TASK 4
-  In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
-*/
+getCountryWins();
 
-///////// END OF CHALLENGE /////////
-///////// END OF CHALLENGE /////////
-///////// END OF CHALLENGE /////////
-if (typeof exports !== "undefined") {
-  module.exports = module.exports || {};
-  if (Airplane) {
-    module.exports.Airplane = Airplane;
-  }
-  if (Person) {
-    module.exports.Person = Person;
-  }
-  if (Car) {
-    module.exports.Car = Car;
-  }
-  if (Baby) {
-    module.exports.Baby = Baby;
-  }
-}
+
+/* Stretch 3: Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
+
+function getGoals(/* code here */) {
+
+    /* code here */
+
+};
+
+getGoals();
+
+
+/* Stretch 4: Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most goals scored against them per appearance (average goals against) in the World Cup finals */
+
+function badDefense(/* code here */) {
+
+    /* code here */
+
+};
+
+badDefense();
+
+/* If you still have time, use the space below to work on any stretch goals of your chosing as listed in the README file. */
