@@ -39,9 +39,30 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
   }
+  Person.prototype.eat = function (snack) {
+    if(this.stomach.length < 10) {
+      this.stomach.push(snack);
+    }
+  }
+
+  Person.prototype.poop = function() {
+    this.stomach = [];
+  }
+  Person.prototype.toString = function () {
+    return `${this.name}, ${this.age}`;
+  }
+  const person1 = new Person('Andy' , 24)
+  const person2 = new Person ('Sandy' , 26)
+  const person3 = new Person ('Mandy' , 28)
+
+  console.log(person1.toString());
+  console.log(person2.toString());
+  console.log(person3.toString());
  
  
 
@@ -63,10 +84,26 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+}
+Car.prototype.fill = function (gallons) {
+  this.tank += gallons;
+};
+
+Car.prototype.drive = function (distance) {
+  this.odometer += distance;
+  this.tank += distance / this.milesPerGallon;
+  if(distance / this.milesPerGallon > this.tank) {
+    this.odometer = distance -1;
+    this.tank = 0;
+    return "I ran out of fuel at" + `${this.odometer}` + "miles!";
   }
-  
+}; 
+
   
   /*
     TASK 3
@@ -75,18 +112,24 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+ function Baby(name, age, favouriteToy) {
+   Person.call(this, favouriteToy)
+   this.name = name;
+   this.age = age;
+   this.favouriteToy = favouriteToy;
+   Baby.prototype.play = function () {
+     return "Playing with" + `${this.favouriteToy}`
+   }
   }
- 
+    Baby.prototype = Object.create(Person.prototype);
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Global Object: refers to the global object whether in strict mode or not
+    2. Implicit Binding: it points to the object on which the function is called
+    3. New Binding: using the new keyword constructs a new object, and this point it
+    4. Explicit Binding: we can explicitly tell JS engine to set this to point to a certain value using 'call' 'apply' 'bind'
   */
   
   
