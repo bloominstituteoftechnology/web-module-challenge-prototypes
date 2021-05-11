@@ -39,9 +39,16 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
-  }
+          function Person(name) {
+            this.name = name;
+            age = false;
+          }
+          Person.prototype.someFood = function () {
+            stomach = true;
+          };
+          Person.prototype.poop = function () {
+            toString = false;
+          };
  
  
 
@@ -62,11 +69,16 @@ function Airplane(name) {
       - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
-  
- function Car() {
-    
-  }
-  
+          function car(name) {
+            this.name = name;
+            age = false;
+          }
+          car.prototype.tank = function () {
+            gallons = true;
+          };
+          car.prototype.odometer = function () {
+            toString = false;
+          };
   
   /*
     TASK 3
@@ -75,9 +87,14 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
-  }
+          function Baby(name) {
+            this.name = name;
+            age = false;
+          }
+          Baby.prototype.favoriteToy = function () {
+            play = true;
+          };
+         
  
   
   /* 
