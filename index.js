@@ -111,10 +111,13 @@ function Airplane(name) {
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Window/Global Binding - this is when the value of this will be the entire window object as it is written in the global scope.
+
+    2. Implicit Binding - this is when the binding is on the object on the left of the dot when a function is called - ex. myObj.sayHello(); the implicit binding is on myObj - it's to the left of the function.
+
+    3. New Binding - this is used when a construtor function is created. 'This' refers to the specific object in the constructor function written. Just like the constructor functions written above.
+
+    4. Explicit Binding - This binding is used whenverver .call or .apply method are called on a method. 
   */
   
   
