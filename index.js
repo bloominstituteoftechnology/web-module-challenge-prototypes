@@ -151,13 +151,13 @@ function range(start, end) {
   ///////// END OF CHALLENGE /////////
 
   /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
-// function foo(){
-//     return 'bar';
-// }
+function foo(){
+    return 'bar';
+}
 
-// export default{
-//     foo,
-//     Person, 
-//     Car,
-//     Baby
-// }
+export default{
+    foo,
+    Person, 
+    Car,
+    Baby
+}
