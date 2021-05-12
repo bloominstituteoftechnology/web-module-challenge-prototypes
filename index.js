@@ -44,7 +44,7 @@ function Airplane(name) {
           }
           
           Person.prototype.eat = function () {
-            if (this.stomach.length < 10) {
+            if (this.stomach.length < 2) {
               return this.stomach.push(1);
             }
           };
@@ -57,7 +57,7 @@ function Airplane(name) {
             return `${this.name}, ${this.age}`;
           };
           
-          let audrey = new Person("Audrey", "2");
+          let Alexander = new Person("Alexander", "3");
  
 
   
@@ -89,7 +89,7 @@ function Airplane(name) {
             return (this.tank += gallons);
           };
           
-          const carType = new Car("1963 Ford Galaxie", 10);
+          const carType = new Car("2007 Chevy Silverado", 10);
           
           console.log(carType.fill(5));
   
