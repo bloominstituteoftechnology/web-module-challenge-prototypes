@@ -42,10 +42,10 @@ function Airplane(name) {
  function Person(name, age) {
     this.name = name;
     this.age = age;
-    function toString() {
+    this.toString = function () {
       return `${this.name}, ${this.age}`;
     }
-    const stomach = []
+    const stomach = [];
     stomach.length = Math.max(stomach.length, 10);
     this.eat = function (edible) {
       stomach.push(edible);
@@ -75,8 +75,14 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    let tank = 0;
+    let odometer = 0;
+    this.fill(gallons) = function() {
+
+    }
   }
   
   
@@ -87,18 +93,24 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+Baby.prototype = Object.create(Person.prototype);
+
+ function Baby(babyAttribs) {
+   Person.call(this, babyAttribs);
   }
  
+  Baby.prototype.favoriteToy = 'teddy bear';
+  Baby.prototype.play = function() {
+    return `${this.name} likes to play with ${this.toy}`;
+  }
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. If the function is in the global scope, "this" inside of the function refers to the window object.
+    2. If the function is called by a dot, the object before that specific dot is "this".
+    3. If the function is a constructor function, when an object is created and returned by the constructor function "this" refers to that object.
+    4. If call, bind, or apply is used, "this" is explicitly defined in the function.
   */
   
   
