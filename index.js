@@ -82,7 +82,7 @@ Person.prototype.toString = function () {
    this.odometer = 0;
   }
 Car.prototype.fill = function (gallons) {
-    this.tank += gallons++
+  this.tank += gallons++;
   }
 
   
@@ -97,7 +97,10 @@ function Baby(name, age, favoriteToy) {
   this.name = name;
   this.age = age;
   this.favoriteToy = favoriteToy;
-  }
+}
+
+Baby.prototype.play = funciton();
+  return (`Playing with ${this.favoriteToy}`);
  
   
   /* 
