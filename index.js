@@ -41,22 +41,24 @@ Airplane.prototype.land = function () {
 function Person(name, age) {
   this.name = name;
   this.age = age;
-  this.stomachArray = [];
+  this.stomachArray = []
+  console.log(this.stomachArray)
 }
 Person.prototype.eat = function (food) {
-  if (this.stomachArray.length <= 10) {
-    this.stomachArray.push(food);
+  if (this.stomachArray.length <= 10 && this.stomachArray.length > 0) {
+   return this.stomachArray.push(food);
   }
 };
 Person.prototype.poop = function () {
-  if (this.stomachArray.length != 0) {
-    this.stomachArray.splice(0, this.stomachArray.length);
-  }
+  x = this.stomachArray.length
+this.stomachArray.splice(0,x)
+return this.stomachArray
 };
 Person.prototype.toString = function () {
   return `${this.name} and ${this.age.toString()}`;
 };
-
+var Jamaria = new Person("Jamaria", 27)
+console.log(Jamaria.eat("hotdog"))
 /*
     TASK 2
       - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -71,7 +73,17 @@ Person.prototype.toString = function () {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
 
-function Car() {}
+function Car(model,milesPerGallon) {
+this.model = model
+this.milesPerGallon = milesPerGallon
+const tank = 0
+this.tank = tank
+const odometer = 0
+this.odometer = odometer
+}
+Car.prototype.fill = function (gallons){
+  return this.tank += gallons
+}
 
 /*
     TASK 3
@@ -80,7 +92,14 @@ function Car() {}
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
-function Baby() {}
+function Baby(name,age,favoriteToy) {
+  this.name = name
+  this.age = age
+  this.favoriteToy = favoriteToy
+}
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`
+}
 
 /* 
     TASK 4
