@@ -42,16 +42,16 @@ function Airplane(name) {
  function Person(name, age) {
     this.name = name;
     this.age = age;
-    this.toString = function () {
+    Person.prototype.toString = function personToString() {
       return `${this.name}, ${this.age}`;
     }
-    const stomach = [];
-    stomach.length = Math.max(stomach.length, 10);
-    this.eat = function (edible) {
-      stomach.push(edible);
+    this.stomach = [];
+    //this.stomach.length = Math.max(this.stomach.length, 10);
+    Person.prototype.eat = function eat(edible) {
+      this.stomach.push(edible);
     }
-   this.poop = function () {
-     stomach.splice(0, stomach.length);
+   Person.prototype.poop = function poop() {
+     this.stomach.splice(0, this.stomach.length);
    }
   }
  
@@ -76,13 +76,13 @@ function Airplane(name) {
   */
   
  function Car(model, milesPerGallon) {
-    this.model = model;
-    this.milesPerGallon = milesPerGallon;
-    let tank = 0;
-    let odometer = 0;
-    this.fill(gallons) = function() {
-
-    }
+   this.model = model;
+   this.milesPerGallon = milesPerGallon;
+   this.tank = 0;
+   this.odometer = 0;
+   Car.prototype.fill = function fill(gallons) {
+     
+   }
   }
   
   
@@ -93,17 +93,20 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
-Baby.prototype = Object.create(Person.prototype);
+  function Baby(name, age, favoriteToy) {
+   Person.call(this, favoriteToy);
+  this.name = name;
+  this.age = age;
+  this.favoriteToy = favoriteToy;
+  
 
- function Baby(babyAttribs) {
-   Person.call(this, babyAttribs);
-  }
+  Baby.prototype = Object.create(Person.prototype);
  
   Baby.prototype.favoriteToy = 'teddy bear';
   Baby.prototype.play = function() {
-    return `${this.name} likes to play with ${this.toy}`;
+    return `Playing with ${this.favoriteToy}`;
   }
-  
+  }
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
