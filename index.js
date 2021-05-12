@@ -39,10 +39,25 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
-  }
- 
+          function Person(name, age) {
+            (this.name = name), (this.age = age), (this.stomach = []);
+          }
+          
+          Person.prototype.eat = function () {
+            if (this.stomach.length < 10) {
+              return this.stomach.push(1);
+            }
+          };
+
+          Person.prototype.poop = function () {
+            this.stomach = [];
+          };
+          
+          Person.prototype.toString = function () {
+            return `${this.name}, ${this.age}`;
+          };
+          
+          let audrey = new Person("Audrey", "2");
  
 
   
@@ -63,9 +78,20 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
-  }
+          function Car(model, milesPerGallon) {
+            (this.model = model),
+              (this.milesPerGallon = milesPerGallon),
+              (this.tank = 0),
+              (this.odometer = 0);
+          }
+          
+          Car.prototype.fill = function (gallons) {
+            return (this.tank += gallons);
+          };
+          
+          const carType = new Car("1963 Ford Galaxie", 10);
+          
+          console.log(carType.fill(5));
   
   
   /*
@@ -75,9 +101,20 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
-  }
+          function Baby(name, age, favoriteToy) {
+            (this.favoriteToy = favoriteToy), (this.name = name), (this.age = age);
+          }
+          
+          // Must be before declaration of 'new.'
+          Baby.prototype = Object.create(Person.prototype);
+          
+          Baby.prototype.play = function () {
+            return `Playing with ${this.favoriteToy}.`;
+          };
+          
+          let claire = new Baby("Claire Bear", 2, "Magnet Tiles");
+          
+          console.log(claire.play());
  
   
   /* 
