@@ -39,10 +39,35 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function range(begin, end) {
+  var ans = [];
+  for (let i = begin; i <= end; i++) {
+      answer.push(i);
   }
- 
+  return answer;
+};
+  
+ function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = range(0, 10);
+
+    this.eat = function(){
+      return this.stomach + 1;
+    }
+
+    this.poop = function(){
+      return this.stomach - 2;
+    }
+
+    this.toString = function(){
+      return `Name: ${this.name}, Age: ${this.age}`;
+    }
+  }
+
+    const fredward = new Person('CoBe', 58)
+    console.log(fredward.poop);
+  
  
 
   
@@ -63,10 +88,34 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
-  }
+ function Car(model, milesPerGallon) {
+
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
   
+  this.fill = function(fuel){
+    return fuel + this.tank
+  }
+
+  this.drive = function(distance){
+      return this.odometer + distance,
+      (distance / this.milesPerGallon) - this.tank
+  }
+
+  this.toString = function(){
+    if(this.tank = 0){
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }
+  }
+
+};
+
+
+const cadillac = new Car('Cadillac', 57)
+console.log(cadillac.fill(18));
+console.log(cadillac.drive(250));
   
   /*
     TASK 3
@@ -75,18 +124,35 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
-  }
+
+
+ function Baby(babyAtrribs) {
+  Person.call(this, babyAtrribs);
+  this.favoriteToy = babyAtrribs.favoriteToy;
+ }
+
+ Baby.prototype = Object.create(Person.prototype);
+
+ const joey = new Baby({
+   name: 'Hayden',
+   age: 2,
+   favoriteToy: 'Tigger',
+   play =  function(){
+       return `Playing with ${this.favoriteToy}`
+   }
+ })
+
+ console.log(Hayden);
  
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    
+    1. Implicit binding: It is essentially putting the arguments needed into the actual object itself and      typically will be used in an object form.
+    2. Call: will immediately invoke the function - you will pass .call into your arguments 1 by 1.
+    3. Apply:  Apply immediately invokes the function -  you will pass .apply into your arguments as an array.
+    4. Bind: In bind, you pass in your arguments 1 by 1 - It does not immediately invoke your function, but    instead, returns a NEW FUNCTION to be invoked later.
   */
   
   
