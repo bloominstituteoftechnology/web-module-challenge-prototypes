@@ -42,12 +42,14 @@ function Airplane(name) {
  function Person(name, age) {
     this.name = name,
     this.age = age,
-    this.stomach = [],
+    this.stomach = [];
+
     Person.prototype.eat = function eat(item) {
       if (this.stomach.length < 10){
         return this.stomach.push(item);
       }
     }
+    this.stomach = [];
     Person.prototype.poop =function poop() {
       return this.stomach = [];
     }
@@ -85,7 +87,6 @@ function Airplane(name) {
     }
   }
   
-  
   /*
     TASK 3
       - Write a Baby constructor subclassing Person.
@@ -102,17 +103,17 @@ function Airplane(name) {
       return `Playing with ${this.favoriteToy}`
     }
     Baby.prototype = Object.create(Person.prototype)
-    
+
   }
  
 
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Global Binding is essactially all of javascripts uses and methods, ect. its what makes up Javascript
+    2. Implicit Binding refers to what is readily available or defined within the immediate scope your wokring in
+    3. Explict Binding Refers to pulling in an outside scope and using its data within your scope you working in
+    4. New Keyword Binding is making a peice of data and or elements that can be used and dropped directly into a already existing scope so long as 'this' is present with values
   */
   
   
