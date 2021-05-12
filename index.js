@@ -45,17 +45,19 @@ function Airplane(name) {
    this.stomach = [];
 };
 //Give instances of Person the ability to `.eat("someFood")`:
-Person.eat = function (food) {
-  this.consume = stomach[];
-  if (length.stomach == 10)
-  };
+Person.prototype.eat = function (food) {
+  if (this.stomach.length < 10) {
+    this.stomach.push(food);
+  }
+  }
   //Give instances of Person the ability to `.poop()`:
-Person.poop = function () { 
-};
+Person.prototype.poop = function () {
+  this.stomach.splice(0, this.stomach.length);
+}
 
   //Give instances of Person a method `.toString()`:
-Person.toString = function () {
-  console.log(${ name }, ${ age });
+Person.prototype.toString = function () {
+  return(`${this.name}, ${this.age}`);
   }
   
   
