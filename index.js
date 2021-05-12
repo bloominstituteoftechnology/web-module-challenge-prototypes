@@ -43,12 +43,20 @@ function Airplane(name) {
    this.name = name;
    this.age = age;
    this.stomach = [];
-  }
- 
- 
+};
+//Give instances of Person the ability to `.eat("someFood")`:
+Person.eat = function (food) {
+  this.consume = stomach[];
+  if (length.stomach == 10)
+  };
+  //Give instances of Person the ability to `.poop()`:
+Person.poop = function () { 
+};
 
-  
-  
+  //Give instances of Person a method `.toString()`:
+Person.toString = function () {
+  console.log(${ name }, ${ age });
+  }
   
   
   /*
