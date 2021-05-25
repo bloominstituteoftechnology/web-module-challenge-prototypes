@@ -103,14 +103,14 @@ Person.prototype.toString = function(){
  Baby.prototype.play = function(){
     return `Playing with ${this.favoriteToy}`
   }
-  
+
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. This will point to the window object when the function scope is global.
+    2. "Implicit binding" -- this refers to the object to the left of the period when the function is called.
+    3. "Explicit binding" -- this is explicitly defined by using the .call, .apply, or .bind methods.
+    4. "New binding" -- using the "new" keyword before the function creates a new object, and this points to that object (called a constructor function).
   */
   
   
