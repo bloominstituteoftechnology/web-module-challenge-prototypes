@@ -59,6 +59,7 @@ function Airplane(name) {
     return `${this.name}, ${this.age}`;
   }
  
+  /*
   const john = new Person ('John', 35);
   const emily = new Person ('Emily', 25);
 
@@ -69,7 +70,7 @@ function Airplane(name) {
   
   john.poop();
   console.log(john.stomach);
-  
+  */
 
 
   /*
@@ -86,9 +87,31 @@ function Airplane(name) {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- function Car() {
-    
+ function Car(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
   }
+  Car.prototype.fill = function(gallons){
+    this.tank = this.tank + gallons;
+  }
+  Car.prototype.drive = function(dist){
+    const drivableMiles = this.tank * this.milesPerGallon;
+    if (dist <= drivableMiles){
+      this.odometer = this.odometer + dist;
+      this.tank = this.tank - (dist/this.milesPerGallon)
+    }else{
+      this.odometer = this.odometer + drivableMiles;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }
+  
+  /*
+  const ford = new Car ('Ford', 25);
+  console.log(ford.fill.'20');
+  */
+
   
   
   /*
@@ -98,19 +121,28 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+ function Person(name, age, favoriteToy) {
+   Baby.call(this, age, favoriteToy);
+   this.favoriteToy = favoriteToy;
+  }
+  Baby.prototype = Object.create(Person.prototype)
+  Baby.prototype.play = function (){
+    return `Playing with ${this.favoriteToy}`;
   }
  
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
-  */
+    1. window/global object binding = when in global scope, the value of "this" will be the window/console object 
+      (example: console.log(this))
+    2. implicit binding = used whenever a preceding dot calls a function 
+      (example: "this.name")
+    3. new binding = the specific instance of the object that is created and returned by the constructor function 
+      (example: function Person(greeter){this.greeter = greeter})
+    4. explicit binding = whenever we use JS call or apply method, "this" is explicitly defined; we can override Person in previous example and call them with new functions (".call",".apply")
+      (example: jerry.speak.call(newman))  
+      */
   
   
   ///////// END OF CHALLENGE /////////
