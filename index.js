@@ -115,7 +115,6 @@ function Airplane(name) {
              Person.call(this, name, age )
            }
            
-           
            Baby.prototype = Object.create(Person.prototype)
   
   /* 
