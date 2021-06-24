@@ -1,4 +1,4 @@
-import functions from '../index';
+import functions from './index';
 
 describe('fooFunction', ()=>{
     it('foo returns foo', ()=>{
@@ -104,3 +104,4 @@ describe('Instances of Person', () => {
         expect(baby.__proto__.poop).not.toBeUndefined();
       })
   })
+
