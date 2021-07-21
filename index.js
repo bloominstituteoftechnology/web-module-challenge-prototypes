@@ -103,7 +103,6 @@ Car.prototype.fill = function(gallons){
 }
 
 
-
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -111,18 +110,28 @@ Car.prototype.fill = function(gallons){
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
- 
-}
+function Baby(name, age, favoriteToy){
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
+};
 
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`
+};
+
+console.log('task3', Baby.prototype.play('binky'));
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window bind principle - When 'this' is invoked without context, the global object will be selected. This result is 
+  one we would consider an error. 
+  2. Implicit binding principle - when a preceding dot calls a function, the object before the dot is 'this'. When a function is invoked,
+  look to the left of the dot, this is the object. 80% of use cases. 
+  3. Explicit binding principle - .call and .bind will immediately invoke the function and attach the object. 
+  4. New binding - use the new keyword constructs a new object and this points to it. When function is invoked as a constructor function
+  'this' points to the newly created objects.
 */
 
 
