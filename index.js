@@ -67,6 +67,12 @@ console.log(james.toString());
 console.log(sam.toString());
 console.log(latoya.toString());
 
+// james.eat('pizza');
+// james.eat('cakes');
+// james.eat('ice cream');
+// james.eat('candy');
+// james.eat('pie');
+
 
 
 
@@ -86,10 +92,15 @@ console.log(latoya.toString());
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-  
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
-
+Car.prototype.fill = function(gallons){
+  this.tank = this.tank + gallons;
+}
 
 /*
   TASK 3
@@ -98,11 +109,17 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
- 
+function Baby(name, age, favoriteToy) {
+ Person.call(this, name, age);
+ this.favoriteToy = favoriteToy;
+}
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`;
 }
 
-
+// const scarlett = new BabyPerson('Scarlett', 4, 'baby');
+// console.log(scarlett.play());
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
