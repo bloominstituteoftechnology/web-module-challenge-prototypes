@@ -39,14 +39,33 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-  
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+}
+Person.prototype.eat = function(edible){
+  if (this.stomach.length < 10){
+    this.stomach.push(edible);
+  }
 }
 
+Person.prototype.poop = function(){
+  this.stoamch = [];
+}
 
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`;
+}
 
+const bennett = new Person('bennett', 24);
 
-
+console.log(bennett.toString());
+bennett.eat('pizza');
+bennett.eat('bagel');
+console.log(bennett.stomach);
+bennett.poop();
+console.log(bennett.stomach);
 
 
 /*
@@ -63,10 +82,34 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-  
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
 
+
+Car.prototype.fill = function(gallons){
+  return this.tank = this.tank + gallons;
+}
+
+
+Car.prototype.drive = function(distance){
+   this.odometer  = this.odometer + distance;
+   this.tank = this.tank/this.milesPerGallon;
+   if(this.tank === 0){
+     return `I ran out of fuel at ${this.odometer}!`;
+   }
+}
+
+const nissan = new Car('Altima', 26);
+
+const ford = new Car ('F150', 32);
+
+console.log(nissan.fill(52));
+
+console.log(nissan.drive(1));
 
 /*
   TASK 3
