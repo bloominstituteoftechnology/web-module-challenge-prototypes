@@ -118,18 +118,29 @@ console.log(nissan.drive(1));
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
- 
+function Baby(name, age, favoriteToy) {
+ Person.call(this, name, age);
+ this.favoriteToy = favoriteToy;
 }
 
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`;
+}
+
+const Natalia = new Baby ('Natalia', 6, 'stuffed animals');
+
+console.log(Natalia);
+console.log(Natalia.play());
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. If scope is global, its object referenced will be the window/console
+  2. Whenever a dot precedes a function it will always reference the object to its left
+  3. when usinng constructors, this refers to the object that is being created as a result of the constructor function
+  4. when using call/apply methods you explicity define wht 'this' refers to
 */
 
 
