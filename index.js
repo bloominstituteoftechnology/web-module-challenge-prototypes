@@ -63,7 +63,6 @@ Person.prototype.toString = function() {
 }
 
 const bill = new Person('bill', 23)
-console.log(bill.toString())
 
 
 
@@ -74,7 +73,9 @@ console.log(bill.toString())
     - All instances built with Car:
         + should initialize with an `tank` at 0
         + should initialize with an `odometer` at 0
-    - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
+    - Give cars the ability to get fueled with a `.fill(gallons)` method
+      + should take 'gallons' as an parameter which will take number of gallons as an argument
+      + should add the gallons to `tank`.
     - STRETCH: Give cars ability to `.drive(distance)`. The distance driven:
         + Should cause the `odometer` to go up.
         + Should cause the the `tank` to go down taking `milesPerGallon` into account.
@@ -82,9 +83,21 @@ console.log(bill.toString())
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-  
+function Car(model, mpg) {
+  this.model = model;
+  this.milesPerGallon = mpg;
+  this.tank = 0;
+  this.odometer = 0;
 }
+
+Car.prototype.fill = function(gallons) {
+  this.tank += gallons;
+}
+
+const hondaCivic = new Car('honda', 10)
+console.log(hondaCivic)
+
+
 
 
 /*
