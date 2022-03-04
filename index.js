@@ -35,7 +35,7 @@ Airplane.prototype.land = function () {
         + When eating an edible, it should be pushed into the `stomach` array.
         + The `eat` method should have no effect if there are 10 items in the `stomach` array.
     - Give instances of Person the ability to `.poop()`:
-        + When an instance poops, its `stomach` should empty and have 0 items in it.
+        + When an instance poops, its `stomach` array should be empty.
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
