@@ -44,7 +44,7 @@ describe('Instances of Person', () => {
     it('can state name and age', () => {
       const str = neo.toString()
       expect(str).toContain('Neo')
-      expect(str).toContain(20)
+      expect(str).toContain('20')
     })
   })
   
