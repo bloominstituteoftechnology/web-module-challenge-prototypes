@@ -26,15 +26,18 @@ Airplane.prototype.land = function () {
 // 👇 COMPLETE YOUR WORK BELOW 👇
 */
 
+/* ❗❗ NOTE: PLEASE USE INDIVIDUAL KEYS FOR YOUR CONSTRUCTOR PARAMETERS, NOT OBJECTS. THE TESTS WILL NOT PASS WITH OBJECTS. ❗❗  */
+
 /*
   TASK 1
     - Write a Person Constructor that initializes `name` and `age` from arguments.
     - All instances of Person should initialize with an empty `stomach` array.
     - Give instances of Person the ability to `.eat("someFood")`:
-        + When eating an edible, it should be pushed into the `stomach`.
-        + The `eat` method should have no effect if there are 10 items in the `stomach`.
+        + .eat() should recieve a string as a parameter and take some type of edible as an argument
+        + When eating an edible, it should be pushed into the `stomach` array.
+        + The `eat` method should have no effect if there are 10 items in the `stomach` array.
     - Give instances of Person the ability to `.poop()`:
-        + When an instance poops, its `stomach` should empty.
+        + When an instance poops, its `stomach` array should be empty.
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
@@ -55,7 +58,9 @@ function Person() {
     - All instances built with Car:
         + should initialize with an `tank` at 0
         + should initialize with an `odometer` at 0
-    - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
+    - Give cars the ability to get fueled with a `.fill(gallons)` method
+      + should take 'gallons' as an parameter which will take number of gallons as an argument
+      + should add the gallons to `tank`.
     - STRETCH: Give cars ability to `.drive(distance)`. The distance driven:
         + Should cause the `odometer` to go up.
         + Should cause the the `tank` to go down taking `milesPerGallon` into account.
@@ -72,7 +77,7 @@ function Car() {
   TASK 3
     - Write a Baby constructor subclassing Person.
     - Besides `name` and `age`, Baby takes a third argument to initialize `favoriteToy`.
-    - Besides the methods on Person.prototype, babies have the ability to `.play()`:
+    - Besides the methods on Person.prototype, babies also have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby() {
