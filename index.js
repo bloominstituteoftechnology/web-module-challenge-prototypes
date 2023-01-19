@@ -15,10 +15,24 @@
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+ }
+Person.prototype.eat = function(str) {
+  this.stomach.push(str);
+  };
 
+Person.prototype.poop = function() {
+  this.stomach = [];
+}
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`;
 }
 
+const name = new Person("Mary", 50);
+console.log(name.toString());
 
 /*
   TASK 2
@@ -36,10 +50,27 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+  }
 
+Car.prototype.fill = function(gallons) {
+  this.tank += gallons;
 }
-
+Car.prototype.drive = function(distance){
+  if ((distance / this.milesPerGallon) <= this.tank){
+    this.odometer += distance;
+    this.tank = this.tank - (distance / this.milesPerGallon).toFixed(2);
+  } else {
+    let maxDistance = this.tank * this.milesPerGallon;
+    this.odometer += maxDistance;
+    this.tank = 0;
+    return `I ran out of fuel at ${this.odometer} miles!.`;
+  }
+}
 
 /*
   TASK 3
@@ -49,18 +80,24 @@ function Car() {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy
 }
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`;
+}
+
 
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. "this" by default refence the global binding ex. window.
+  2. If "this" is used inside a function, it will reference the object to the left of the dot  calling that function.
+  3. Using the "new" keyword "this" will be referencing to the newly created object from the constructor.
+  4. using "bind, call, apply" keywords on the original function and passing an argument will create a new object that the "this" keyword will reference to.
 */
 
 ///////// END OF CHALLENGE /////////
